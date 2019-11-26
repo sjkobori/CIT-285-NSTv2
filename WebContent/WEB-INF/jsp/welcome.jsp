@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="WEB-INF/css/welcome.css">
 	</head>
 	<body>
+	Current time is <%= new java.util.Date() %>
 		<form action="students" method="post">
 			<input type="hidden" name="source" value="welcome">
 			<div id = "button">

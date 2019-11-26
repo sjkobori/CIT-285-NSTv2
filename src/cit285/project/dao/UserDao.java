@@ -2,7 +2,6 @@ package cit285.project.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -53,7 +52,7 @@ public class UserDao {
 		ResultSet resultSet = statement.executeQuery("select * from User");
 		
 		// Create prepared statement to get Author.
-		PreparedStatement preparedStatement = connection.prepareStatement("select * from Author where AuthorID=?");
+		//PreparedStatement preparedStatement = connection.prepareStatement("select * from Author where AuthorID=?");
 		
 		// Iterate through the result and print
 		while(resultSet.next()) {

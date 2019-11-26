@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
 import cit285.project.services.UserServicesAPI;
-import cit285.project.services.UserServices;
 
 /**
  * Servlet implementation class PaymentsServlet
