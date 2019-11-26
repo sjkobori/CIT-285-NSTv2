@@ -16,17 +16,17 @@ public class Email {
 	}
 	
 	// Set user id
-	public void setuserId(int userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	
 	// Get user id
-	public int getAuthorfirstname() {
+	public int getUserId() {
 		return userId;
 	}
 	
 	// Set email addresse
-	public void setPhoneNumber(String emailAddress) {
+	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
 	
