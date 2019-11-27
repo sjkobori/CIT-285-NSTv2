@@ -1,7 +1,6 @@
 package cit285.project.presentation.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,12 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
+import cit285.project.config.SignUpSystemConfig;
 import cit285.project.domain.Address;
 import cit285.project.domain.Email;
 import cit285.project.domain.User;
-import cit285.project.services.SignUpServices;
 import cit285.project.services.SignUpServicesAPI;
-import cit285.project.services.UserServicesAPI;
 
 /**
  * Servlet implementation class SignUpServlet
@@ -37,11 +35,11 @@ public class SignUpServlet extends HttpServlet {
     public void init() throws ServletException {
     	try{
 			//System.out.println("Configuring services...");
-			BookSystemConfig.configureServices();
+			SignUpSystemConfig.configureServices();
 		}
 		catch(Exception e){}
 		//System.out.println("Getting payments services...");
-		signUpServices = BookSystemConfig.getSignUpServices();
+		signUpServices = SignUpSystemConfig.getSignUpServices();
 	}
 
 	/**
@@ -77,7 +75,7 @@ public class SignUpServlet extends HttpServlet {
 					//address.setStreet(request.getParameter("street"));
 					//address.setCity(request.getParameter("city"));
 					//address.setZipcode(request.getParameter("zipcode"));
-					
+					//try {
 					User user = new User();
 					user.setFirstName("Ask");
 					user.setLastName("Jeeves");
@@ -90,7 +88,13 @@ public class SignUpServlet extends HttpServlet {
 					address.setStreet("forest street");
 					address.setCity("Chicago");
 					address.setZipcode("33333");
-					
+					/*if (signUpServices == null) {
+						System.out.println("signupservices is null");	
+					}
+					} catch (NullPointerException ex){
+						System.out.println("Null pointer exception...");
+					}
+					System.out.println("Passing signup data to services");*/
 					
 					signUpServices.signUp(user, email, address);
 					//ArrayList<String> users = null;

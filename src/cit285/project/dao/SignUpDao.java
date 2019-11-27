@@ -52,7 +52,7 @@ public class SignUpDao {
 		Connection connection = getConnection();
 		// Create statement
 		PreparedStatement statement = 
-				connection.prepareStatement("insert into user values (?,?,?)");
+				connection.prepareStatement("insert into user values (?,?,?,?)");
 		//assign ids to user, email, and address
 	
 		user.setUserid(generateId());
@@ -64,6 +64,7 @@ public class SignUpDao {
 		statement.setInt(1, user.getUserid());
 		statement.setString(2, user.getFirstName());
 		statement.setString(3, user.getLastName());
+		statement.setString(4, "Tesla");
 		
 		statement.executeUpdate();
 			//check if ids are in database

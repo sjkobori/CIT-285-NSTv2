@@ -9,8 +9,8 @@
 	</head>
 	<body>
 	Current time is <%= new java.util.Date() %>
-		<form action="students" method="post">
-			<input type="hidden" name="source" value="welcome">
+		<form action="signUp" method="post">
+			<input type="hidden" name="source" value="signup">
 			<div id = "button">
 				<button type="submit" class="btn btn-primary btn-block">Display students</button>
 			</div>
