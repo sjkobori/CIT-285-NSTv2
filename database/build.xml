@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<!-- Requires JDK's bin and ant's bin on command-line's path (check that javac and ant work on the command line) -->
+<!-- Requires JDK's bin and ant's bin on command-line's path (check that 
+	javac and ant work on the command line) -->
 <!-- Requires env variables MYSQL_SITE, MYSQL_USER, MYSQL_PW -->
-<!-- MYSQL_SITE should be "localhost:3333" -->	
+<!-- MYSQL_SITE should be "localhost:3333" -->
 
 <project name="book_store DBhelpers">
 	<!--Load environment variables and give them prefix "env." -->
@@ -11,39 +12,41 @@
 	<property name="MYSQL_USER" value="${env.MYSQL_USER}" />
 	<property name="MYSQL_PW" value="${env.MYSQL_PW}" />
 	<property name="MYSQL_SITE" value="${env.MYSQL_SITE}" />
-	<property name="MYSQL_URL" value = "jdbc:mysql://${env.MYSQL_SITE}/schooldb"/>
-	
+	<property name="MYSQL_URL"
+		value="jdbc:mysql://${env.MYSQL_SITE}/book_store" />
+
 	<!-- Classpath declaration: all jars in lib -->
 	<path id="project.classpath">
 		<fileset dir="../lib">
 			<include name="**/*.jar" />
 		</fileset>
 	</path>
-	
+
 	<!-- ==========================MySql DB helpers================== -->
-	<!-- Mysql should always be up and ready to work for you, so all you have to
-		do is load the tables once and use it. 
-	-->
+	<!-- Mysql should always be up and ready to work for you, so all you have 
+		to do is load the tables once and use it. -->
 	<target name="createdb" description="Create Mysql database">
-		<sql classpathref="project.classpath" driver="com.mysql.jdbc.Driver" 
-			url="${MYSQL_URL}" userid="${MYSQL_USER}" 
-			password="${MYSQL_PW}" src="createdb.sql" />
+		<sql classpathref="project.classpath"
+			driver="com.mysql.jdbc.Driver" url="${MYSQL_URL}"
+			userid="${MYSQL_USER}" password="${MYSQL_PW}" src="createdb.sql" />
 	</target>
-	
+
 	<target name="loaddb" description="Load Mysql database">
-		<sql classpathref="project.classpath" driver="com.mysql.jdbc.Driver" 
-			url="${MYSQL_URL}" userid="${MYSQL_USER}" 
-			password="${MYSQL_PW}" src="loaddb.sql" />
+		<sql classpathref="project.classpath"
+			driver="com.mysql.jdbc.Driver" url="${MYSQL_URL}"
+			userid="${MYSQL_USER}" password="${MYSQL_PW}" src="loaddb.sql" />
 	</target>
 	<target name="showdb" description="Display tables">
-		<sql classpathref="project.classpath" driver="com.mysql.jdbc.Driver" 
-			url="${MYSQL_URL}" userid="${MYSQL_USER}" 
-			password="${MYSQL_PW}" print="true" src="showdb.sql">
+		<sql classpathref="project.classpath"
+			driver="com.mysql.jdbc.Driver" url="${MYSQL_URL}"
+			userid="${MYSQL_USER}" password="${MYSQL_PW}" print="true"
+			src="showdb.sql">
 		</sql>
 	</target>
 	<target name="dropdb" description="drop Mysql tables">
-		<sql classpathref="project.classpath" driver="com.mysql.jdbc.Driver" 
-			url="${MYSQL_URL}" userid="${MYSQL_USER}" 
-			password="${MYSQL_PW}" src="dropdb.sql" onerror="continue" />
+		<sql classpathref="project.classpath"
+			driver="com.mysql.jdbc.Driver" url="${MYSQL_URL}"
+			userid="${MYSQL_USER}" password="${MYSQL_PW}" src="dropdb.sql"
+			onerror="continue" />
 	</target>
 </project>

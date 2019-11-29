@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>Book Store</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <description>User Servlet</description>
-    <display-name>UserServlet</display-name>
-    <servlet-name>UserServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.UserServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserServlet</servlet-name>
-    <url-pattern>/users/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description>SignUp Servlet</description>
-    <display-name>SignUpServlet</display-name>
-    <servlet-name>SignUpServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.SignUpServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignUpServlet</servlet-name>
-    <url-pattern>/signUp/*</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>Book Store</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<description>User Servlet</description>
+		<display-name>UserServlet</display-name>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/users/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>SignUp Servlet</description>
+		<display-name>SignUpServlet</display-name>
+		<servlet-name>SignUpServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.SignUpServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignUpServlet</servlet-name>
+		<url-pattern>/signUp/*</url-pattern>
+	</servlet-mapping>
 </web-app>
