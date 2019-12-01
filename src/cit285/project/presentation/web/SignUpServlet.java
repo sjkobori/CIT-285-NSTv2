@@ -60,34 +60,34 @@ public class SignUpServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				String source = request.getParameter("source");
 				
-				if (source.equals("signup")){
+				//if (source.equals("signup")){
 					//make a user
 					//add try block
-					//User user = new User();
-					//user.setFirstName(request.getParameter("firstname"));
-					//user.setLastName(request.getParameter("lastname"));
-					//user.setCompanyName(request.getParameter("companyname"));
-					
-					//Email email = new Email();
-					//email.setEmailAddress(request.getParameter("email"));
-					
-					//Address address = new Address();
-					//address.setStreet(request.getParameter("street"));
-					//address.setCity(request.getParameter("city"));
-					//address.setZipcode(request.getParameter("zipcode"));
-					//try {
 					User user = new User();
-					user.setFirstName("Ask");
-					user.setLastName("Jeeves");
-					user.setCompanyName("ElonMusk Sucks");
+					user.setFirstName(request.getParameter("firstname"));
+					user.setLastName(request.getParameter("lastname"));
+					user.setCompanyName(request.getParameter("companyname"));
 					
 					Email email = new Email();
-					email.setEmailAddress("coolguy@hotmail.com");
+					email.setEmailAddress(request.getParameter("email"));
 					
 					Address address = new Address();
-					address.setStreet("forest street");
-					address.setCity("Chicago");
-					address.setZipcode("33333");
+					address.setStreet(request.getParameter("street"));
+					address.setCity(request.getParameter("city"));
+					address.setZipcode(request.getParameter("zipcode"));
+					//try {
+//					User user = new User();
+//					user.setFirstName("Ask");
+//					user.setLastName("Jeeves");
+//					user.setCompanyName("ElonMusk Sucks");
+//					
+//					Email email = new Email();
+//					email.setEmailAddress("coolguy@hotmail.com");
+//					
+//					Address address = new Address();
+//					address.setStreet("forest street");
+//					address.setCity("Chicago");
+//					address.setZipcode("33333");
 					/*if (signUpServices == null) {
 						System.out.println("signupservices is null");	
 					}
@@ -106,11 +106,11 @@ public class SignUpServlet extends HttpServlet {
 					//session.setAttribute("users",users);
 					
 					//getServletContext().getRequestDispatcher("/WEB-INF/jsp/welcome.jsp").forward(request, response);
-				}
-				else{
-					session.setAttribute("Error","Unknown source!");
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
-				}
+				//}
+				//else{
+				//	session.setAttribute("Error","Unknown source!");
+				//	getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
+				//}
 	}
 
 }

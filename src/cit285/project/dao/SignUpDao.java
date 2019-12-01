@@ -64,7 +64,7 @@ public class SignUpDao {
 		statement.setInt(1, user.getUserid());
 		statement.setString(2, user.getFirstName());
 		statement.setString(3, user.getLastName());
-		statement.setString(4, "Tesla");
+		statement.setString(4, user.getCompanyName());
 		
 		statement.executeUpdate();
 			//check if ids are in database
