@@ -5,6 +5,8 @@ import java.io.StringWriter;
 
 import cit285.project.services.BookServices;
 import cit285.project.services.BookServicesAPI;
+import cit285.project.services.LoginServices;
+import cit285.project.services.LoginServicesAPI;
 import cit285.project.services.SignUpServices;
 import cit285.project.services.SignUpServicesAPI;
 import cit285.project.services.UserServices;
@@ -16,6 +18,7 @@ public class BookSystemConfig {
 	private static SignUpServicesAPI signUpServices;
 	private static UserServicesAPI userServices;
 	private static BookServicesAPI bookServices;
+	private static LoginServicesAPI loginServices;
 
 	// set up service API, data access objects
 	public static void configureServices() throws Exception {
@@ -23,6 +26,7 @@ public class BookSystemConfig {
 			signUpServices = new SignUpServices();
 			userServices = new UserServices();
 			bookServices = new BookServices();
+			loginServices = new LoginServices();
 		} catch (Exception e) {
 
 			// rethrow to notify caller (caller should print exception details)
@@ -61,6 +65,11 @@ public class BookSystemConfig {
 	public static BookServicesAPI getBookServices() {
 		// TODO Auto-generated method stub
 		return bookServices;
+	}
+
+	public static LoginServicesAPI getLoginServices() {
+		// TODO Auto-generated method stub
+		return loginServices;
 	}
 
 }

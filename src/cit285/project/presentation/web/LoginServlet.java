@@ -8,15 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cit285.project.config.BookSystemConfig;
 import cit285.project.services.LoginServices;
+import cit285.project.services.LoginServicesAPI;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private LoginServices loginService;
+	private LoginServicesAPI loginServices;
 
 	public void init() {
-		loginService = new LoginServices();
+		loginServices = new LoginServices();
+		try{
+			//System.out.println("Configuring services...");
+			BookSystemConfig.configureServices();
+		}
+		catch(Exception e){}
+		//System.out.println("Getting payments services...");
+		loginServices = BookSystemConfig.getLoginServices();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		x = loginService.loginUser(username, password);
+		x = loginServices.loginUser(username, password);
 
 		if (x == 1) { //user login
 			// System.out.println(x);
