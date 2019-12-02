@@ -8,7 +8,12 @@
 <title>Current Time</title>
 </head>
 <body>
-	Current time is
-	<%= new java.util.Date() %>
+This is Register User.jsp
+	<form action="signUp" method="post">
+			<input type="text" name="firstname">
+			<input type="text" name="lastname">
+			<input type="text" name="companyname">
+			<input type = "submit" value = "Submit" />
+		</form>
 </body>
 </html>
