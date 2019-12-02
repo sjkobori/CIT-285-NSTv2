@@ -1,3 +1,4 @@
+-- insert into User 
 -- Insert data into Author table.
 --
 insert into Author (AuthorID,AuthorFirstName,AuthorLastName)

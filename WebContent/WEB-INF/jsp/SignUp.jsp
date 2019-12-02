@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Current Time</title>
+<title>Sign Up</title>
 </head>
 <body>
-This is Register User.jsp
+This is SignUp.jsp
 	<form action="signUp" method="post">
 			<input type="text" name="firstname">
 			<input type="text" name="lastname">

@@ -7,6 +7,6 @@
 <title>Book Store Project</title>
 </head>
 <body>
-	<jsp:forward page="WEB-INF/jsp/welcome.jsp" />
+	<jsp:forward page="WEB-INF/jsp/login.jsp" />
 </body>
 </html>

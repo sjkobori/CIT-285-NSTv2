@@ -101,7 +101,8 @@ public class UserDao {
 		
 		// Connect to the database
 		Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost/book_store","root","tvLCMr7mVRh!jK5");
+				.getConnection("jdbc:mysql://localhost/book_store",
+						System.getenv("MYSQL_USER"), System.getenv("MYSQL_PW"));
 		System.out.println("Database connected!");
 		
 		return connection;

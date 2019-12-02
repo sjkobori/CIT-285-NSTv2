@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
-import cit285.project.config.SignUpSystemConfig;
 import cit285.project.domain.Address;
 import cit285.project.domain.Email;
 import cit285.project.domain.User;
@@ -52,10 +51,11 @@ public class RedirectServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String source = request.getParameter("source");
-		if(source.equals("SignUp")) {
-		getServletContext().getRequestDispatcher("/WEB-INF/jsp/RegisterUser.jsp").forward(request, response);
-		}
-		else {
+		if (source.equals("SignUp")) {
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/SignUp.jsp").forward(request, response);
+		} else if (source.equals("login")) {
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+		} else {
 			System.out.println("ELSE");
 		}
 	}
