@@ -34,4 +34,14 @@
     <servlet-name>RedirectServlet</servlet-name>
     <url-pattern>/RedirectServlet/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Book Servlet</description>
+    <display-name>BookServlet</display-name>
+    <servlet-name>BookServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.BookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookServlet</servlet-name>
+    <url-pattern>/booklist/*</url-pattern>
+  </servlet-mapping>
 </web-app>

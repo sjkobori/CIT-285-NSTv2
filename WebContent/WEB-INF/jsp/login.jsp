@@ -10,7 +10,7 @@
 <body>
 	This is login.jsp
 	<form action="login" method="post">
-		<input type="hidden" name="source">
+		<input type="hidden" name="source" value="login">
 		<input type="text" name="username">
 		<input type="password" name="password">
 		<div id="button">
@@ -20,7 +20,7 @@
 	<form action="RedirectServlet" method="post">
 		<input type="hidden" name="source" value="SignUp">
 		<div id="button">
-			<button type="submit" class="btn btn-primary btn-block">Register</button>
+			<button type="submit" class="btn btn-primary btn-block">Sign Up</button>
 		</div>
 	</form>
 

@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
 			// response.sendRedirect("/BookServlet");
-			getServletContext().getRequestDispatcher("/BookServlet").forward(request, response);
+			getServletContext().getRequestDispatcher("/booklist").forward(request, response);
 		} else if (x == 2) { //admin login
 			System.out.println("It's an admin");
 			//go to admin page
