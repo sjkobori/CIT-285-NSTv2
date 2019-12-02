@@ -52,10 +52,12 @@ create table Book(BookID BIGINT NOT NULL,
                   FOREIGN KEY(AuthorID) REFERENCES Author(AuthorID));
 -- creates User table
 create table User(UserID BIGINT NOT NULL,
+				  Username VARCHAR(20) NOT NULL,
+				  Password VARCHAR(20) NOT NULL,
                   Firstname VARCHAR(20) NOT NULL,
 				  Lastname VARCHAR(20) NOT NULL,
                   CompanyName VARCHAR(50),
-				  
+				  isAdmin BOOLEAN NOT NULL,
                   PRIMARY KEY (UserID));
 --
 -- creates Phone table

@@ -4,13 +4,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Welcome</title>
+<title>Login</title>
 <link rel="stylesheet" href="WEB-INF/css/welcome.css">
 </head>
 <body>
 	This is login.jsp
-	<form action="RedirectServlet" method="post">
-		<input type="hidden" name="source" value="login">
+	<form action="login" method="post">
+		<input type="hidden" name="source">
+		<input type="text" name="username">
+		<input type="password" name="password">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Login</button>
 		</div>

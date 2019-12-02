@@ -1,5 +1,5 @@
 package cit285.project.services;
 
-public interface LoginServiceAPI {
+public interface LoginServicesAPI {
 	public int loginUser(String username, String password);
 }

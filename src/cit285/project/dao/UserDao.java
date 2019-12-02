@@ -58,9 +58,10 @@ public class UserDao {
 		while(resultSet.next()) {
 			User user = new User();
 			user.setUserid(resultSet.getInt(1));
-			user.setFirstName(resultSet.getString(2));
-			user.setLastName(resultSet.getString(3));
-			user.setCompanyName(resultSet.getString(4));
+			//skip over username and password
+			user.setFirstName(resultSet.getString(4));
+			user.setLastName(resultSet.getString(5));
+			user.setCompanyName(resultSet.getString(6));
 			
 			usersList.add(user);
 		}

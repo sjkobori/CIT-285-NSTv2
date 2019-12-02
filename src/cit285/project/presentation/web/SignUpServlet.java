@@ -59,20 +59,24 @@ public class SignUpServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				String source = request.getParameter("source");
 				
-				if (source.equals("signup")){
+				if (source.equals("signUp")){
 					//make a user
 					//add try block
 					User user = new User();
+					user.setUserName(request.getParameter("username"));
+					user.setPassword(request.getParameter("password"));
 					user.setFirstName(request.getParameter("firstname"));
 					user.setLastName(request.getParameter("lastname"));
+					//if passwords dont match (send response attribute "error" to passwords dont match
 					user.setCompanyName(request.getParameter("companyname"));
 					
 					Email email = new Email();
 					email.setEmailAddress(request.getParameter("email"));
 					
 					Address address = new Address();
-					address.setStreet(request.getParameter("street"));
+
 					address.setCity(request.getParameter("city"));
+					address.setStreet(request.getParameter("street"));
 					address.setZipcode(request.getParameter("zipcode"));
 					
 					
@@ -82,7 +86,7 @@ public class SignUpServlet extends HttpServlet {
 					//set login
 					///session.setAttribute("users",users);
 					
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/welcome.jsp").forward(request, response);
+					getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 				}
 				else{
 					session.setAttribute("Error","Unknown source!");

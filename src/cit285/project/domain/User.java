@@ -2,9 +2,13 @@ package cit285.project.domain;
 
 public class User {
 	private int userid; // user id
+	private String userName;
+	private String password;
 	private String firstName; // user's first name
 	private String lastName; // user's last name
 	private String companyName;
+	private boolean isAdmin;
+	
 
 	// Set user id
 	public void setUserid(int userid) {
@@ -16,6 +20,22 @@ public class User {
 		return userid;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	// Set first name
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -46,9 +66,21 @@ public class User {
 		return companyName;
 	}
 
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	
 	public String toString() {
 		return "Userid: " + userid + ", First Name: " + firstName + ", Last Name: " + lastName + ", Company Name: "
 				+ companyName;
 
 	}
+
+	
+
+	
 }
