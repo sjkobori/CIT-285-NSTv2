@@ -31,23 +31,26 @@ public class BookDao {
 		// Iterate through the result and print
 		while(resultSet.next()) {
 			Book book = new Book();
+			Author author = new Author();
 			book.setBookid(resultSet.getInt(1));
 			book.setIsbn(resultSet.getString(2));
 			book.setTitle(resultSet.getString(3));
 			book.setEditor(resultSet.getString(4));
 			book.setEdition(resultSet.getString(5));
 			book.setYear(resultSet.getInt(6));
+			author.setAuthorid(resultSet.getInt(7));
+			book.setAuthor(author); //fix later
 			
 			// Get the author for this book
-			preparedStatement.setInt(1,resultSet.getInt(7));
+			preparedStatement.setInt(1, author.getAuthorid()); //
 			ResultSet rset = preparedStatement.executeQuery();
 			if(rset.next()) {
-				Author author = new Author();
+				//Author author = new Author();
 				
-				author.setAuthorid(rset.getInt(1));
+				//author.setAuthorid(rset.getInt(1));
 				author.setAuthorfirstname(rset.getString(2));
 				author.setAuthorlastname(rset.getString(3));
-				book.setAuthor(author);
+				//book.setAuthor(author);
 			}
 			
 			booksList.add(book);
