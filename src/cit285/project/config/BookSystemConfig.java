@@ -3,6 +3,8 @@ package cit285.project.config;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import cit285.project.services.BookServices;
+import cit285.project.services.BookServicesAPI;
 import cit285.project.services.UserServices;
 import cit285.project.services.UserServicesAPI;
 
@@ -10,6 +12,7 @@ public class BookSystemConfig {
 
 	// the service objects in use, representing all lower layers to the app
 	private static UserServicesAPI userServices;
+	private static BookServicesAPI bookServices;
 	
 	// set up service API, data access objects
 	public static void configureServices()
@@ -17,6 +20,7 @@ public class BookSystemConfig {
 		try {
 			
 			userServices = new UserServices();
+			bookServices = new BookServices();
 		} catch (Exception e) {
 			
 		    // rethrow to notify caller (caller should print exception details)
@@ -45,6 +49,11 @@ public class BookSystemConfig {
 	public static UserServicesAPI getUserServices() {
 		
 		return userServices;
+	}
+
+	public static BookServicesAPI getBookServices() {
+		// TODO Auto-generated method stub
+		return bookServices;
 	}
 	
 }

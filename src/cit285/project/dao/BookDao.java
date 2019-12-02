@@ -14,37 +14,9 @@ import cit285.project.domain.Book;
 
 public class BookDao {
 	
-	// Read the statements from file, add to batch and send execute the batch
-	public void sendBachToDb(List<String> batches) throws Exception {
-		//String line = "";
-		//String batch = "";
-		//Scanner input = null;
-		
-		// Get database connection
-		Connection connection = getConnection();
-		
-		// Check if this database support batch updates
-		if(connection.getMetaData().supportsBatchUpdates()) {
-			
-			// Create statement
-			Statement statement = connection.createStatement();
-			
-			// Add batch to the statement
-			for (String batch: batches) {
-				statement.addBatch(batch);
-			}
-			
-			// Execute the batch
-			statement.executeBatch();
-		}else {
-			System.out.println("Batch updates not supported.");
-		}
-		System.out.println("Batch sent successfully.");
-	}
-	
-	public List<Book> getBooks() 
+	public ArrayList<Book> getBooks() 
 			throws SQLException, ClassNotFoundException {
-		List<Book> booksList = new ArrayList<>();
+		ArrayList<Book> booksList = new ArrayList<>();
 		
 		Connection connection = getConnection();
 		// Create statement
@@ -83,32 +55,6 @@ public class BookDao {
 		return booksList;
 	}
 	
-	public List<Author> getAuthors() 
-			throws SQLException, ClassNotFoundException {
-		List<Author> authorList = new ArrayList<>();
-		
-		Connection connection = getConnection();
-		// Create statement
-		Statement statement = connection.createStatement();
-		
-		// Execute statement
-		ResultSet resultSet = statement.executeQuery("select * from Author");
-		
-		// Create prepared statement to get Author.
-		//PreparedStatement preparedStatement = connection.prepareStatement("select * from Author where AuthorID=?");
-		
-		// Iterate through the result and print
-		while(resultSet.next()) {
-			Author author = new Author();
-			author.setAuthorid(resultSet.getInt(1));
-			author.setAuthorfirstname(resultSet.getString(2));
-			author.setAuthorlastname(resultSet.getString(3));
-			
-			authorList.add(author);
-		}
-		return authorList;
-	}
-	
 	private Connection getConnection() 
 			throws SQLException, ClassNotFoundException {
 		
@@ -117,7 +63,8 @@ public class BookDao {
 		
 		// Connect to the database
 		Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost/book_store","root","tvLCMr7mVRh!jK5");
+				.getConnection("jdbc:mysql://localhost/book_store",
+						System.getenv("MYSQL_USER"), System.getenv("MYSQL_PW"));
 		System.out.println("Database connected!");
 		
 		return connection;
