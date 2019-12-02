@@ -8,20 +8,13 @@
 		<link rel="stylesheet" href="WEB-INF/css/welcome.css">
 	</head>
 	<body>
-	Current time is <%= new java.util.Date() %>
-		<form action="signUp" method="post">
-			<input type="text" name="firstname">
-			<input type="text" name="lastname">
-			<input type="text" name="companyname">
-			<input type = "submit" value = "Submit" />
-		</form>
-		<hr />
-		<!-- Display Students -->
-		<div id="studentslist" class="studentslist_format">
-			<c:forEach items="${students}" var="student">
-				<br />
- 				${student}
-			</c:forEach>
+		This is Welcome.jsp
+		<form action="RedirectServlet"  method="post" >
+		<input type="hidden" name="source" value="SignUp">
+		<div id="button">
+		<button type="submit" class="btn btn-primary btn-block">Register</button>
 		</div>
+    </form>
+		
 	</body>
 </html>
