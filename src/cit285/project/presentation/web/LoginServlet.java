@@ -30,22 +30,23 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int x = 0;
+		int loginStatus = 0;
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		x = loginServices.loginUser(username, password);
+		loginStatus = loginServices.loginUser(username, password);
 
-		if (x == 1) { //user login
-			// System.out.println(x);
+		if (loginStatus == 1) { //user login
+			System.out.println("User logged in...");
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
 			// response.sendRedirect("/BookServlet");
 			getServletContext().getRequestDispatcher("/booklist").forward(request, response);
-		} else if (x == 2) { //admin login
-			System.out.println("It's an admin");
+		} else if (loginStatus == 2) { //admin login
+			System.out.println("User logged in...");
 			//go to admin page
 		} else { //not successful login
+			System.out.println("Failed log in...");
 			HttpSession session = request.getSession();
 			session.setAttribute("user", username);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);

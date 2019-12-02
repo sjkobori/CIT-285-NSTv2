@@ -48,7 +48,6 @@ public class LoginDao {
 			printSQLException(e);
 		}
 
-		System.out.println(status);
 		return status;
 	}
 
