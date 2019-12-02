@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
-import cit285.project.config.SignUpSystemConfig;
 import cit285.project.domain.Address;
 import cit285.project.domain.Email;
 import cit285.project.domain.User;
@@ -35,11 +34,11 @@ public class SignUpServlet extends HttpServlet {
     public void init() throws ServletException {
     	try{
 			//System.out.println("Configuring services...");
-			SignUpSystemConfig.configureServices();
+			BookSystemConfig.configureServices();
 		}
 		catch(Exception e){}
 		//System.out.println("Getting payments services...");
-		signUpServices = SignUpSystemConfig.getSignUpServices();
+		signUpServices = BookSystemConfig.getSignUpServices();
 	}
 
 	/**
