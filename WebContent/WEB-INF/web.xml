@@ -54,6 +54,20 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout/*</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description>Cart Servlet</description>
+    <display-name>CartServlet</display-name>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/cart/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/continueShopping/*</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description>Inspect Book Servlet</description>
     <display-name>InspectServlet</display-name>
