@@ -9,8 +9,8 @@
 </head>
 <body>
 	This is the cart.jsp
-	<form action="continueShopping" method="post">
-		<input type="hidden" name="source" value="continueShopping">
+	<form action="booklist" method="post">
+		<input type="hidden" name="source" value="cart">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Continue Shopping</button>
 		</div>
