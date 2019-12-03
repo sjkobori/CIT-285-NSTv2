@@ -52,6 +52,7 @@ public class InspectBookServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
@@ -61,7 +62,11 @@ public class InspectBookServlet extends HttpServlet {
 		System.out.println("inside inspect book servlet");
 		if (source.equals("booklist")){
 			ArrayList<Book> books = null;
-			books = (ArrayList<Book>) session.getAttribute("books");
+			try {
+				books = (ArrayList<Book>) session.getAttribute("books");
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
 			// Add attribute to the session
 			request.setAttribute("book", books.get(Integer.parseInt(request.getParameter("book"))));
 			

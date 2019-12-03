@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
 		} else if (loginStatus == 2) { //admin login
 			System.out.println("Admin logged in...");
 			//go to admin page
+			getServletContext().getRequestDispatcher("adminhome").forward(request, response);
 		} else { //not successful login
 			System.out.println("Failed log in...");
 			HttpSession session = request.getSession();

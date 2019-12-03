@@ -50,6 +50,9 @@ create table Book(BookID BIGINT NOT NULL,
                   Editor VARCHAR(50),
                   Edition VARCHAR(20),
                   Year INT,
+                  Price DECIMAL(15, 2),
+                  Description BLOB,
+                  Imagepath VARCHAR(30),
                   AuthorID BIGINT NOT NULL,
                   PRIMARY KEY (BookID),
                   FOREIGN KEY(AuthorID) REFERENCES Author(AuthorID));
@@ -95,7 +98,7 @@ create table Address(AddressID BIGINT NOT NULL,
 -- creates Invoice table
 create table Invoice(InvoiceID BIGINT NOT NULL,
 				  UserID BIGINT NOT NULL,
-				  InvoiceDate CHAR(6) NOT NULL,
+				  InvoiceDate DATE NOT NULL,
 				  TotalAmount INT NOT NULL,
 				  IsProcessed BOOLEAN,
 				  

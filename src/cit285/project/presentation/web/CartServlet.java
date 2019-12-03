@@ -7,13 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import cit285.project.config.BookSystemConfig;
-import cit285.project.domain.Address;
-import cit285.project.domain.Email;
-import cit285.project.domain.User;
-import cit285.project.services.SignUpServicesAPI;
 
 /**
  * Servlet implementation class SignUpServlet
