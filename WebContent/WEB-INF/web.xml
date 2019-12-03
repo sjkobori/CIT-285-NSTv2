@@ -44,4 +44,14 @@
     <servlet-name>BookServlet</servlet-name>
     <url-pattern>/booklist/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Logout Servlet</description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout/*</url-pattern>
+  </servlet-mapping>
 </web-app>
