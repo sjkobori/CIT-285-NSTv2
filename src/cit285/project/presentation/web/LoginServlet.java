@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			// response.sendRedirect("/BookServlet");
 			getServletContext().getRequestDispatcher("/booklist").forward(request, response);
 		} else if (loginStatus == 2) { //admin login
-			System.out.println("User logged in...");
+			System.out.println("Admin logged in...");
 			//go to admin page
 		} else { //not successful login
 			System.out.println("Failed log in...");

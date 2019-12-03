@@ -37,7 +37,15 @@
 			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() %>) </TD>
 			<TD> (<%= booklist.get(i).getAuthor().getAuthorlastname() %>) </TD>
 			<TD> (<%= booklist.get(i).getIsbn() %>) </TD>
-			<TD> (Add to Cart) </TD>
+			<TD>  
+				<form action="addtocart" method="post">
+					<input type="hidden" name="source" value="booklist">
+					<input type="hidden" name="book" value=<%= i %>>
+					<div id="button">
+						<button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
+					</div>
+				</form>
+			</TD>
 			<TD>  
 				<form action="inspectbook" method="post">
 					<input type="hidden" name="source" value="booklist">
@@ -47,6 +55,7 @@
 					</div>
 				</form>
 			</TD>
+			
 		</TR>
 		<% } %>
 	</TABLE>
