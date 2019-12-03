@@ -51,7 +51,7 @@ public class CartServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String source = request.getParameter("source");
-		if (source.equals("cart")) {
+		if (source.equals("booklist")) {
 			// clear session data
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
 		}
