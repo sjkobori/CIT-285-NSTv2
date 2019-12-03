@@ -3,7 +3,10 @@ insert into User (UserID, Username, Password, FirstName, LastName, Companyname, 
             values (11111111,"sbrannsinger","1234", "Sebastian", "Brann-Singer", "MemerINC", TRUE);
             
 insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
-            values (11111112,"testUser","1234", "John", "Lennon", "BHCC", FALSE);
+            values (11111112,"tdao","1234", "Tung", "Dao", "Unemployed", TRUE);
+
+insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
+            values (11111113,"testUser","1234", "John", "Lennon", "BHCC", FALSE);
 -- Insert data into Author table.
 --
 insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
