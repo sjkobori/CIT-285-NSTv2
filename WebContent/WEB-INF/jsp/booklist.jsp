@@ -2,8 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="cit285.project.domain.Book, java.util.*"%>
-<jsp:useBean id = "book" scope = "request"
- class = "cit285.project.domain.Book"> </jsp:useBean>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +9,13 @@
 </head>
 <body>
 	<form action="cart" method="post">
-		<input type="hidden" name="source" value="booklist">
+		<input type="hidden" name="source" value="cart">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Cart</button>
 		</div>
 	</form>
 	<form action="logout" method="post">
-		<input type="hidden" name="source" value="booklist">
+		<input type="hidden" name="source" value="logout">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Logout</button>
 		</div>
@@ -29,26 +27,21 @@
 		<input type="hidden" name="source" value="login">
 	</form>
 	<TABLE>
-	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
-		<% for (int i = 0; i < booklist.size(); i++) { %>
+	<% ArrayList<Book> booklist = (ArrayList<Book>) request.getAttribute("books"); %>
+		<%for (int row = 1; row <= 5; row++) { %>
 		<TR>
-			
-			<TD> (<%= booklist.get(i).getTitle() %>) </TD>
-			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() %>) </TD>
-			<TD> (<%= booklist.get(i).getAuthor().getAuthorlastname() %>) </TD>
-			<TD> (<%= booklist.get(i).getIsbn() %>) </TD>
-			<TD> (Add to Cart) </TD>
-			<TD>  
-				<form action="inspectbook" method="post">
-					<input type="hidden" name="source" value="booklist">
-					<input type="hidden" name="book" value= <%= booklist.get(i) %>>
-					<div id="button">
-						<button type="submit" class="btn btn-primary btn-block">Inspect Book</button>
-					</div>
-				</form>
+			<%      for(int col=1; col<=10; col++) { %>
+			<TD>(<%=col%>, <%=row%>)
 			</TD>
+			<% } %>
 		</TR>
 		<% } %>
 	</TABLE>
+	<div id="bookslist" class="bookslist_format">
+		<c:forEach items="${books}" var="book">
+			<br />
+ 				${book}
+			</c:forEach>
+	</div>
 </body>
 </html>

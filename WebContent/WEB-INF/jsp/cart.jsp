@@ -1,29 +1,19 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="cit285.project.domain.Book, java.util.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Welcome</title>
-<link rel="stylesheet" href="WEB-INF/css/welcome.css">
+<title>List of books</title>
 </head>
 <body>
-	Current time is
-	<%= new java.util.Date() %>
-	<form action="signUp" method="post">
-		<input type="hidden" name="source" value="signup">
+	This is the cart.jsp
+	<form action="continueShopping" method="post">
+		<input type="hidden" name="source" value="continueShopping">
 		<div id="button">
-			<button type="submit" class="btn btn-primary btn-block">Display
-				students</button>
+			<button type="submit" class="btn btn-primary btn-block">Continue Shopping</button>
 		</div>
 	</form>
-	<hr />
-	<!-- Display Students -->
-	<div id="studentslist" class="studentslist_format">
-		<c:forEach items="${students}" var="student">
-			<br />
- 				${student}
-			</c:forEach>
-	</div>
 </body>
 </html>
