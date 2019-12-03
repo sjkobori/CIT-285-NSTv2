@@ -54,4 +54,14 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Inspect Book Servlet</description>
+    <display-name>InspectServlet</display-name>
+    <servlet-name>InspectServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.InspectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InspectServlet</servlet-name>
+    <url-pattern>/inspectbook/*</url-pattern>
+  </servlet-mapping>
 </web-app>
