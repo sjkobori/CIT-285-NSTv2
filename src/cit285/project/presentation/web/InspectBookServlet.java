@@ -17,7 +17,7 @@ import cit285.project.services.BookServicesAPI;
 /**
  * Servlet implementation class PaymentsServlet
  */
-@WebServlet("/BookServlet")
+@WebServlet("/InspectBookServlet")
 public class InspectBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BookServicesAPI bookServices;
@@ -58,14 +58,12 @@ public class InspectBookServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
-		
+		System.out.println("inside inspect book servlet");
 		if (source.equals("booklist")){
-			//ArrayList<Book> books = null;
-			Book book = null;
-			//books = (ArrayList<Book>) request.getAttribute("books");
-			book = (Book) request.getAttribute("book");
+			ArrayList<Book> books = null;
+			books = (ArrayList<Book>) session.getAttribute("books");
 			// Add attribute to the session
-			session.setAttribute("book", book);
+			request.setAttribute("book", books.get(Integer.parseInt(request.getParameter("book"))));
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/inspectBook.jsp").forward(request, response);
 		}

@@ -68,6 +68,11 @@ public class BookServlet extends HttpServlet {
 			session.setAttribute("books", books);
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
+		} else if (source.equals("inspectBook")) {
+			// Add attribute to the session
+						//session.setAttribute("books", books);
+						
+						getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}
 		else{
 			session.setAttribute("Error","Unknown source!");
