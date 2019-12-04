@@ -37,6 +37,13 @@
                       	<TD> <%= book.getEditor() %> </TD>
                       </TR>
            </TABLE>
+           <form action="addtocart" method="post">
+			<input type="hidden" name="source" value="inspectBook">
+			<input type="hidden" name="book" value=<%= book %>>
+			<div id="button">
+				<button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
+			</div>
+			</form>
            <!-- <form action="" method="post">
                       <input type="hidden" name="source" value="showDetails"> -->
                       <div id="button">

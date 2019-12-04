@@ -58,6 +58,7 @@ public class InspectBookServlet extends HttpServlet {
 		//doGet(request, response);
 		
 		HttpSession session = request.getSession();
+		//int userId = session.getAttribute(arg0)
 		String source = request.getParameter("source");
 		System.out.println("inside inspect book servlet");
 		if (source.equals("booklist")){
@@ -68,6 +69,7 @@ public class InspectBookServlet extends HttpServlet {
 				ex.printStackTrace();
 			}
 			// Add attribute to the session
+			
 			request.setAttribute("book", books.get(Integer.parseInt(request.getParameter("book"))));
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/inspectBook.jsp").forward(request, response);
