@@ -29,6 +29,7 @@
 		<input type="hidden" name="source" value="login">
 	</form>
 	<TABLE>
+	
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
 		<% for (int i = 0; i < booklist.size(); i++) { %>
 		<TR>

@@ -17,7 +17,7 @@
            <hr />
            Book
            <TABLE>
-                      <% Book book = (Book) request.getAttribute("book"); %>
+                      <% Book book = (Book) session.getAttribute("book"); %>
                       <TR>
                       	<TD><%= book.getTitle()%></TD>
                       </TR>

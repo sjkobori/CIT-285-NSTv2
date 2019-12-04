@@ -6,6 +6,9 @@ public class Book {
 	private String title; // Book Title
 	private String editor; // Book Editor
 	private String edition; // Book Edition
+	private double price;
+	private String description;
+	private String imagepath;
 	private int year; // Book Year
 	private Author author; // Book Author ID
 
@@ -82,5 +85,29 @@ public class Book {
 	public String toString() {
 		return "BookId: " + bookid + ", ISBN: " + isbn + ", Title: " + title + ", Editor: " + editor + ", Edition: "
 				+ edition + ", Year: " + year + ", Author: " + author;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getImagepath() {
+		return imagepath;
+	}
+
+	public void setImagepath(String imagepath) {
+		this.imagepath = imagepath;
 	}
 }

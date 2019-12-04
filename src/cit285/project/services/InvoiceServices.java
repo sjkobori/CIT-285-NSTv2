@@ -34,5 +34,22 @@ public class InvoiceServices implements InvoiceServicesAPI {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	@Override
+	public int initializeInvoice(String username) {
+		// TODO Auto-generated method stub
+				try {
+					return invoiceDao.initializeInvoice(username);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		return 0;
+	}
 	
 }

@@ -98,8 +98,8 @@ create table Address(AddressID BIGINT NOT NULL,
 -- creates Invoice table
 create table Invoice(InvoiceID BIGINT NOT NULL,
 				  UserID BIGINT NOT NULL,
-				  InvoiceDate DATE NOT NULL,
-				  TotalAmount INT NOT NULL,
+				  InvoiceDate DATE,
+				  TotalAmount INT,
 				  IsProcessed BOOLEAN,
 				  
                   PRIMARY KEY (InvoiceID),

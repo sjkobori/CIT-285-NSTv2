@@ -1,6 +1,8 @@
 package cit285.project.presentation.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
+import cit285.project.domain.LineItem;
 import cit285.project.services.LoginServices;
 import cit285.project.services.LoginServicesAPI;
 
@@ -40,7 +43,9 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("User logged in...");
 			session.setAttribute("username", username);
 			// response.sendRedirect("/BookServlet");
-			getServletContext().getRequestDispatcher("/booklist").forward(request, response);
+			//Redirect to initializeinvoice
+			getServletContext().getRequestDispatcher("/initializeinvoice").forward(request, response);
+			
 		} else if (loginStatus == 2) { //admin login
 			System.out.println("Admin logged in...");
 			//go to admin page

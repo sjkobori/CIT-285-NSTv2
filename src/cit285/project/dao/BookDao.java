@@ -24,7 +24,6 @@ public class BookDao implements Dao {
 
 		// Create prepared statement to get Author.
 		PreparedStatement preparedStatement = connection.prepareStatement("select * from Author where AuthorID=?");
-
 		// Iterate through the result and print
 		while (resultSet.next()) {
 			Book book = new Book();
@@ -35,19 +34,20 @@ public class BookDao implements Dao {
 			book.setEditor(resultSet.getString(4));
 			book.setEdition(resultSet.getString(5));
 			book.setYear(resultSet.getInt(6));
-			author.setAuthorid(resultSet.getInt(7));
-			book.setAuthor(author); // fix later
+			book.setPrice(resultSet.getDouble(7));
+			book.setDescription(resultSet.getString(8));
+			book.setImagepath(resultSet.getString(9));
+			author.setAuthorid(resultSet.getInt(10));
+			book.setAuthor(author);
+			
 			
 			//Get the author for this book
 			preparedStatement.setInt(1, author.getAuthorid()); //
 			ResultSet rset = preparedStatement.executeQuery();
 			if (rset.next()) {
-				// Author author = new Author();
-
-				// author.setAuthorid(rset.getInt(1));
+				
 				author.setAuthorfirstname(rset.getString(2));
 				author.setAuthorlastname(rset.getString(3));
-				// book.setAuthor(author);
 			}
 
 			booksList.add(book);
