@@ -75,10 +75,10 @@ public class AddToCartServlet extends HttpServlet {
 			// Add attribute to the session
 			invoiceServices.addToCart(item); //fix this to use userid
 			//request.setAttribute("book", books.get(bookNumber));
-			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}
 		else if (source.equals("inspectbook")) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/inspectBook.jsp").forward(request, response);
 		}
 		else {
 			System.out.println("ELSE");

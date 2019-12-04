@@ -1,17 +1,18 @@
 package cit285.project.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import cit285.project.domain.Author;
+import cit285.project.domain.Address;
+import cit285.project.domain.Email;
 import cit285.project.domain.User;
 
-public class UserDao {
+public class UserDao implements Dao {
 	
 	// Read the statements from file, add to batch and send execute the batch
 	public void sendBachToDb(List<String> batches) throws Exception {
@@ -68,44 +69,34 @@ public class UserDao {
 		return usersList;
 	}
 	
-	public List<Author> getAuthors() 
-			throws SQLException, ClassNotFoundException {
-		List<Author> authorList = new ArrayList<>();
-		
+	public void signUp(User user, Email email, Address address) 
+			throws SQLException, ClassNotFoundException{
+		//get connection
 		Connection connection = getConnection();
 		// Create statement
-		Statement statement = connection.createStatement();
+		PreparedStatement statement = 
+				connection.prepareStatement("insert into user values (?,?,?,?,?,?,?)");
+		//assign ids to user, email, and address
+	
+		user.setUserid(generateId());
+		email.setEmailId(generateId());
+		email.setUserId(user.getUserid());
+		address.setAddressId(generateId());
+		address.setUserId(user.getUserid());
 		
-		// Execute statement
-		ResultSet resultSet = statement.executeQuery("select * from Author");
-		
-		// Create prepared statement to get Author.
-		//PreparedStatement preparedStatement = connection.prepareStatement("select * from Author where AuthorID=?");
-		
-		// Iterate through the result and print
-		while(resultSet.next()) {
-			Author author = new Author();
-			author.setAuthorid(resultSet.getInt(1));
-			author.setAuthorfirstname(resultSet.getString(2));
-			author.setAuthorlastname(resultSet.getString(3));
-			
-			authorList.add(author);
-		}
-		return authorList;
+		statement.setInt(1, user.getUserid());
+		statement.setString(2, user.getUserName());
+		statement.setString(3, user.getPassword());
+		statement.setString(4, user.getFirstName());
+		statement.setString(5, user.getLastName());
+		statement.setString(6, user.getCompanyName());
+		statement.setBoolean(7, false);
+		statement.executeUpdate();
+			//check if ids are in database
+		//add user, email, and address to database
 	}
 	
-	private Connection getConnection() 
-			throws SQLException, ClassNotFoundException {
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		System.out.println("Driver loaded!");
-		
-		// Connect to the database
-		Connection connection = DriverManager
-				.getConnection("jdbc:mysql://localhost/book_store",
-						System.getenv("MYSQL_USER"), System.getenv("MYSQL_PW"));
-		System.out.println("Database connected!");
-		
-		return connection;
-	}
+	
+	
+	
 }

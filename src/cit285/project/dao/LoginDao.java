@@ -1,15 +1,13 @@
 package cit285.project.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import cit285.project.domain.Login;
 
-public class LoginDao {
+public class LoginDao implements Dao {
 
 	public int validate(Login loginBean) throws ClassNotFoundException {
 		int status = 0;
@@ -65,18 +63,5 @@ public class LoginDao {
 				}
 			}
 		}
-	}
-
-	private Connection getConnection() throws SQLException, ClassNotFoundException {
-
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		System.out.println("Driver loaded!");
-
-		// Connect to the database
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/book_store",
-				System.getenv("MYSQL_USER"), System.getenv("MYSQL_PW"));
-		System.out.println("Database connected!");
-
-		return connection;
 	}
 }

@@ -1,22 +1,16 @@
 package cit285.project.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-import cit285.project.domain.Address;
 import cit285.project.domain.Author;
 import cit285.project.domain.Book;
-import cit285.project.domain.Email;
-import cit285.project.domain.User;
 
-public class BookDao {
+public class BookDao implements Dao {
 
 	public ArrayList<Book> getBooks() throws SQLException, ClassNotFoundException {
 		ArrayList<Book> booksList = new ArrayList<>();
@@ -61,29 +55,16 @@ public class BookDao {
 		return booksList;
 	}
 
-	private static Connection getConnection() throws SQLException, ClassNotFoundException {
-
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		System.out.println("Driver loaded!");
-
-		// Connect to the database
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/book_store",
-				System.getenv("MYSQL_USER"), System.getenv("MYSQL_PW"));
-		System.out.println("Database connected!");
-
-		return connection;
-	}
-
 	public void addBook(Book book) throws SQLException, ClassNotFoundException {
 		// get connection
 		Connection connection = getConnection();
-		// Create statement
+		// Create statement 
 		PreparedStatement statement = connection.prepareStatement("insert into book values (?,?,?,?,?,?,?)");
 		// assign ids to user, email, and address
 
 		book.setBookid(generateId());
-		Author author = new Author();
-		author = book.getAuthor();
+		//Author author = new Author(); FIX LATER
+		//author = book.getAuthor();
 		
 		
 		statement.setInt(1, book.getBookid());
@@ -99,13 +80,4 @@ public class BookDao {
 		// add user, email, and address to database
 	}
 
-	public static Integer generateId() {
-		int max = 99999999;
-		int min = 10000000;
-		Random rand = new Random();
-
-		int randomNum = rand.nextInt((max - min) + 1) + min;
-
-		return randomNum;
-	}
 }
