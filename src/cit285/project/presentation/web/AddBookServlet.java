@@ -10,13 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
-import cit285.project.domain.Address;
 import cit285.project.domain.Book;
-import cit285.project.domain.Email;
-import cit285.project.domain.User;
-import cit285.project.services.AddBookServices;
-import cit285.project.services.AddBookServicesAPI;
-import cit285.project.services.SignUpServicesAPI;
+import cit285.project.services.BookServicesAPI;
 
 /**
  * Servlet implementation class SignUpServlet
@@ -24,7 +19,7 @@ import cit285.project.services.SignUpServicesAPI;
 @WebServlet("/AddBookServlet")
 public class AddBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private AddBookServicesAPI addBookServices;
+	private BookServicesAPI bookServices;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -41,7 +36,7 @@ public class AddBookServlet extends HttpServlet {
 		}
 		catch(Exception e){}
 		//System.out.println("Getting payments services...");
-		addBookServices = BookSystemConfig.getAddBookServices();
+		bookServices = BookSystemConfig.getBookServices();
 	}
 
 	/**
@@ -72,7 +67,7 @@ public class AddBookServlet extends HttpServlet {
 					book.setEdition(request.getParameter("edition"));
 					book.setYear(Integer.parseInt(request.getParameter("year")));
 					System.out.println("Adding Book, maybe...");
-					addBookServices.addBook(book);
+					bookServices.addBook(book);
 					
 					// Add attribute to the session
 					//set login
