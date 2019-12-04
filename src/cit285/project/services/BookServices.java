@@ -7,7 +7,7 @@ import cit285.project.dao.BookDao;
 import cit285.project.domain.Book;
 
 public class BookServices implements BookServicesAPI {
-	BookDao bookDao;
+	private BookDao bookDao;
 
 	public BookServices() {
 		bookDao = new BookDao();
@@ -24,6 +24,17 @@ public class BookServices implements BookServicesAPI {
 		}
 
 		return bookList;
+	}
+
+	@Override
+	public void addBook(Book book) {
+		// TODO Auto-generated method stub
+		try {
+			bookDao.addBook(book);
+		} catch (SQLException | ClassNotFoundException e) {
+			System.out.println(e.toString());
+		}
+		
 	}
 
 }

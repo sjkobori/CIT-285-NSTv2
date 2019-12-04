@@ -35,21 +35,21 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		loginStatus = loginServices.loginUser(username, password);
-
+		HttpSession session = request.getSession();
 		if (loginStatus == 1) { //user login
 			System.out.println("User logged in...");
-			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
 			// response.sendRedirect("/BookServlet");
 			getServletContext().getRequestDispatcher("/booklist").forward(request, response);
 		} else if (loginStatus == 2) { //admin login
 			System.out.println("Admin logged in...");
 			//go to admin page
-			getServletContext().getRequestDispatcher("adminhome").forward(request, response);
+			session.setAttribute("username", username);
+			//getServletContext().getRequestDispatcher("adminhome").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
 		} else { //not successful login
 			System.out.println("Failed log in...");
-			HttpSession session = request.getSession();
-			session.setAttribute("user", username);
+			session.setAttribute("username", username);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}
 

@@ -10,6 +10,7 @@
 <body>
 This is AddBook.jsp
 	<form action="addBook" method="post">
+		<div>
 			<input type="hidden" name="source" value="addBook">
 			<label for="text">ISBN</label>
 			<input type="text" name="isbn">
@@ -22,7 +23,7 @@ This is AddBook.jsp
 			<label for="Year">Year</label>
 			<input type="text" name="year">
 			<input type = "submit" value = "Submit" />
-			</div>
-		</form>
+		</div>
+	</form>
 </body>
 </html>

@@ -74,7 +74,7 @@ public class BookDao {
 		return connection;
 	}
 
-	public static void addBook(Book book) throws SQLException, ClassNotFoundException {
+	public void addBook(Book book) throws SQLException, ClassNotFoundException {
 		// get connection
 		Connection connection = getConnection();
 		// Create statement

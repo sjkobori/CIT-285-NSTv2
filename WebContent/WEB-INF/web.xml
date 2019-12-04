@@ -1,106 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>Book Store</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <!-- Inspect Book Servlet -->
-  <servlet>
-    <description>User Servlet</description>
-    <display-name>UserServlet</display-name>
-    <servlet-name>UserServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.UserServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserServlet</servlet-name>
-    <url-pattern>/users/*</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Sign Up Servlet -->
-  <servlet>
-    <description>SignUp Servlet</description>
-    <display-name>SignUpServlet</display-name>
-    <servlet-name>SignUpServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.SignUpServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignUpServlet</servlet-name>
-    <url-pattern>/signUp/*</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Redirect Servlet -->
-  <servlet>
-    <description></description>
-    <display-name>RedirectServlet</display-name>
-    <servlet-name>RedirectServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.DispatcherServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RedirectServlet</servlet-name>
-    <url-pattern>/RedirectServlet/*</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Book Servlet (gets booklist)-->
-  <servlet>
-    <description>Book Servlet</description>
-    <display-name>BookServlet</display-name>
-    <servlet-name>BookServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.BookServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BookServlet</servlet-name>
-    <url-pattern>/booklist/*</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Logout Servlet -->
-  <servlet>
-    <description>Logout Servlet</description>
-    <display-name>LogoutServlet</display-name>
-    <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.LogoutServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/logout/*</url-pattern>
-  </servlet-mapping>
- 
- <!-- Cart Servlet -->
-   <servlet>
-     <description>Cart Servlet</description>
-     <display-name>CartServlet</display-name>
-     <servlet-name>CartServlet</servlet-name>
-     <servlet-class>cit285.project.presentation.web.CartServlet</servlet-class>
-   </servlet>
-  <servlet-mapping>
-    <servlet-name>CartServlet</servlet-name>
-    <url-pattern>/cart/*</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Inspect Book Servlet -->
-   <servlet>
-    <description>Inspect Book Servlet</description>
-    <display-name>InspectBookServlet</display-name>
-    <servlet-name>InspectBookServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.InspectBookServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>InspectBookServlet</servlet-name>
-    <url-pattern>/inspectbook/*</url-pattern>
-  </servlet-mapping>
-  
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>Book Store</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
-  <!-- Add Servlet (gets booklist)-->
-  <servlet>
-    <description>Add Book Servlet</description>
-    <display-name>AddBookServlet</display-name>
-    <servlet-name>AddBookServlet</servlet-name>
-    <servlet-class>cit285.project.presentation.web.AddBookServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddBookServlet</servlet-name>
-    <url-pattern>/addBook/*</url-pattern>
-  </servlet-mapping>
-  
+	<!-- Inspect Book Servlet -->
+	<servlet>
+		<description>User Servlet</description>
+		<display-name>UserServlet</display-name>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/users/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Sign Up Servlet -->
+	<servlet>
+		<description>SignUp Servlet</description>
+		<display-name>SignUpServlet</display-name>
+		<servlet-name>SignUpServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.SignUpServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignUpServlet</servlet-name>
+		<url-pattern>/signUp/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Redirect Servlet -->
+	<servlet>
+		<description></description>
+		<display-name>RedirectServlet</display-name>
+		<servlet-name>RedirectServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RedirectServlet</servlet-name>
+		<url-pattern>/RedirectServlet/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Book Servlet (gets booklist) -->
+	<servlet>
+		<description>Book Servlet</description>
+		<display-name>BookServlet</display-name>
+		<servlet-name>BookServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.BookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BookServlet</servlet-name>
+		<url-pattern>/booklist/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Logout Servlet -->
+	<servlet>
+		<description>Logout Servlet</description>
+		<display-name>LogoutServlet</display-name>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Cart Servlet -->
+	<servlet>
+		<description>Cart Servlet</description>
+		<display-name>CartServlet</display-name>
+		<servlet-name>CartServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.CartServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CartServlet</servlet-name>
+		<url-pattern>/cart/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Inspect Book Servlet -->
+	<servlet>
+		<description>Inspect Book Servlet</description>
+		<display-name>InspectBookServlet</display-name>
+		<servlet-name>InspectBookServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.InspectBookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InspectBookServlet</servlet-name>
+		<url-pattern>/inspectbook/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Add To Cart Servlet -->
+	<servlet>
+		<description>adds books to cart</description>
+		<display-name>AddToCartServlet</display-name>
+		<servlet-name>AddToCartServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.AddToCartServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddToCartServlet</servlet-name>
+		<url-pattern>/addtocart/*</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- Add Servlet (gets booklist) -->
+	<servlet>
+		<description>Add Book Servlet</description>
+		<display-name>AddBookServlet</display-name>
+		<servlet-name>AddBookServlet</servlet-name>
+		<servlet-class>cit285.project.presentation.web.AddBookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddBookServlet</servlet-name>
+		<url-pattern>/addBook/*</url-pattern>
+	</servlet-mapping>
+
 </web-app>
