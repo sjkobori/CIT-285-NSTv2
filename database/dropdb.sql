@@ -1,13 +1,12 @@
---drops tables if they exist
+use book_store;
+DROP TABLE LineItem;
+DROP TABLE Book;
+DROP TABLE Author;
 
-DROP TABLE IF EXISTS LineItem;
-DROP TABLE IF EXISTS Book;
-DROP TABLE IF EXISTS Author;
 
+DROP TABLE Phone;
+DROP TABLE Email;
+DROP TABLE Address;
 
-DROP TABLE IF EXISTS Phone;
-DROP TABLE IF EXISTS Email;
-DROP TABLE IF EXISTS Address;
-
-DROP TABLE IF EXISTS Invoice;
-DROP TABLE IF EXISTS User;
+DROP TABLE Invoice;
+DROP TABLE User;

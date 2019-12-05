@@ -12,32 +12,8 @@
 --
 --
 --
---DROP DATABASE IF EXISTS book_store;
---
--- Create a new database.
---CREATE DATABASE IF NOT EXISTS book_store;
---
 -- Change the database to book_store.
---USE book_store;
---
--- Change delimiter
---DELIMITER //
---
--- Create tables in book_store database.
---resetting if tables exist already
-DROP TABLE IF EXISTS Author;
-DROP TABLE IF EXISTS Book;
-
-
-DROP TABLE IF EXISTS Phone;
-DROP TABLE IF EXISTS Email;
-DROP TABLE IF EXISTS Address;
-DROP TABLE IF EXISTS LineItem;
-DROP TABLE IF EXISTS Invoice;
-
-DROP TABLE IF EXISTS User;
---
--- creates Author table
+USE book_store;
 create table Author(AuthorID BIGINT NOT NULL,
                     AuthorFirstName VARCHAR(20),
                     AuthorLastName VARCHAR(20),
