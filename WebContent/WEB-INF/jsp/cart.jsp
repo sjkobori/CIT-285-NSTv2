@@ -20,11 +20,19 @@
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
 		<% for (int i = 0; i < cart.size(); i++) { %>
 		<TR>
-			
-			<TD> (<%= cart.get(i).getLineItemId() %>) </TD>
-		<TD> (<%= cart.get(i).getInvoiceId() %>) </TD>
-		<TD> (<%= cart.get(i).getBookId() %>) </TD>
-		<TD> (<%= cart.get(i).getQuantity() %>) </TD>
+			<!-- Title -->
+			<% Book tempbook = null;
+			for (Book book: booklist){
+				if (cart.get(i).getBookId() == book.getBookid()){
+					tempbook = book; //sets current book to tempbook
+					break;
+				}
+			}
+			%>
+			<TD> (<%= tempbook.getTitle() %>) </TD> <!-- Title -->
+			<TD> (<%= cart.get(i).getQuantity() %>) </TD> <!-- Quantity -->
+			<TD> (<%= tempbook.getPrice() %>) </TD> <!-- Price -->
+			<TD> (<%= cart.get(i).getQuantity()*tempbook.getPrice() %>) </TD> <!-- Total -->
 			<TD>  
 				<form action="inspectbook" method="post">
 					<input type="hidden" name="source" value="booklist">

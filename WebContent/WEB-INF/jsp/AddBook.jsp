@@ -10,6 +10,7 @@
 <body>
 This is AddBook.jsp
 	<form action="addBook" method="post">
+		<div>
 			<input type="hidden" name="source" value="addBook">
 			<label for="text">ISBN</label>
 			<input type="text" name="isbn">
@@ -32,6 +33,7 @@ This is AddBook.jsp
 		</form>
 		
 		<form action ="addAuthor" method="post">
+		<div>
 			<input type="hidden" name="source" value="addAuthor">
 			<label for="Author First Name">Author First Name</label>
 			<input type="text" name="authorfirstname">
