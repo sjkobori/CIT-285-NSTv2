@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import cit285.project.domain.Author;
 import cit285.project.domain.Book;
 import cit285.project.domain.LineItem;
 
@@ -19,24 +20,20 @@ public class InvoiceDao implements Dao{
 		// Create statement
 		PreparedStatement statement = connection.prepareStatement("insert into lineitem values (?,?,?,?)");
 		//PreparedStatement tempStatement = connection.prepareStatement("insert into invoice values (?,?,?,?,?)");
-		// assign ids to user, email, and address
-//insert into invoice 
-		int invoiceId = 94649100;
-		//tempStatement.setInt(1, invoiceId);
-		//tempStatement.setInt(2, 11111113);
-		//tempStatement.setDate(3, new java.sql.Date(2019, 12, 3));
-		//tempStatement.setInt(4, 420);
-		//tempStatement.setBoolean(5, false);
-		//tempStatement.executeUpdate();
+
+		
+		
+		
+		//add check for if line item exists already
+		//if it does, increase quantity by new amount
 		
 		statement.setInt(1, generateId());
-		statement.setInt(2, invoiceId);
+		statement.setInt(2, item.getInvoiceId());
 		statement.setInt(3, item.getBookId());
 		statement.setInt(4, item.getQuantity());
 		
 		statement.executeUpdate();
 		// check if ids are in database
-		// add user, email, and address to database
 	}
 
 	public int initializeInvoice(String username) throws ClassNotFoundException, SQLException {
@@ -76,6 +73,32 @@ public class InvoiceDao implements Dao{
 		
 		statement.executeUpdate(); //stores new id
 		return invoiceId;
+	}
+
+	public ArrayList<LineItem> getCart(int invoiceId) throws ClassNotFoundException, SQLException {
+		//list to hold lineItems
+		ArrayList<LineItem> cart = new ArrayList<>();
+
+		Connection connection = getConnection();
+		
+		// Create prepared statement to get lineItems to create cart.
+		PreparedStatement preparedStatement = connection.prepareStatement("select * from lineItem where InvoiceID=?");
+		preparedStatement.setInt(1, invoiceId); //set ? to invoiceId
+		ResultSet resultSet = preparedStatement.executeQuery();
+		// Iterate through the result and print
+		while (resultSet.next()) {
+			
+			LineItem item = new LineItem();
+			item.setLineItemId(resultSet.getInt(1)); //gets lineItem id from first column
+			item.setInvoiceId(resultSet.getInt(2));
+			item.setBookId(resultSet.getInt(3));
+			item.setQuantity(resultSet.getInt(4));
+			
+			
+
+			cart.add(item);
+		}
+		return cart;
 	}
 
 }
