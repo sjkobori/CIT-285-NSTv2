@@ -70,7 +70,7 @@ public class AddToCartServlet extends HttpServlet {
 			
 			LineItem item = new LineItem();
 			item.setBookId(books.get(bookNumber).getBookid());
-			//item.setInvoiceId(Integer.parseInt(request.getParameter("invoiceid")));
+			item.setInvoiceId(Integer.parseInt((String) session.getAttribute("invoiceid")));
 			item.setQuantity(1);
 			// Add attribute to the session
 			invoiceServices.addToCart(item); //fix this to use userid
