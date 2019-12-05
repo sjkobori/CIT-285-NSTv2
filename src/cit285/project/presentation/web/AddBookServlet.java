@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
 import cit285.project.domain.Book;
+import cit285.project.domain.Author;
 import cit285.project.services.BookServicesAPI;
 
 /**
@@ -79,6 +80,22 @@ public class AddBookServlet extends HttpServlet {
 					
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
 				}
+				else if (source.equals("addAuthor")){
+					//make a user
+					//add try block
+					Author author = new Author();
+					author.setAuthorfirstname(request.getParameter("authorfirstname"));
+					author.setAuthorlastname(request.getParameter("authorlastname"));
+					
+					System.out.println("Adding Author, maybe...");
+					bookServices.addAuthor(author);
+					
+					// Add attribute to the session
+					//set login
+					///session.setAttribute("users",users);
+					
+					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
+				}				
 				else{
 					session.setAttribute("Error","Unknown source!");
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);

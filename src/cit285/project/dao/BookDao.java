@@ -54,6 +54,28 @@ public class BookDao implements Dao {
 		}
 		return booksList;
 	}
+	
+	public ArrayList<Author> getAuthors() throws SQLException, ClassNotFoundException {
+		ArrayList<Author> authorsList = new ArrayList<>();
+
+		Connection connection = getConnection();
+		// Create statement
+		Statement statement = connection.createStatement();
+
+		// Execute statement
+		ResultSet resultSet = statement.executeQuery("select * from Author");
+
+		while (resultSet.next()) {
+			Author author = new Author();
+			author.setAuthorid(resultSet.getInt(1));
+			author.setAuthorfirstname(resultSet.getString(2));
+			author.setAuthorlastname(resultSet.getString(3));
+			
+		
+			authorsList.add(author);
+		}
+		return authorsList;
+	}
 
 	public void addBook(Book book) throws SQLException, ClassNotFoundException {
 		// get connection
@@ -78,6 +100,25 @@ public class BookDao implements Dao {
 		statement.setString(9, book.getImagepath());
 		statement.setInt(10, 12345670);
 		book.setAuthor(author);
+		
+		statement.executeUpdate();
+		// check if ids are in database
+		// add user, email, and address to database
+	}
+	
+	public void addAuthor(Author author) throws SQLException, ClassNotFoundException {
+		// get connection
+		Connection connection = getConnection();
+		// Create statement 
+		PreparedStatement statement = connection.prepareStatement("insert into author values (?,?,?)");
+		// assign ids to user, email, and address
+
+		author.setAuthorid(generateId());
+		
+		
+		statement.setInt(1, author.getAuthorid());
+		statement.setString(2, author.getAuthorfirstname());
+		statement.setString(3, author.getAuthorlastname());
 		
 		statement.executeUpdate();
 		// check if ids are in database

@@ -92,6 +92,10 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AddBookServlet</servlet-name>
+    <url-pattern>/addAuthor/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddBookServlet</servlet-name>
     <url-pattern>/addBook/*</url-pattern>
   </servlet-mapping>
   <servlet>

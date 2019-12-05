@@ -28,7 +28,16 @@ This is AddBook.jsp
 			<label for="Imagepath">Imagepath</label>
 			<input type="text" name="imagepath">
 			<input type = "submit" value = "Submit" />
+			</div>
+		</form>
 		
+		<form action ="addAuthor" method="post">
+			<input type="hidden" name="source" value="addAuthor">
+			<label for="Author First Name">Author First Name</label>
+			<input type="text" name="authorfirstname">
+			<label for="Author Last Name">Author Last Name</label>
+			<input type="text" name="authorlastname">
+			<input type = "submit" value = "Submit" />
 			</div>
 		</form>
 </body>
