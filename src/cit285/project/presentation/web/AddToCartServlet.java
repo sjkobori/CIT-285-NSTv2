@@ -62,7 +62,7 @@ public class AddToCartServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		System.out.println("inside inspect book servlet");
 		String source = request.getParameter("source");
-		if (source.equals("booklist")) {
+		if (source.equals("booklist") || source.equals("inspectBook")) {
 			// clear session data
 			ArrayList<Book> books = null;
 			int bookNumber = Integer.parseInt(request.getParameter("book"));
