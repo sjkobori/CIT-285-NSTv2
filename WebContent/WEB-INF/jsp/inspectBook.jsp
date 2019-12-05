@@ -15,26 +15,26 @@
 			</div>
 		</form>
            <hr />
-           Book
            <TABLE>
                       <% Book book = (Book) session.getAttribute("book"); %>
                       <TR>
-                      	<TD><%= book.getTitle()%></TD>
+                      	<TD>Title: <%= book.getTitle()%></TD>
                       </TR>
                       <TR>
-                      	<TD><%= book.getAuthor().getAuthorfirstname() %> </TD>
+                      	<TD> Author: <%= book.getAuthor().getAuthorfirstname() + 
+                    		" " + book.getAuthor().getAuthorlastname() %> </TD>
                       </TR>
                       <TR>
-                      	<TD><%= book.getAuthor().getAuthorlastname() %> </TD>
+                      	<TD> Year: <%= book.getYear() %> </TD>
                       </TR>
                       <TR>
-                      	<TD> <%= book.getYear() %> </TD>
+                      	<TD> Edition: <%= book.getEdition() %> </TD>
                       </TR>
                       <TR>
-                      	<TD><%= book.getEdition() %> </TD>
+                      	<TD> Editor:  <%= book.getEditor() %> </TD>
                       </TR>
                       <TR>
-                      	<TD> <%= book.getEditor() %> </TD>
+                      	<TD> Price:  <%= book.getPrice() %> </TD>
                       </TR>
            </TABLE>
            <form action="addtocart" method="post">
@@ -44,14 +44,7 @@
 				<button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
 			</div>
 			</form>
-           <!-- <form action="" method="post">
-                      <input type="hidden" name="source" value="showDetails"> -->
-                      <div id="button">
-                                 <button type="submit" class="btn btn-primary btn-block">Add
-                                            to cart</button>
-                      </div>
-           <!--</form> -->
-           <% %>
+			<div> <%= book.getDescription() %> </div>
  
 </body>
 </html>

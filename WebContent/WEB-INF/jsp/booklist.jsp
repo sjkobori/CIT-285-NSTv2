@@ -35,9 +35,10 @@
 		<TR>
 			
 			<TD> (<%= booklist.get(i).getTitle() %>) </TD>
-			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() %>) </TD>
-			<TD> (<%= booklist.get(i).getAuthor().getAuthorlastname() %>) </TD>
-			<TD> (<%= booklist.get(i).getIsbn() %>) </TD>
+			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() + 
+			" " + booklist.get(i).getAuthor().getAuthorlastname()  %>) </TD>
+			<TD> (<%= booklist.get(i).getYear() %>) </TD>
+			<TD> (<%= booklist.get(i).getPrice() %>) </TD>
 			<TD>  
 				<form action="addtocart" method="post">
 					<input type="hidden" name="source" value="booklist">
