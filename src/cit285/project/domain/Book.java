@@ -84,7 +84,7 @@ public class Book {
 
 	public String toString() {
 		return "BookId: " + bookid + ", ISBN: " + isbn + ", Title: " + title + ", Editor: " + editor + ", Edition: "
-				+ edition + ", Year: " + year + ", Author: " + author;
+				+ edition + ", Year: " + year + ", Price: " + price + ", Description: " + description + ", Author: " + author;
 	}
 
 	public double getPrice() {
