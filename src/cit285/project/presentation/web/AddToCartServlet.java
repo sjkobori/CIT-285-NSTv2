@@ -62,7 +62,7 @@ public class AddToCartServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		System.out.println("inside inspect book servlet");
 		String source = request.getParameter("source");
-		if (source.equals("booklist") || source.equals("inspectBook")) {
+		if (source.equals("booklist")) {
 			// clear session data
 			ArrayList<Book> books = null;
 			int bookNumber = Integer.parseInt(request.getParameter("book"));
@@ -77,7 +77,14 @@ public class AddToCartServlet extends HttpServlet {
 			//request.setAttribute("book", books.get(bookNumber));
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}
-		else if (source.equals("inspectbook")) {
+		else if (source.equals("inspectBook")) {
+			LineItem item = new LineItem();
+			Book book = (Book) session.getAttribute("book");
+			item.setBookId(book.getBookid());
+			item.setInvoiceId((int) session.getAttribute("invoice"));
+			item.setQuantity(1);
+			// Add attribute to the session
+			invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/inspectBook.jsp").forward(request, response);
 		}
 		else {
