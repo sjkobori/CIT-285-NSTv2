@@ -59,12 +59,12 @@ public class BookDao implements Dao {
 		// get connection
 		Connection connection = getConnection();
 		// Create statement 
-		PreparedStatement statement = connection.prepareStatement("insert into book values (?,?,?,?,?,?,?)");
+		PreparedStatement statement = connection.prepareStatement("insert into book values (?,?,?,?,?,?,?,?,?,?)");
 		// assign ids to user, email, and address
 
 		book.setBookid(generateId());
-		//Author author = new Author(); FIX LATER
-		//author = book.getAuthor();
+		Author author = new Author(); //FIX LATER
+		author = book.getAuthor();
 		
 		
 		statement.setInt(1, book.getBookid());
@@ -73,7 +73,11 @@ public class BookDao implements Dao {
 		statement.setString(4, book.getEditor());
 		statement.setString(5, book.getEdition());
 		statement.setInt(6, book.getYear());
-		statement.setInt(7, 10000001);
+		statement.setDouble(7, book.getPrice());
+		statement.setString(8, book.getDescription());
+		statement.setString(9, book.getImagepath());
+		statement.setInt(10, 12345670);
+		book.setAuthor(author);
 		
 		statement.executeUpdate();
 		// check if ids are in database
