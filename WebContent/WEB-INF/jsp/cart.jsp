@@ -30,12 +30,31 @@
 			}
 			%>
 			<TD> (<%= tempbook.getTitle() %>) </TD> <!-- Title -->
-			<TD> (<%= cart.get(i).getQuantity() %>) </TD> <!-- Quantity -->
+			<TD> 
+			<form action="updatequantity" method="post" id="quantityform">
+					<input type="submit">
+					<input type="hidden" name="source" value="cart">
+					<input type="hidden" name="book" value=<%= i %>>
+					<div id="button">
+					<select form = "quantityform"> 
+  					<option value="0">0 (Delete)</option>
+  					<option value="1">1</option>
+ 	 				<option value="2">2</option>
+ 	 				<option value="3">3</option>
+ 	 				<option value="4">4</option>
+					</select>
+					</div>
+				</form>
+			
+			
+			
+			
+			<!--  (<%= cart.get(i).getQuantity() %>)--> </TD> <!-- Quantity -->
 			<TD> (<%= tempbook.getPrice() %>) </TD> <!-- Price -->
 			<TD> (<%= cart.get(i).getQuantity()*tempbook.getPrice() %>) </TD> <!-- Total -->
 			<TD>  
 				<form action="inspectbook" method="post">
-					<input type="hidden" name="source" value="booklist">
+					<input type="hidden" name="source" value="cart">
 					<input type="hidden" name="book" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Inspect Book</button>
@@ -43,8 +62,8 @@
 				</form>
 			</TD>
 			<TD>
-				<form action="addtocart" method="post">
-					<input type="hidden" name="source" value="booklist">
+				<form action="removefromcart" method="post">
+					<input type="hidden" name="source" value="cart">
 					<input type="hidden" name="book" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Remove from Cart</button>

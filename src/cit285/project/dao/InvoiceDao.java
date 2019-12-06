@@ -101,4 +101,17 @@ public class InvoiceDao implements Dao{
 		return cart;
 	}
 
+	public void removeFromCart(LineItem item) throws ClassNotFoundException, SQLException {
+
+				Connection connection = getConnection();
+				
+				// Create prepared statement to get lineItems to create cart.
+				PreparedStatement preparedStatement = connection.prepareStatement("delete from lineItem where InvoiceID=? AND BookID=?");
+				preparedStatement.setInt(1, item.getInvoiceId()); //set ? to invoiceId
+				preparedStatement.setInt(2, item.getBookId()); //set ? to invoiceId
+				
+				preparedStatement.executeUpdate();
+				
+	}
+
 }

@@ -17,7 +17,6 @@ public class InvoiceServices implements InvoiceServicesAPI {
 
 	@Override
 	public void addToCart(LineItem item) {
-		// TODO Auto-generated method stub
 		try {
 			invoiceDao.addToCart(item);
 		} catch (ClassNotFoundException e) {
@@ -32,7 +31,15 @@ public class InvoiceServices implements InvoiceServicesAPI {
 
 	@Override
 	public void removeFromCart(LineItem item) {
-		// TODO Auto-generated method stub
+		try {
+			invoiceDao.removeFromCart(item);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

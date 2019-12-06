@@ -61,7 +61,7 @@ public class CartServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
-		if (source.equals("booklist")) {
+		if (source.equals("booklist") || source.equals("cart")) {
 			// clear session data
 			//retrieve cart
 			//call cart services

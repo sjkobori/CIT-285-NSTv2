@@ -108,4 +108,24 @@
     <servlet-name>InitializeInvoiceServlet</servlet-name>
     <url-pattern>/initializeinvoice/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>removes lineItems from cart</description>
+    <display-name>RemoveFromCartServlet</display-name>
+    <servlet-name>RemoveFromCartServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.RemoveFromCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFromCartServlet</servlet-name>
+    <url-pattern>/removefromcart/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateQuantityServlet</display-name>
+    <servlet-name>UpdateQuantityServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.UpdateQuantityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateQuantityServlet</servlet-name>
+    <url-pattern>/updatequantity/*</url-pattern>
+  </servlet-mapping>
 </web-app>
