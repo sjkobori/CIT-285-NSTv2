@@ -16,6 +16,13 @@
 		</div>
 	</form>
 	<TABLE>
+		<TR> 
+			<TD>(Title)</TD>
+			<TD>(Author)</TD>
+			<TD>(Quantity)</TD>
+			<TD>(Price)</TD>
+			<TD>(Total)</TD>
+		</TR>
 	<% ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart"); %>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
 		<% for (int i = 0; i < cart.size(); i++) { %>
@@ -29,9 +36,11 @@
 				}
 			}
 			%>
+			<TD> <img src="images/book_images/default_book.png" 
+                      	alt="*Add Title Here*" width="75" height="75"/> </TD>
 			<TD> (<%= tempbook.getTitle() %>) </TD> <!-- Title -->
 			<TD> 
-			<form action="updatequantity" method="post" id="quantityform">
+			<!--<form action="updatequantity" method="post" id="quantityform">
 					<input type="submit">
 					<input type="hidden" name="source" value="cart">
 					<input type="hidden" name="book" value=<%= i %>>
@@ -44,12 +53,12 @@
  	 				<option value="4">4</option>
 					</select>
 					</div>
-				</form>
+				</form> -->
 			
 			
 			
 			
-			<!--  (<%= cart.get(i).getQuantity() %>)--> </TD> <!-- Quantity -->
+			  (<%= cart.get(i).getQuantity() %>) </TD> <!-- Quantity -->
 			<TD> (<%= tempbook.getPrice() %>) </TD> <!-- Price -->
 			<TD> (<%= cart.get(i).getQuantity()*tempbook.getPrice() %>) </TD> <!-- Total -->
 			<TD>  
