@@ -12,10 +12,10 @@
 </head>
 <body>
 	THIS IS ADMINPAGE.JSP
-	<form action="cart" method="post">
+	<form action="checkuser" method="post">
 		<input type="hidden" name="source" value="booklist">
 		<div id="button">
-			<button type="submit" class="btn btn-primary btn-block">Cart</button>
+			<button type="submit" class="btn btn-primary btn-block">Check User</button>
 		</div>
 	</form>
 	<form action="logout" method="post">
