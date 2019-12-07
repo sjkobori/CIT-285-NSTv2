@@ -5,16 +5,18 @@
 <html>
 	<head>
 	<meta charset="ISO-8859-1">
-	<title>Book Details</title>
+	<title>Update Book</title>
 	</head>
 	<body>
-        <form action="booklist" method="post">
+        <form action="RedirectServlet" method="post">
 			<input type="hidden" name="source" value="inspectBook">
 			<div id="button">
-				<button type="submit" class="btn btn-primary btn-block">Return to list</button>
+				<button type="submit" class="btn btn-primary btn-block">Return home</button>
 			</div>
 		</form>
            <hr />
+           <form action="updatebook" method="post">
+			<input type="hidden" name="source" value="updateBook">
            <TABLE>
                       <% Book book = (Book) session.getAttribute("book"); %>
                       <TR>
@@ -23,29 +25,39 @@
                       	alt="*Add Title Here*" width="250" height="250"/> </TD>
                       </TR>
                       <TR>
-                      	<TD> Author: <%= book.getAuthor().getAuthorfirstname() + 
-                    		" " + book.getAuthor().getAuthorlastname() %> </TD>
+                      	<TD>Author First Name:</TD>
+                      	<TD> <input type="text" name="authorfirstname" value=<%= book.getAuthor().getAuthorfirstname() %>> </TD>
                       </TR>
                       <TR>
-                      	<TD> Year: <%= book.getYear() %> </TD>
+                      	<TD>Author Last Name:</TD>
+                      	<TD> <input type="text" name="authorlastname" value=<%= book.getAuthor().getAuthorlastname() %>> </TD>
                       </TR>
                       <TR>
-                      	<TD> Edition: <%= book.getEdition() %> </TD>
+                      	<TD>Year:</TD>
+                      	<TD> <input type="text" name="year" value=<%= book.getYear() %>> </TD>
                       </TR>
                       <TR>
-                      	<TD> Editor:  <%= book.getEditor() %> </TD>
+                      	<TD>Edition:</TD>
+                      	<TD> <input type="text" name="edition" value="<%= book.getEdition() %>" > </TD>
                       </TR>
                       <TR>
-                      	<TD> Price:  <%= book.getPrice() %> </TD>
+                      	<TD>Editor:</TD>
+                      	<TD> <input type="text" name="editor" value="<%= book.getEditor() %>"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Price:</TD>
+                      	<TD> <input type="text" name="price" value=<%= book.getPrice() %>> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Description:</TD>
+                      	<TD> <input type="text" name="description" value="<%= book.getDescription() %>"> </TD>
                       </TR>
            </TABLE>
-           <form action="addtocart" method="post">
-			<input type="hidden" name="source" value="inspectBook">
+           
 			<div id="button">
-				<button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
+				<button type="submit" class="btn btn-primary btn-block">Update Book</button>
 			</div>
 			</form>
-			<div> <%= book.getDescription() %> </div>
  
 </body>
 </html>

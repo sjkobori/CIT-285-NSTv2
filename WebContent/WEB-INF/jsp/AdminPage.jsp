@@ -12,10 +12,10 @@
 </head>
 <body>
 	THIS IS ADMINPAGE.JSP
-	<form action="checkuser" method="post">
-		<input type="hidden" name="source" value="booklist">
+	<form action="userlist" method="post">
+		<input type="hidden" name="source" value="adminHome">
 		<div id="button">
-			<button type="submit" class="btn btn-primary btn-block">Check User</button>
+			<button type="submit" class="btn btn-primary btn-block">User List</button>
 		</div>
 	</form>
 	<form action="logout" method="post">
@@ -53,9 +53,9 @@
 					</div>
 				</form>
 			</TD>
-			<TD>  
-				<form action="updatebook" method="post">
-					<input type="hidden" name="source" value="booklist">
+			<TD>  <!-- change to updatebook for the future -->
+				<form action="inspectbook" method="post">
+					<input type="hidden" name="source" value="adminHome">
 					<input type="hidden" name="book" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Update Book</button>
