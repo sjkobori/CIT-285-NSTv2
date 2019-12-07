@@ -61,4 +61,10 @@ public class BookServices implements BookServicesAPI {
 		
 	}
 
+	@Override
+	public void deleteBook(int bookId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

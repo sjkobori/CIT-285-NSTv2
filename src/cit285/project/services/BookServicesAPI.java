@@ -11,4 +11,6 @@ public interface BookServicesAPI {
 	
 	public void addBook(Book book);
 	public void addAuthor(Author author);
+	
+	public void deleteBook(int bookId);
 }
