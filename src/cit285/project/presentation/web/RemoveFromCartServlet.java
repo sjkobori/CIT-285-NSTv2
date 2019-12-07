@@ -61,8 +61,8 @@ public class RemoveFromCartServlet extends HttpServlet {
 		// redirect/cart
 
 		HttpSession session = request.getSession();
-		System.out.println("inside remove from cart servlet");
 		String source = request.getParameter("source");
+		
 		if (source.equals("cart")) {
 			// clear session data
 			ArrayList<LineItem> cart = null;
@@ -73,10 +73,12 @@ public class RemoveFromCartServlet extends HttpServlet {
 			LineItem item = new LineItem();
 			item = cart.get(cartNumber);
 			
-			// Add attribute to the session
+			//if this is successful (add a boolean for the future)
 			invoiceServices.removeFromCart(item); // send lineItem info to cart (contains invoice id and bookid)
-			// request.setAttribute("book", books.get(bookNumber));
-			getServletContext().getRequestDispatcher("/cart").forward(request, response);
+			//when lineItem is deleted, remove it from the array list
+			cart.remove(cartNumber);
+			session.setAttribute("cart", cart);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
 
 		} else { // invalid source
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);

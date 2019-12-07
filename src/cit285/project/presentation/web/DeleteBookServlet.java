@@ -1,6 +1,7 @@
 package cit285.project.presentation.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,21 +60,21 @@ public class DeleteBookServlet extends HttpServlet {
 				String source = request.getParameter("source");
 				
 				if (source.equals("adminHome")){
+					ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
+					int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
 					
-					int bookId = Integer.parseInt(request.getParameter("bookId"));
-					System.out.println("Adding Book, maybe...");
-					
-					bookServices.deleteBook(bookId);
+					//if this is successful (add a boolean for the future)
+					bookServices.deleteBook(booklist.get(bookNumber).getBookid());
 					
 					// make sure book is now deleted
 					//in admin page (when book is deleted, remove it from the array list)
-					
-					getServletContext().getRequestDispatcher("/booklist").forward(request, response);
+					booklist.remove(bookNumber);
+					session.setAttribute("books", booklist);
+					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
 				}			
 				else{
 					session.setAttribute("Error","Unknown source!");
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 				}
 	}
-
 }

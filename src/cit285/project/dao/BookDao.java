@@ -139,6 +139,7 @@ public class BookDao implements Dao {
 		preparedStatement = connection.prepareStatement("DELETE from book where bookId=?");
 		//delete from book where bookId=?
 		//set ? to bookId (maybe?)
+		preparedStatement.setInt(1, bookId);
 		//execute update
 		preparedStatement.executeUpdate();
 		

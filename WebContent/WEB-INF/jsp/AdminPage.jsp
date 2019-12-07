@@ -24,38 +24,41 @@
 			<button type="submit" class="btn btn-primary btn-block">Logout</button>
 		</div>
 	</form>
+	<form action="RedirectServlet" method="post">
+		<input type="hidden" name="source" value="adminHome">
+		<div id="button">
+			<button type="submit" class="btn btn-primary btn-block">Add Book</button>
+		</div>
+	</form>
 	<hr />
 
 	<!-- Display Books -->
-	<form action="BookServlet" method="post">
-		<input type="hidden" name="source" value="login">
-	</form>
 	<TABLE>
 	
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
 		<% for (int i = 0; i < booklist.size(); i++) { %>
 		<TR>
-			
+			<TD> (<%= booklist.get(i).getBookid() %>) </TD>
 			<TD> (<%= booklist.get(i).getTitle() %>) </TD>
 			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() + 
 			" " + booklist.get(i).getAuthor().getAuthorlastname()  %>) </TD>
 			<TD> (<%= booklist.get(i).getYear() %>) </TD>
 			<TD> (<%= booklist.get(i).getPrice() %>) </TD>
 			<TD>  
-				<form action="addtocart" method="post">
-					<input type="hidden" name="source" value="booklist">
-					<input type="hidden" name="book" value=<%= i %>>
+				<form action="deletebook" method="post">
+					<input type="hidden" name="source" value="adminHome">
+					<input type="hidden" name="bookNumber" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Remove</button>
 					</div>
 				</form>
 			</TD>
 			<TD>  
-				<form action="inspectbook" method="post">
+				<form action="updatebook" method="post">
 					<input type="hidden" name="source" value="booklist">
 					<input type="hidden" name="book" value=<%= i %>>
 					<div id="button">
-						<button type="submit" class="btn btn-primary btn-block">Inspect Book</button>
+						<button type="submit" class="btn btn-primary btn-block">Update Book</button>
 					</div>
 				</form>
 			</TD>
