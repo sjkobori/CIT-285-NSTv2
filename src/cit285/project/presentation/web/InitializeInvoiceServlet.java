@@ -67,14 +67,14 @@ public class InitializeInvoiceServlet extends HttpServlet {
 			session.setAttribute("invoice", 
 					invoiceServices.initializeInvoice(request.getParameter("username")));
 			System.out.println(session.getAttribute("invoice"));
-			System.out.println("Looking good!");
-			// clear session data
+			// clear session data (move to logout)
 			//getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 			request.getRequestDispatcher("/booklist").forward(request, response);
 		}
 		
 		else { //go to error page
-			System.out.println("ELSE");
+			session.setAttribute("Error","Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 		
 		

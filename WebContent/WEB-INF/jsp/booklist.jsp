@@ -25,9 +25,6 @@
 	<hr />
 
 	<!-- Display Books -->
-	<form action="BookServlet" method="post">
-		<input type="hidden" name="source" value="login">
-	</form>
 	<TABLE>
 	
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>

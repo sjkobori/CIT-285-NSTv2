@@ -13,14 +13,13 @@ public class LoginDao implements Dao {
 		int status = 0;
 		// boolean admin =false;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connection = getConnection();
-			Statement st = connection.createStatement();
-			ResultSet rs = st.executeQuery("select * from user");
-			while (rs.next()) {
-				if (rs.getString("Username").equals(loginBean.getUsername())
-						&& rs.getString("Password").equals(loginBean.getPassword())) {
-					boolean isAdmin = rs.getBoolean("isAdmin");
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from user");
+			while (resultSet.next()) {
+				if (resultSet.getString("Username").equals(loginBean.getUsername())
+						&& resultSet.getString("Password").equals(loginBean.getPassword())) {
+					boolean isAdmin = resultSet.getBoolean("isAdmin");
 					if (isAdmin) {
 						status = 2;
 						break;
