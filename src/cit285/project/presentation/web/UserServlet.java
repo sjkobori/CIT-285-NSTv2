@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
+import cit285.project.domain.User;
 import cit285.project.services.UserServicesAPI;
 
 /**
@@ -60,17 +61,26 @@ public class UserServlet extends HttpServlet {
 		String source = request.getParameter("source");
 		
 		if (source.equals("welcome")){
-			ArrayList<String> users = null;
 			
-			users = userServices.getUsers();
+			
 			
 			// Add attribute to the session
-			session.setAttribute("users",users);
+			
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/welcome.jsp").forward(request, response);
 		}
+		else if (source.equals("adminbooklist")) {
+
+			ArrayList<User> users = null;
+			users = userServices.getUsers();
+			session.setAttribute("users",users);
+			System.out.println("Going to User List");
+			request.getRequestDispatcher("/WEB-INF/jsp/UserList.jsp").forward(request, response);
+			
+		}
 		else{
 			session.setAttribute("Error","Unknown source!");
+			System.out.println("UserServlet");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 	}

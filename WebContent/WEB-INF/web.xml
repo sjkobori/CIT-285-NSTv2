@@ -14,6 +14,10 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/users/*</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/userlist/*</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description>SignUp Servlet</description>
     <display-name>SignUpServlet</display-name>

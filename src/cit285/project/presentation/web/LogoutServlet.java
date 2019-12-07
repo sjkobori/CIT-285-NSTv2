@@ -54,7 +54,7 @@ public class LogoutServlet extends HttpServlet {
 		if (source.equals("booklist")) {
 			//clear session data
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-		} else if (source.equals("login")) {
+		} else if (source.equals("login") || source.equals("userlist")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else {
 			System.out.println("ELSE");
