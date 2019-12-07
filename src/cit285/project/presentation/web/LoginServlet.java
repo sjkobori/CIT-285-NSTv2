@@ -36,9 +36,12 @@ public class LoginServlet extends HttpServlet {
 		int loginStatus = 0;
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-
-		loginStatus = loginServices.loginUser(username, password);
+		String source = request.getParameter("source");
 		HttpSession session = request.getSession();
+		
+		if (source.equals("login")) {
+		
+		loginStatus = loginServices.loginUser(username, password);
 		if (loginStatus == 1) { //user login
 			System.out.println("User logged in...");
 			session.setAttribute("username", username);
@@ -56,6 +59,10 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("Failed log in...");
 			session.setAttribute("username", username);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+		}
+		} else {
+			session.setAttribute("Error","Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 
 	}

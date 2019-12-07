@@ -78,7 +78,8 @@ public class CartServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}
 		else {
-			System.out.println("ELSE");
+			session.setAttribute("Error","Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 	}
 

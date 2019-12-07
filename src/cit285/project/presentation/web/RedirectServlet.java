@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class SignUpServlet
@@ -44,12 +45,14 @@ public class RedirectServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String source = request.getParameter("source");
+		HttpSession session = request.getSession();
 		if (source.equals("SignUp")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/SignUp.jsp").forward(request, response);
 		} else if (source.equals("login")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else {
-			System.out.println("ELSE");
+			session.setAttribute("Error","Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 	}
 
