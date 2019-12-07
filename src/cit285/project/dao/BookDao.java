@@ -145,4 +145,32 @@ public class BookDao implements Dao {
 		
 	}
 
+	public void updateBook(Book book) throws ClassNotFoundException, SQLException {
+		// get connection
+				Connection connection = getConnection();
+				// Create statement 
+				PreparedStatement statement = connection.prepareStatement(
+						"UPDATE book SET Title=?, Editor=?, Edition=?, Year=?, Price=?, "
+						+ "Description=?, Imagepath=?, AuthorId=? where BookId=?");
+
+				Author author = new Author(); //FIX LATER
+				author = book.getAuthor();
+				
+				
+				//statement.setString(2, book.getIsbn());// doesnt change
+				statement.setString(1, book.getTitle());
+				statement.setString(2, book.getEditor());
+				statement.setString(3, book.getEdition());
+				statement.setInt(4, book.getYear());
+				statement.setDouble(5, book.getPrice());
+				statement.setString(6, book.getDescription());
+				statement.setString(7, book.getImagepath());
+				statement.setInt(8, author.getAuthorid());
+				statement.setInt(9, book.getBookid());
+				
+				statement.executeUpdate();
+				// check if ids are in database
+				// add user, email, and address to database
+	}
+
 }

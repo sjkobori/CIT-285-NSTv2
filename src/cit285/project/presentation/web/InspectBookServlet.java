@@ -76,7 +76,9 @@ public class InspectBookServlet extends HttpServlet {
 			// }
 			// Add attribute to the session
 			// System.out.println(book);
-			session.setAttribute("book", books.get(Integer.parseInt(request.getParameter("book"))));
+			//FIX FIX FIX
+			session.setAttribute("bookNumber", Integer.parseInt(request.getParameter("bookNumber")));
+			session.setAttribute("book", books.get(Integer.parseInt(request.getParameter("bookNumber"))));
 			if (source.equals("adminHome")) {
 				getServletContext().getRequestDispatcher("/WEB-INF/jsp/updateBook.jsp").forward(request, response);
 			} else {

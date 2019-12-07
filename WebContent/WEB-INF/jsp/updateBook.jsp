@@ -25,12 +25,25 @@
                       	alt="*Add Title Here*" width="250" height="250"/> </TD>
                       </TR>
                       <TR>
+                      	<TD>BookID:</TD>
+                      	<TD> <%= book.getBookid() %><input type="hidden" name="bookid" value="<%= book.getBookid() %>"></TD>                 	
+                      </TR>
+                      <TR>
+                      	<TD>Title:</TD>
+                      	<TD> <input type="text" name="title" value="<%= book.getTitle() %>"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>ISBN:</TD>
+                      	<TD> <input type="text" name="isbn" value="<%= book.getIsbn() %>"> </TD>
+                      </TR>
+                      <TR>
+                      <!-- Make drop down menu for selecting -->
                       	<TD>Author First Name:</TD>
-                      	<TD> <input type="text" name="authorfirstname" value=<%= book.getAuthor().getAuthorfirstname() %>> </TD>
+                      	<TD> <input type="text" name="authorfirstname" value="<%= book.getAuthor().getAuthorfirstname() %>"> </TD>
                       </TR>
                       <TR>
                       	<TD>Author Last Name:</TD>
-                      	<TD> <input type="text" name="authorlastname" value=<%= book.getAuthor().getAuthorlastname() %>> </TD>
+                      	<TD> <input type="text" name="authorlastname" value="<%= book.getAuthor().getAuthorlastname() %>"> </TD>
                       </TR>
                       <TR>
                       	<TD>Year:</TD>
@@ -46,11 +59,15 @@
                       </TR>
                       <TR>
                       	<TD>Price:</TD>
-                      	<TD> <input type="text" name="price" value=<%= book.getPrice() %>> </TD>
+                      	<TD> <input type="text" name="price" value="<%= book.getPrice() %>"> </TD>
                       </TR>
                       <TR>
                       	<TD>Description:</TD>
                       	<TD> <input type="text" name="description" value="<%= book.getDescription() %>"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Imagepath:</TD>
+                      	<TD> <input type="text" name="imagepth" value="<%= book.getImagepath() %>"> </TD>
                       </TR>
            </TABLE>
            

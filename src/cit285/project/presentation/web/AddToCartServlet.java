@@ -65,7 +65,7 @@ public class AddToCartServlet extends HttpServlet {
 		if (source.equals("booklist")) {
 			// clear session data
 			ArrayList<Book> books = null;
-			int bookNumber = Integer.parseInt(request.getParameter("book"));
+			int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
 			books = (ArrayList<Book>) session.getAttribute("books");
 			
 			LineItem item = new LineItem();

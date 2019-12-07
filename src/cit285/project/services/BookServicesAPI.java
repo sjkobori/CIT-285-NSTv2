@@ -13,4 +13,5 @@ public interface BookServicesAPI {
 	public void addAuthor(Author author);
 	
 	public void deleteBook(int bookId);
+	public boolean updateBook(Book book);
 }

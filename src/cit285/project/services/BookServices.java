@@ -69,4 +69,15 @@ public class BookServices implements BookServicesAPI {
 		}
 	}
 
+	@Override
+	public boolean updateBook(Book book) {
+		try {
+			bookDao.updateBook(book);
+		} catch (SQLException | ClassNotFoundException e) {
+			System.out.println(e.toString());
+			return false;
+		}
+		return true;
+	}
+
 }

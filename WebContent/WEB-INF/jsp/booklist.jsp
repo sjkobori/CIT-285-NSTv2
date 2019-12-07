@@ -39,7 +39,7 @@
 			<TD>  
 				<form action="addtocart" method="post">
 					<input type="hidden" name="source" value="booklist">
-					<input type="hidden" name="book" value=<%= i %>>
+					<input type="hidden" name="bookNumber" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Add to Cart</button>
 					</div>
@@ -48,7 +48,7 @@
 			<TD>  
 				<form action="inspectbook" method="post">
 					<input type="hidden" name="source" value="booklist">
-					<input type="hidden" name="book" value=<%= i %>>
+					<input type="hidden" name="bookNumber" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Inspect Book</button>
 					</div>

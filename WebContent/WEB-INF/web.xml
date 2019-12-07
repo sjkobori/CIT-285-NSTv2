@@ -152,4 +152,14 @@
     <servlet-name>DeleteBookServlet</servlet-name>
     <url-pattern>/deletebook/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>updates book data</description>
+    <display-name>UpdateBookServlet</display-name>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.UpdateBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <url-pattern>/updatebook</url-pattern>
+  </servlet-mapping>
 </web-app>

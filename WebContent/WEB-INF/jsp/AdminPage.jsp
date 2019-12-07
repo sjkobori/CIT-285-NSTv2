@@ -56,7 +56,7 @@
 			<TD>  <!-- change to updatebook for the future -->
 				<form action="inspectbook" method="post">
 					<input type="hidden" name="source" value="adminHome">
-					<input type="hidden" name="book" value=<%= i %>>
+					<input type="hidden" name="bookNumber" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Update Book</button>
 					</div>

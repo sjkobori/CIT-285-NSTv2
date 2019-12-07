@@ -69,7 +69,7 @@ public class UserServlet extends HttpServlet {
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/welcome.jsp").forward(request, response);
 		}
-		else if (source.equals("adminbooklist")) {
+		else if (source.equals("adminHome")) {
 
 			ArrayList<User> users = null;
 			users = userServices.getUsers();
