@@ -108,7 +108,17 @@
     <servlet-name>InitializeInvoiceServlet</servlet-name>
     <url-pattern>/initializeinvoice/*</url-pattern>
   </servlet-mapping>
-  <servlet>
+   <servlet>
+    <description>Admin Page Servlet</description>
+    <display-name>AdminPageServlet</display-name>
+    <servlet-name>AdminPageServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.AdminPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminPageServlet</servlet-name>
+    <url-pattern>/AdminPage/*</url-pattern>
+  </servlet-mapping>
+    <servlet>
     <description>removes lineItems from cart</description>
     <display-name>RemoveFromCartServlet</display-name>
     <servlet-name>RemoveFromCartServlet</servlet-name>
