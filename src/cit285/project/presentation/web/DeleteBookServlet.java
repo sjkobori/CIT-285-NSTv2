@@ -17,7 +17,7 @@ import cit285.project.services.BookServicesAPI;
 /**
  * Servlet implementation class SignUpServlet
  */
-@WebServlet("/AddBookServlet")
+@WebServlet("/DeleteBookServlet")
 public class DeleteBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BookServicesAPI bookServices;
