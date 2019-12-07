@@ -64,7 +64,7 @@
 			<TD>  
 				<form action="inspectbook" method="post">
 					<input type="hidden" name="source" value="cart">
-					<input type="hidden" name="book" value=<%= i %>>
+					<input type="hidden" name="bookNumber" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Inspect Book</button>
 					</div>

@@ -10,7 +10,9 @@ public interface InvoiceServicesAPI {
 	
 	public void addToCart(LineItem item);
 	
-	public void removeFromCart(LineItem item);
+	public void removeFromCart(LineItem item); //change to work with just id
+	
+	public boolean updateQuantity(int lineItemId); //maybe can just send the lineItemId
 	
 	public ArrayList<LineItem> getCart(int invoiceId);
 	

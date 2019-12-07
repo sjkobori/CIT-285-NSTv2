@@ -72,7 +72,7 @@ public class RemoveFromCartServlet extends HttpServlet {
 			System.out.println(cartNumber);
 			LineItem item = new LineItem();
 			item = cart.get(cartNumber);
-
+			//System.out.println(item.getLineItemId() + "Remove line item's id"); //check if null
 			// if this is successful (add a boolean for the future)
 			invoiceServices.removeFromCart(item); // send lineItem info to cart (contains invoice id and bookid)
 			// when lineItem is deleted, remove it from the array list

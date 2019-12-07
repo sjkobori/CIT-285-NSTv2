@@ -71,7 +71,7 @@ public class AddToCartServlet extends HttpServlet {
 			LineItem item = new LineItem();
 			item.setBookId(books.get(bookNumber).getBookid());
 			item.setInvoiceId((int) session.getAttribute("invoice"));
-			item.setQuantity(2);
+			
 			// Add attribute to the session
 			invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
 			//request.setAttribute("book", books.get(bookNumber));
@@ -82,7 +82,7 @@ public class AddToCartServlet extends HttpServlet {
 			Book book = (Book) session.getAttribute("book");
 			item.setBookId(book.getBookid());
 			item.setInvoiceId((int) session.getAttribute("invoice"));
-			item.setQuantity(1);
+			
 			// Add attribute to the session
 			invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/inspectBook.jsp").forward(request, response);

@@ -66,7 +66,7 @@ public class InspectBookServlet extends HttpServlet {
 		// int userId = session.getAttribute(arg0)
 		String source = request.getParameter("source");
 		System.out.println("inside inspect book servlet");
-		if (source.equals("booklist") || source.equals("adminHome")) {
+		if (source.equals("booklist") || source.equals("cart") || source.equals("adminHome")) {
 			ArrayList<Book> books = null;
 			// Book book = null;
 			// try {
