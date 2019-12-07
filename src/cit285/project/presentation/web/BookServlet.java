@@ -64,7 +64,7 @@ public class BookServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
 
-		if (source.equals("login")) {
+		if (source.equals("login") || source.equals("adminHome")) {
 			ArrayList<Book> books = null;
 			System.out.println("in book servlet");
 			books = bookServices.getBooks();

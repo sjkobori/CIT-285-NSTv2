@@ -125,4 +125,23 @@ public class BookDao implements Dao {
 		// add user, email, and address to database
 	}
 
+	public void deleteBook(int bookId) throws ClassNotFoundException, SQLException {
+		//get connection
+		Connection connection = getConnection();
+		//prepare statement (needs to delete from lineItem first since it is a foreign key for book)
+		PreparedStatement preparedStatement = connection.prepareStatement("DELETE from lineItem where bookId=?");
+		//set ? to bookId
+		preparedStatement.setInt(1, bookId);
+		//execute update
+		preparedStatement.executeUpdate();
+		
+		//prepare another statement
+		preparedStatement = connection.prepareStatement("DELETE from book where bookId=?");
+		//delete from book where bookId=?
+		//set ? to bookId (maybe?)
+		//execute update
+		preparedStatement.executeUpdate();
+		
+	}
+
 }

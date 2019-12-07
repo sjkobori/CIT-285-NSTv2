@@ -108,7 +108,7 @@
     <servlet-name>InitializeInvoiceServlet</servlet-name>
     <url-pattern>/initializeinvoice/*</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description>Admin Page Servlet</description>
     <display-name>AdminPageServlet</display-name>
     <servlet-name>AdminPageServlet</servlet-name>
@@ -118,7 +118,7 @@
     <servlet-name>AdminPageServlet</servlet-name>
     <url-pattern>/AdminPage/*</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description>removes lineItems from cart</description>
     <display-name>RemoveFromCartServlet</display-name>
     <servlet-name>RemoveFromCartServlet</servlet-name>
@@ -137,5 +137,15 @@
   <servlet-mapping>
     <servlet-name>UpdateQuantityServlet</servlet-name>
     <url-pattern>/updatequantity/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>deletes book and corresponding lineItems</description>
+    <display-name>DeleteBookServlet</display-name>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.DeleteBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <url-pattern>/deletebook/*</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -17,7 +17,6 @@ public class BookServices implements BookServicesAPI {
 	@Override
 	public ArrayList<Book> getBooks() {
 		ArrayList<Book> bookList = null;
-		// ArrayList<String> students = new ArrayList<>();
 		try {
 			bookList = bookDao.getBooks();
 		} catch (SQLException | ClassNotFoundException e) {
@@ -63,8 +62,11 @@ public class BookServices implements BookServicesAPI {
 
 	@Override
 	public void deleteBook(int bookId) {
-		// TODO Auto-generated method stub
-		
+		try {
+			bookDao.deleteBook(bookId);
+		} catch (SQLException | ClassNotFoundException e) {
+			System.out.println(e.toString());
+		}
 	}
 
 }
