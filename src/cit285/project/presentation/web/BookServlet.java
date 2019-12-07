@@ -66,13 +66,18 @@ public class BookServlet extends HttpServlet {
 
 		if (source.equals("login")) {
 			ArrayList<Book> books = null;
-
+			System.out.println("in book servlet");
 			books = bookServices.getBooks();
 
 			// Add attribute to the session
 			session.setAttribute("books", books);
-
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
+			if(!(boolean) session.getAttribute("admin")) {
+				getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
+			} else {
+				System.out.println("Going to Admin page");
+				getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
+			}
+			
 		} else if (source.equals("inspectBook") || source.equals("cart")) {
 			// Add attribute to the session
 			// session.setAttribute("books", books);

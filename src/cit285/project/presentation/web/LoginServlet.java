@@ -42,6 +42,8 @@ public class LoginServlet extends HttpServlet {
 		if (source.equals("login")) {
 		
 		loginStatus = loginServices.loginUser(username, password);
+
+		session.setAttribute("admin", false);
 		if (loginStatus == 1) { //user login
 			System.out.println("User logged in...");
 			session.setAttribute("username", username);
@@ -53,8 +55,9 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("Admin logged in...");
 			//go to admin page
 			session.setAttribute("username", username);
+			session.setAttribute("admin", true);
 			//getServletContext().getRequestDispatcher("adminhome").forward(request, response);
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/booklist").forward(request, response);
 		} else { //not successful login
 			System.out.println("Failed log in...");
 			session.setAttribute("username", username);
