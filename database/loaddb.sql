@@ -13,13 +13,16 @@ insert into User (UserID, Username, Password, FirstName, LastName, Companyname, 
 -- Insert data into Author table.
 --
 insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
-            values (12345670,"Lori","Messier");
+            values (12345670,"Samual","Simpson");
             
 insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
-            values (12345671,"John","Smith");
+            values (12345671,"Sophia","Tyranus");
             
 insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
-            values (12345672,"Amy","Bono");
+            values (12345672,"Saffron","Lin");
+            
+insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
+            values (12345673,"Deacon","Dugtrio");
             
 -- Insert data into Book table.
 --
