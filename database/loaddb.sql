@@ -1,12 +1,15 @@
 -- insert into User 
 insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
-            values (11111111,"sbrannsinger","1234", "Sebastian", "Brann-Singer", "MemerINC", TRUE);
+            values (10000001,"sbrannsinger","1234", "Sebastian", "Brann-Singer", "MemerINC", TRUE);
             
 insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
-            values (11111112,"tdao","1234", "Tung", "Dao", "Unemployed", TRUE);
+            values (10000002,"tdao","1234", "Tung", "Dao", "Unemployed", TRUE);
+            
+ insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
+            values (10000003,"nadir","1234", "Nadir", "Sad", "Google", TRUE);
 
 insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
-            values (11111113,"testUser","1234", "John", "Lennon", "BHCC", FALSE);
+            values (10000004,"testUser","1234", "John", "Lennon", "BHCC", FALSE);
 -- Insert data into Author table.
 --
 insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
