@@ -61,7 +61,11 @@ public class RedirectServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		} else if (source.equals("adminHome")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
-		} else {
+		} else if (source.equals("updateBook")) {
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
+
+		}
+		else {
 			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}

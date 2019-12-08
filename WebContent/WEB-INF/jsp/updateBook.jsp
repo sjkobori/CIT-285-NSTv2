@@ -9,7 +9,7 @@
 	</head>
 	<body>
         <form action="redirect" method="post">
-			<input type="hidden" name="source" value="inspectBook">
+			<input type="hidden" name="source" value="updateBook">
 			<div id="button">
 				<button type="submit" class="btn btn-primary btn-block">Return home</button>
 			</div>
