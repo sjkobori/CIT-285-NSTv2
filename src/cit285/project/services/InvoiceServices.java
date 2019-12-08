@@ -76,5 +76,25 @@ public class InvoiceServices implements InvoiceServicesAPI {
 		}
 		return null; //make proper error handling
 	}
-	
+
+
+
+	@Override
+	public boolean finalizeInvoice(int invoiceId, double totalAmount) {
+		try {
+			return invoiceDao.finalizeInvoice(invoiceId, totalAmount);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+
+
+	@Override
+	public boolean updateQuantity(int lineItemId) {
+		return false;
+	}
 }

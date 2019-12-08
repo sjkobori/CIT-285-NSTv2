@@ -1,6 +1,7 @@
 package cit285.project.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -126,6 +127,25 @@ public class InvoiceDao implements Dao {
 
 		preparedStatement.executeUpdate();
 
+	}
+
+	public boolean finalizeInvoice(int invoiceId, double totalAmount) throws ClassNotFoundException, SQLException {
+		
+		//get connection
+		Connection connection = getConnection();
+		//prepare statement
+		PreparedStatement statement = connection.prepareStatement(
+				"UPDATE invoice SET date=?, totalAmount=? where invoiceId=?");
+		//UPDATE invoice SET date=?, totalAmount=? where invoiceId=?
+		statement.setDate(1, new java.sql.Date(new java.util.Date().getTime())); //hopefully this works
+		statement.setDouble(2, totalAmount); //sets total
+		statement.setInt(3, invoiceId); //update the invoice that matches
+		//set ? new java.sql.Date(), ? totalAmount, ? invoiceId
+		
+		if (statement.executeUpdate() == 1) {
+			return true;
+		}
+		return false;		
 	}
 
 }

@@ -82,7 +82,13 @@
 			
 		</TR>
 		<% } %>
+		
 	</TABLE>
-	
+	<form action="finalizeinvoice" method="post">
+		<input type="hidden" name="source" value="cart">
+		<div id="button">
+			<button type="submit" class="btn btn-primary btn-block">Buy Now!</button>
+		</div>
+	</form>
 </body>
 </html>
