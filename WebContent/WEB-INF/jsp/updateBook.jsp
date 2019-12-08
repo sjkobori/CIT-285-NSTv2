@@ -8,7 +8,7 @@
 	<title>Update Book</title>
 	</head>
 	<body>
-        <form action="RedirectServlet" method="post">
+        <form action="redirect" method="post">
 			<input type="hidden" name="source" value="inspectBook">
 			<div id="button">
 				<button type="submit" class="btn btn-primary btn-block">Return home</button>
