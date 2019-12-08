@@ -76,7 +76,7 @@ create table Invoice(InvoiceID BIGINT NOT NULL,
 				  UserID BIGINT NOT NULL,
 				  InvoiceDate DATE,
 				  TotalAmount INT,
-				  IsProcessed BOOLEAN,
+				  IsProcessed BOOLEAN NOT NULL,
 				  
                   PRIMARY KEY (InvoiceID),
 				  FOREIGN KEY(UserID) REFERENCES User(UserID));

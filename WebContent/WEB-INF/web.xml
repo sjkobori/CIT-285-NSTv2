@@ -162,4 +162,14 @@
     <servlet-name>UpdateBookServlet</servlet-name>
     <url-pattern>/updatebook</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>completes order</description>
+    <display-name>FinalizeInvoiceServlet</display-name>
+    <servlet-name>FinalizeInvoiceServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.FinalizeInvoiceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FinalizeInvoiceServlet</servlet-name>
+    <url-pattern>/finalizeinvoice/*</url-pattern>
+  </servlet-mapping>
 </web-app>

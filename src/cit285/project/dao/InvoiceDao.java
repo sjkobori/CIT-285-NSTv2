@@ -83,10 +83,10 @@ public class InvoiceDao implements Dao {
 		// add to invoice table with userID and null date
 		// insert into invoice (invoiceId, userId) values (?, ?);
 		invoiceId = generateId();
-		statement = connection.prepareStatement("insert  into invoice (invoiceId, userId) values (?, ?)");
+		statement = connection.prepareStatement("insert into invoice (invoiceId, userId, IsProcessed) values (?, ?, ?)");
 		statement.setInt(1, invoiceId); // makes ? invoiceId
 		statement.setInt(2, userId); // makes ? userId
-
+		statement.setBoolean(3, false);
 		statement.executeUpdate(); // stores new id
 		return invoiceId;
 	}
@@ -135,7 +135,7 @@ public class InvoiceDao implements Dao {
 		Connection connection = getConnection();
 		//prepare statement
 		PreparedStatement statement = connection.prepareStatement(
-				"UPDATE invoice SET date=?, totalAmount=? where invoiceId=?");
+				"UPDATE invoice SET InvoiceDate=?, totalAmount=? where invoiceId=?");
 		//UPDATE invoice SET date=?, totalAmount=? where invoiceId=?
 		statement.setDate(1, new java.sql.Date(new java.util.Date().getTime())); //hopefully this works
 		statement.setDouble(2, totalAmount); //sets total

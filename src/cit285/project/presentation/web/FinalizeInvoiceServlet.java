@@ -1,6 +1,8 @@
 package cit285.project.presentation.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
+import cit285.project.domain.LineItem;
 import cit285.project.services.InvoiceServices;
 import cit285.project.services.InvoiceServicesAPI;
 import cit285.project.services.LoginServices;
@@ -18,16 +21,15 @@ import cit285.project.services.LoginServicesAPI;
 /**
  * Servlet implementation class InitializeInvoiceServlet
  */
-@WebServlet("/initializeinvoice")
-public class InitializeInvoiceServlet extends HttpServlet {
+@WebServlet("/finalizeinvoiceservlet")
+public class FinalizeInvoiceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private InvoiceServicesAPI invoiceServices;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InitializeInvoiceServlet() {
+    public FinalizeInvoiceServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -61,19 +63,21 @@ public class InitializeInvoiceServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
-		if (source.equals("login") || source.equals("cart")) {
-			//if (session.getAttribute(""))
-			
-			session.setAttribute("invoice", 
-					invoiceServices.initializeInvoice(request.getParameter("username")));
+		if (source.equals("cart")) {
+
 			System.out.println(session.getAttribute("invoice"));
-			// clear session data (move to logout)
-			
-			if (source.equals("login")) {
-				request.getRequestDispatcher("/booklist").forward(request, response);
-			} else { //if in cart, refresh page
+			//if it successfully makes an invoice
+			if(invoiceServices.finalizeInvoice((int)session.getAttribute("invoice"), Double.parseDouble(request.getParameter("cartTotal")))) {
+				session.setAttribute("cart", new ArrayList<LineItem>());
+				// make new cart
+				request.getRequestDispatcher("/initializeinvoice").forward(request, response);
+			} else {
+				// clear session data (move to logout)
 				request.getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
 			}
+			
+			
+			//request.getRequestDispatcher("/").forward(request, response);
 		}
 		
 		else { //go to error page

@@ -25,7 +25,9 @@
 		</TR>
 	<% ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart"); %>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
+	<% double itemTotal = 0, grandTotal = 0; %>
 		<% for (int i = 0; i < cart.size(); i++) { %>
+		
 		<TR>
 			<!-- Title -->
 			<% Book tempbook = null;
@@ -36,6 +38,7 @@
 				}
 			}
 			%>
+			<% itemTotal = cart.get(i).getQuantity()*tempbook.getPrice(); %>
 			<TD> <img src="images/book_images/default_book.png" 
                       	alt="*Add Title Here*" width="75" height="75"/> </TD>
 			<TD> (<%= tempbook.getTitle() %>) </TD> <!-- Title -->
@@ -60,8 +63,10 @@
 			
 			  (<%= cart.get(i).getQuantity() %>) </TD> <!-- Quantity -->
 			<TD> (<%= tempbook.getPrice() %>) </TD> <!-- Price -->
-			<TD> (<%= cart.get(i).getQuantity()*tempbook.getPrice() %>) </TD> <!-- Total -->
+			<TD> (<%= itemTotal %>) </TD> <!-- Total -->
+			
 			<TD>  
+			<% grandTotal += itemTotal; %>
 				<form action="inspectbook" method="post">
 					<input type="hidden" name="source" value="cart">
 					<input type="hidden" name="bookNumber" value=<%= i %>>
@@ -74,6 +79,7 @@
 				<form action="removefromcart" method="post">
 					<input type="hidden" name="source" value="cart">
 					<input type="hidden" name="book" value=<%= i %>>
+					<input type="hidden" name="total" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Remove from Cart</button>
 					</div>
@@ -82,10 +88,17 @@
 			
 		</TR>
 		<% } %>
-		
+		<TR> 
+			<TD></TD>
+			<TD></TD>
+			<TD></TD>
+			<TD>Grand Total:</TD>
+			<TD>(<%= grandTotal %>)</TD>
+		</TR>
 	</TABLE>
 	<form action="finalizeinvoice" method="post">
 		<input type="hidden" name="source" value="cart">
+		<input type="hidden" name="cartTotal" value="<%= grandTotal %>">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Buy Now!</button>
 		</div>
