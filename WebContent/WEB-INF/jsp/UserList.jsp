@@ -10,7 +10,7 @@
 <title>List of users</title>
 </head>
 <body>
-		<form action="backToBooklist" method="post">
+		<form action="redirect" method="post">
 		<input type="hidden" name="source" value="userlist">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Back To Book List</button>

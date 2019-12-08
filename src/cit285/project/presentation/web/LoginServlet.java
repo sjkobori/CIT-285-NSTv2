@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("username", username);
 			session.setAttribute("admin", true);
 			//getServletContext().getRequestDispatcher("adminhome").forward(request, response);
-			getServletContext().getRequestDispatcher("/booklist").forward(request, response);
+			getServletContext().getRequestDispatcher("/getbooks").forward(request, response);
 		} else { //not successful login
 			System.out.println("Failed log in...");
 			session.setAttribute("username", username);

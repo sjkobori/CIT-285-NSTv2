@@ -46,17 +46,26 @@ public class RedirectServlet extends HttpServlet {
 
 		String source = request.getParameter("source");
 		HttpSession session = request.getSession();
+		
+		
 		if (source.equals("SignUp")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/SignUp.jsp").forward(request, response);
-		} else if (source.equals("login")) {
+		}
+		
+		// user redirect
+		if (!(boolean) session.getAttribute("admin")) { // if user is logged in
+
+		}
+
+		// admin redirect
+		 else if (source.equals("login")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else if (source.equals("cart")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
-		}
-		else if (source.equals("adminHome")) {
+		} else if (source.equals("adminHome")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
-		}else {
-			session.setAttribute("Error","Unknown source!");
+		} else {
+			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 	}
