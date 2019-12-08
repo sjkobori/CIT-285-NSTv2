@@ -70,7 +70,7 @@ public class InitializeInvoiceServlet extends HttpServlet {
 			// clear session data (move to logout)
 			
 			if (source.equals("login")) {
-				request.getRequestDispatcher("/booklist").forward(request, response);
+				request.getRequestDispatcher("/getbooks").forward(request, response);
 			} else { //if in cart, refresh page
 				request.getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
 			}

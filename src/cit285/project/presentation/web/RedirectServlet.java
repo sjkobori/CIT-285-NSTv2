@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class SignUpServlet
  */
-@WebServlet("/RedirectServlet")
+@WebServlet("/redirect/*")
 public class RedirectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -50,6 +50,8 @@ public class RedirectServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/SignUp.jsp").forward(request, response);
 		} else if (source.equals("login")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+		} else if (source.equals("cart")) {
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}
 		else if (source.equals("adminHome")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);

@@ -60,8 +60,8 @@ public class AddToCartServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		System.out.println("inside inspect book servlet");
 		String source = request.getParameter("source");
+		
 		if (source.equals("booklist")) {
 			// clear session data
 			ArrayList<Book> books = null;

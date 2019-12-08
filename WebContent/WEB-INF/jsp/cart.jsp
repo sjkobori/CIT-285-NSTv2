@@ -9,7 +9,7 @@
 </head>
 <body>
 	This is the cart.jsp
-	<form action="booklist" method="post">
+	<form action="redirect" method="post">
 		<input type="hidden" name="source" value="cart">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Continue Shopping</button>

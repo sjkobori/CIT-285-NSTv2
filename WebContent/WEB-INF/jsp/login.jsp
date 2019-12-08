@@ -17,7 +17,7 @@
 			<button type="submit" class="btn btn-primary btn-block">Login</button>
 		</div>
 	</form>
-	<form action="RedirectServlet" method="post">
+	<form action="redirect" method="post">
 		<input type="hidden" name="source" value="SignUp">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Sign Up</button>
