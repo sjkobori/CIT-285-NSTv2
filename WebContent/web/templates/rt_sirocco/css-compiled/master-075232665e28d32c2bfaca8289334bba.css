@@ -3,3 +3,7 @@ input[type="password"], input[type="cpassword"]{
 	padding:0 200px;
 
 }
+
+.AdminPage{
+	display=none;
+}
