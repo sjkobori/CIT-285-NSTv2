@@ -53,6 +53,9 @@ public class InvoiceDao implements Dao {
 	}
 
 	public int initializeInvoice(String username) throws ClassNotFoundException, SQLException {
+		System.out.println("Current Username: " + username);
+		System.err.println("Current Username: " + username);
+		
 		int invoiceId, userId = 0; // make proper error
 		Connection connection = getConnection();
 		// Create statement
@@ -64,8 +67,10 @@ public class InvoiceDao implements Dao {
 		ResultSet resultSet = statement.executeQuery();
 		if (resultSet.next()) {
 			userId = resultSet.getInt(1);
+		} else {
+			System.out.println("Username with userId " + userId + " does not exist");
 		}
-
+		
 		statement = connection.prepareStatement("select * from invoice where userId=?");
 		statement.setInt(1, userId); // makes ? userId
 		resultSet = statement.executeQuery();
@@ -84,7 +89,7 @@ public class InvoiceDao implements Dao {
 		// insert into invoice (invoiceId, userId) values (?, ?);
 		invoiceId = generateId();
 		statement = connection.prepareStatement("insert into invoice (invoiceId, userId, IsProcessed) values (?, ?, ?)");
-		statement.setInt(1, invoiceId); // makes ? invoiceId
+		statement.setInt(1, invoiceId); // makes ? invoiceId //
 		statement.setInt(2, userId); // makes ? userId
 		statement.setBoolean(3, false);
 		statement.executeUpdate(); // stores new id

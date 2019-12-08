@@ -58,16 +58,18 @@ public class FinalizeInvoiceServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
 		if (source.equals("cart")) {
-
+			
 			System.out.println(session.getAttribute("invoice"));
 			//if it successfully makes an invoice
-			if(invoiceServices.finalizeInvoice((int)session.getAttribute("invoice"), Double.parseDouble(request.getParameter("cartTotal")))) {
+			
+			//if cart isn't null and finalize invoice is successful
+			if(session.getAttribute("cart") != null &&
+					invoiceServices.finalizeInvoice((int)session.getAttribute("invoice"), Double.parseDouble(request.getParameter("cartTotal")))) { 
 				session.setAttribute("cart", new ArrayList<LineItem>());
 				// make new cart
 				request.getRequestDispatcher("/initializeinvoice").forward(request, response);
@@ -75,9 +77,7 @@ public class FinalizeInvoiceServlet extends HttpServlet {
 				// clear session data (move to logout)
 				request.getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
 			}
-			
-			
-			//request.getRequestDispatcher("/").forward(request, response);
+
 		}
 		
 		else { //go to error page

@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 		if (loginStatus == 1) { //user login
 			System.out.println("User logged in...");
 			session.setAttribute("username", username);
+			
 			// response.sendRedirect("/BookServlet");
 			//Redirect to initializeinvoice
 			getServletContext().getRequestDispatcher("/initializeinvoice").forward(request, response);

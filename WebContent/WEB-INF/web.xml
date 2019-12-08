@@ -12,7 +12,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
-    <url-pattern>/users/*</url-pattern>
+    <url-pattern>/getusers/*</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
@@ -26,7 +26,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SignUpServlet</servlet-name>
-    <url-pattern>/signUp/*</url-pattern>
+    <url-pattern>/signup/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -36,7 +36,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RedirectServlet</servlet-name>
-    <url-pattern>/RedirectServlet/*</url-pattern>
+    <url-pattern>/redirect/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>Book Servlet</description>
@@ -46,7 +46,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>BookServlet</servlet-name>
-    <url-pattern>/booklist/*</url-pattern>
+    <url-pattern>/getbooks/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>Logout Servlet</description>
@@ -96,11 +96,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AddBookServlet</servlet-name>
-    <url-pattern>/addAuthor/*</url-pattern>
+    <url-pattern>/addauthor/*</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AddBookServlet</servlet-name>
-    <url-pattern>/addBook/*</url-pattern>
+    <url-pattern>/addbook/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>gets user's current invoice</description>
@@ -120,7 +120,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AdminPageServlet</servlet-name>
-    <url-pattern>/AdminPage/*</url-pattern>
+    <url-pattern>/adminpage/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>removes lineItems from cart</description>
@@ -160,7 +160,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateBookServlet</servlet-name>
-    <url-pattern>/updatebook</url-pattern>
+    <url-pattern>/updatebook/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>completes order</description>
