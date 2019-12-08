@@ -7,6 +7,8 @@
 <title>Error</title>
 </head>
 <body>
-
+	YOU HAVE REACHED THE ERROR PAGE, YOU DUMBASS
+	
+	
 </body>
 </html>

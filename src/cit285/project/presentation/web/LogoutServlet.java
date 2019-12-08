@@ -51,13 +51,25 @@ public class LogoutServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String source = request.getParameter("source");
+
+
+		HttpSession session = request.getSession(false);
+		
+		
 		if (source.equals("booklist")) {
-			//clear session data
+			// clear session data
+
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+
 		} else if (source.equals("login") || source.equals("userlist")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else {
 			System.out.println("ELSE");
+		}
+		
+		if (session != null) {
+			session.invalidate();
+
 		}
 	}
 

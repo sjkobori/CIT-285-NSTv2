@@ -23,6 +23,6 @@
 			<button type="submit" class="btn btn-primary btn-block">Sign Up</button>
 		</div>
 	</form>
-
+	<%= session.getAttribute("username") %>
 </body>
 </html>
