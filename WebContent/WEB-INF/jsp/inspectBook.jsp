@@ -8,7 +8,7 @@
 	<title>Book Details</title>
 	</head>
 	<body>
-        <form action="booklist" method="post">
+        <form action="getbooks" method="post">
 			<input type="hidden" name="source" value="inspectBook">
 			<div id="button">
 				<button type="submit" class="btn btn-primary btn-block">Return to list</button>
