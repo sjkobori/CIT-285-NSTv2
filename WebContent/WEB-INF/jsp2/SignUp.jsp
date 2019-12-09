@@ -9,7 +9,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="Joomla! - Open Source Content Management" />
 	<title>Sing Up</title>
-	<link href="../web/plugins/system/rokbox/assets/styles/rokbox.css" rel="stylesheet" type="text/css" />
+	<link href="web/plugins/system/rokbox/assets/styles/rokbox.css" rel="stylesheet" type="text/css" />
 	<link href="web/libraries/gantry/css/grid-responsive.css" rel="stylesheet" type="text/css" />
 	<link href="web/templates/rt_sirocco/css-compiled/bootstrap.css" rel="stylesheet" type="text/css" />
 	<link href="web/templates/rt_sirocco/css-compiled/master-075232665e28d32c2bfaca8289334bba.css" rel="stylesheet" type="text/css" />
