@@ -13,7 +13,7 @@
 	<form action="login" method="post">
 		<input type="hidden" name="source" value="login">
 		<label  id="usernamelb" for="username">Username:</label>
-		
+		<!-- checks if username is not null -->
 		<input type="text" name="username" value=<c:if test="${not empty username}">${username}</c:if>>
 		<label  id="passwordlb" for="password">Password:</label>
 		<input type="password" name="password">
