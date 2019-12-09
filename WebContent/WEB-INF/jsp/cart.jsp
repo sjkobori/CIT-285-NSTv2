@@ -39,7 +39,7 @@
 			}
 			%>
 			<% itemTotal = cart.get(i).getQuantity()*tempbook.getPrice(); %>
-			<TD> <img src="images/book_images/default_book.png" 
+			<TD> <img src="web/images/book_images/Mormon-book.jpg" 
                       	alt="*Add Title Here*" width="75" height="75"/> </TD>
 			<TD> (<%= tempbook.getTitle() %>) </TD> <!-- Title -->
 			<TD> 

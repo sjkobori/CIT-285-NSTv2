@@ -11,7 +11,7 @@
 This is SignUp.jsp
 <table>
 	<h3>SignUp</h3>
-	<form action="signUp" method="post">
+	<form action="signup" method="post">
 	<input type="hidden" name="source" value="signUp">
 			<TR>
 				<TD>
