@@ -7,6 +7,10 @@
 <title>Book Store Project</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<jsp:forward page="WEB-INF/jsp/signup.jsp" />
+=======
+	<jsp:forward page="WEB-INF/jsp/login.jsp" />
+>>>>>>> branch 'master' of https://github.com/sbrannsinger/CIT-285-NSTv2.git
 </body>
 </html>
