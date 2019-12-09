@@ -9,38 +9,38 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="Joomla! - Open Source Content Management" />
 	<title>Sing Up</title>
-	<link href="../../web/plugins/system/rokbox/assets/styles/rokbox.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/libraries/gantry/css/grid-responsive.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css-compiled/bootstrap.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css-compiled/master-075232665e28d32c2bfaca8289334bba.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css/master-webkit.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css-compiled/demo-075232665e28d32c2bfaca8289334bba.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css-compiled/mediaqueries.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css-compiled/grid-flexbox-responsive.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css-compiled/menu-dropdown-direction.css" rel="stylesheet" type="text/css" />
-	<link href="../../web/templates/rt_sirocco/css-compiled/menu.css" rel="stylesheet" type="text/css" />
+	<link href="../web/plugins/system/rokbox/assets/styles/rokbox.css" rel="stylesheet" type="text/css" />
+	<link href="../web/libraries/gantry/css/grid-responsive.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css-compiled/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css-compiled/master-075232665e28d32c2bfaca8289334bba.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css/master-webkit.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css-compiled/demo-075232665e28d32c2bfaca8289334bba.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css-compiled/mediaqueries.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css-compiled/grid-flexbox-responsive.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css-compiled/menu-dropdown-direction.css" rel="stylesheet" type="text/css" />
+	<link href="../web/templates/rt_sirocco/css-compiled/menu.css" rel="stylesheet" type="text/css" />
 	<style type="text/css">
 
 	</style>
 	<script type="application/json" class="joomla-script-options new">{"csrf.token":"fb0b4e8455416c6ef7d3ad9486f99beb","system.paths":{"root":"\/live\/joomla\/sirocco","base":"\/live\/joomla\/sirocco"},"system.keepalive":{"interval":840000,"uri":"\/live\/joomla\/sirocco\/component\/ajax\/?format=json"},"joomla.jtext":{"JLIB_FORM_FIELD_INVALID":"Invalid field:&#160"}}</script>
-	<script src="../../web/media/system/js/core.js?" type="text/javascript"></script>
+	<script src="../web/media/system/js/core.js?" type="text/javascript"></script>
 	<!--[if lt IE 9]><script src="https://rocketthemedemo-18af.kxcdn.com/live/joomla/sirocco/media/system/js/polyfill.event.js?d893a1a592f8281eb49f3aa1ab3c4766" type="text/javascript"></script><![endif]-->
-	<script src="../../web/media/system/js/keepalive.js" type="text/javascript"></script>
-	<script src="../../web/media/jui/js/jquery.min.js" type="text/javascript"></script>
-	<script src="../../web/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
-	<script src="../../web/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
-	<script src="../../web/media/system/js/punycode.js" type="text/javascript"></script>
-	<script src="../../web/media/system/js/validate.js?" type="text/javascript"></script>
+	<script src="../web/media/system/js/keepalive.js" type="text/javascript"></script>
+	<script src="../web/media/jui/js/jquery.min.js" type="text/javascript"></script>
+	<script src="../web/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
+	<script src="../web/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
+	<script src="../web/media/system/js/punycode.js" type="text/javascript"></script>
+	<script src="../web/media/system/js/validate.js?" type="text/javascript"></script>
 	<!--[if lt IE 9]><script src="https://rocketthemedemo-18af.kxcdn.com/live/joomla/sirocco/media/system/js/html5fallback.js?d893a1a592f8281eb49f3aa1ab3c4766" type="text/javascript"></script><![endif]-->
-	<script src="../../web/media/jui/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="../../web/media/system/js/mootools-core.js" type="text/javascript"></script>
-	<script src="../../web/media/system/js/mootools-more.js" type="text/javascript"></script>
-	<script src="../../web/plugins/system/rokbox/assets/js/rokbox.js" type="text/javascript"></script>
-	<script src="../../web/templates/rt_sirocco/js/chart.js" type="text/javascript"></script>
-	<script src="../../web/libraries/gantry/js/browser-engines.js" type="text/javascript"></script>
-	<script src="../../web/templates/rt_sirocco/js/rokmediaqueries.js" type="text/javascript"></script>
-	<script src="../../web/modules/mod_roknavmenu/themes/default/js/rokmediaqueries.js" type="text/javascript"></script>
-	<script src="../../web/modules/mod_roknavmenu/themes/default/js/sidemenu.js" type="text/javascript"></script>
+	<script src="../web/media/jui/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../web/media/system/js/mootools-core.js" type="text/javascript"></script>
+	<script src="../web/media/system/js/mootools-more.js" type="text/javascript"></script>
+	<script src="../web/plugins/system/rokbox/assets/js/rokbox.js" type="text/javascript"></script>
+	<script src="../web/templates/rt_sirocco/js/chart.js" type="text/javascript"></script>
+	<script src="../web/libraries/gantry/js/browser-engines.js" type="text/javascript"></script>
+	<script src="../web/templates/rt_sirocco/js/rokmediaqueries.js" type="text/javascript"></script>
+	<script src="../web/modules/mod_roknavmenu/themes/default/js/rokmediaqueries.js" type="text/javascript"></script>
+	<script src="../web/modules/mod_roknavmenu/themes/default/js/sidemenu.js" type="text/javascript"></script>
 	<script type="text/javascript">
 jQuery(function($){ initPopovers(); $("body").on("subform-row-add", initPopovers); function initPopovers (event, container) { $(container || document).find(".hasPopover").popover({"html": true,"trigger": "hover focus","container": "body"});} });
 if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
@@ -75,7 +75,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 <ul class="gf-menu l1 " >
                     <li class="item101 " >
 
-            <a class="item" href="../../web/home/home.html"  >
+            <a class="item" href="../web/home/home.html"  >
                 <span class="menu-item-wrapper">
                                         Home                </span>
             </a>
@@ -252,7 +252,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
                     </li>
                                                                                                                                                                 <li class="item126  " >
 
-            <a class="item" href="../../web/pages/sign-up.html"  >
+            <a class="item" href="../web/pages/sign-up.html"  >
                 <span class="menu-item-wrapper">
                                         Sing Up                </span>
             </a>
@@ -261,7 +261,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
                     </li>
                                                                                                                                                                 <li class="item127 active last " >
 
-            <a class="item" href="../../web/pages/add-book.html"  >
+            <a class="item" href="../web/pages/add-book.html"  >
                 <span class="menu-item-wrapper">
                                         Add Book                </span>
             </a>
@@ -313,7 +313,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center">
 				<a href="/live/joomla/sirocco/?presets=preset1">
-					<img src="../../web/images/rocketlauncher/styles/preset1.jpg" alt="Preset 1" />
+					<img src="../web/images/rocketlauncher/styles/preset1.jpg" alt="Preset 1" />
 					<span>Preset 1</span>
 				</a>
 			</div>
@@ -321,7 +321,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center">
 				<a href="/live/joomla/sirocco/?presets=preset2">
-					<img src="../../web/images/rocketlauncher/styles/preset2.jpg" alt="Preset 2" />
+					<img src="../web/images/rocketlauncher/styles/preset2.jpg" alt="Preset 2" />
 					<span>Preset 2</span>
 				</a>
 			</div>
@@ -336,7 +336,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center nomargintop">
 				<a href="/live/joomla/sirocco/?presets=preset3">
-					<img src="../../web/images/rocketlauncher/styles/preset3.jpg" alt="Preset 3" />
+					<img src="../web/images/rocketlauncher/styles/preset3.jpg" alt="Preset 3" />
 					<span>Preset 3</span>
 				</a>
 			</div>
@@ -344,7 +344,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center nomargintop">
 				<a href="/live/joomla/sirocco/?presets=preset4">
-					<img src="../../web/images/rocketlauncher/styles/preset4.jpg" alt="Preset 4" />
+					<img src="../web/images/rocketlauncher/styles/preset4.jpg" alt="Preset 4" />
 					<span>Preset 4</span>
 				</a>
 			</div>
@@ -359,7 +359,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center nomargintop">
 				<a href="/live/joomla/sirocco/?presets=preset5">
-					<img src="../../web/images/rocketlauncher/styles/preset5.jpg" alt="Preset 5" />
+					<img src="../web/images/rocketlauncher/styles/preset5.jpg" alt="Preset 5" />
 					<span>Preset 5</span>
 				</a>
 			</div>
@@ -367,7 +367,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center nomargintop">
 				<a href="/live/joomla/sirocco/?presets=preset6">
-					<img src="../../web/images/rocketlauncher/styles/preset6.jpg" alt="Preset 6" />
+					<img src="../web/images/rocketlauncher/styles/preset6.jpg" alt="Preset 6" />
 					<span>Preset 6</span>
 				</a>
 			</div>
@@ -382,7 +382,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center nomargintop">
 				<a href="/live/joomla/sirocco/?presets=preset7">
-					<img src="../../web/images/rocketlauncher/styles/preset7.jpg" alt="Preset 7" />
+					<img src="../web/images/rocketlauncher/styles/preset7.jpg" alt="Preset 7" />
 					<span>Preset 7</span>
 				</a>
 			</div>
@@ -390,7 +390,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 		<div class="gantry-width-50">
 			<div class="gantry-width-spacer rt-center nomargintop">
 				<a href="/live/joomla/sirocco/?presets=preset8">
-					<img src="../../web/images/rocketlauncher/styles/preset8.jpg" alt="Preset 8" />
+					<img src="../web/images/rocketlauncher/styles/preset8.jpg" alt="Preset 8" />
 					<span>Preset 8</span>
 				</a>
 			</div>
@@ -495,10 +495,10 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 			</li>
 		
 						<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-											<a itemprop="item" href="../../web/home/home.html" class="pathway"><span itemprop="name">Home</span></a>
+											<a itemprop="item" href="../web/home/home.html" class="pathway"><span itemprop="name">Home</span></a>
 					
 											<span class="divider">
-							<img src="../../web/media/system/images/arrow.png" alt="" />						</span>
+							<img src="../web/media/system/images/arrow.png" alt="" />						</span>
 										<meta itemprop="position" content="1">
 				</li>
 							<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -506,7 +506,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 							Pages						</span>
 					
 											<span class="divider">
-							<img src="../../web/media/system/images/arrow.png" alt="" />						</span>
+							<img src="../web/media/system/images/arrow.png" alt="" />						</span>
 										<meta itemprop="position" content="2">
 				</li>
 							<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
@@ -704,12 +704,12 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
                      			            <div class="rt-block box1 title3">
            	<div class="module-surround">
 	           				<div class="module-title">
-					<a href="../../web/pages/sign-up.html"><h2 class="title"><span>Sign Up Info</span></h2><a/>			</div>
+					<a href="../web/pages/sign-up.html"><h2 class="title"><span>Sign Up Info</span></h2><a/>			</div>
 	                		                	<div class="module-content">
 	                		
 
 <div class="custombox1 title3"  >
-	<p><span class="rt-image"><img src="../../web/images/rocketlauncher/pages/contact-us/img-01.jpg" alt="image" /></span></p>
+	<p><span class="rt-image"><img src="../web/images/rocketlauncher/pages/contact-us/img-01.jpg" alt="image" /></span></p>
 
 <p>This Page is for the admin use only that should be activated once he logs in.<span class="hidden-tablet"> Please use the administrator make modifications</span></p>
 
@@ -811,7 +811,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 <div class="gantry-width-container">
 	<div class="gantry-width-40">
 		<div class="gantry-width-spacer">
-			<img src="../../web/images/rocketlauncher/pages/pages-overview/logo.png" alt="image" />
+			<img src="../web/images/rocketlauncher/pages/pages-overview/logo.png" alt="image" />
 		</div>	
 	</div>
 
