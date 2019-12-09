@@ -3,7 +3,7 @@
 <!-- Requires JDK's bin and ant's bin on command-line's path (check that 
 	javac and ant work on the command line) -->
 <!-- Requires env variables MYSQL_SITE, MYSQL_USER, MYSQL_PW -->
-<!-- MYSQL_SITE should be "localhost:3333" -->
+<!-- MYSQL_SITE should be "localhost:8035" -->
 
 <project name="book_store DBhelpers">
 	<!--Load environment variables and give them prefix "env." -->

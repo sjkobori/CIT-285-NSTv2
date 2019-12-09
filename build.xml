@@ -5,7 +5,7 @@
 	<property environment="env" />
 	<!-- on PC, maybe c:\tomcat-8.0 -->
 	<property name="CATALINA_HOME" value="${env.CATALINA_HOME}" />
-	<!-- on PC, http://localhost:8080 -->
+	<!-- on PC, http://localhost:8035 -->
 	<property name="TOMCAT_URL" value="${env.TOMCAT_URL}" />
 	<property name="deploy.dir"
 		value="${CATALINA_HOME}/webapps/${ant.project.name}" />
