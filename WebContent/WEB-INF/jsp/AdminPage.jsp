@@ -11,7 +11,7 @@
 <title>Admin Page</title>
 </head>
 <body>
-	THIS IS ADMINPAGE.JSP
+	Today's a good day to be an admin, right, <%= session.getAttribute("username") %>
 	<form action="userlist" method="post">
 		<input type="hidden" name="source" value="adminHome">
 		<div id="button">
