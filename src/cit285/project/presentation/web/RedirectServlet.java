@@ -54,7 +54,7 @@ public class RedirectServlet extends HttpServlet {
 
 		//}
 
-		// admin redirect
+		// admin redirect //add admin userlist
 		 else if (source.equals("login")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else if (source.equals("cart")) {
@@ -64,7 +64,7 @@ public class RedirectServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
 		} else if (source.equals("updateBook")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
-
+			
 		}
 		else {
 			session.setAttribute("Error", "Unknown source!");

@@ -13,7 +13,7 @@
 		<form action="redirect" method="post">
 		<input type="hidden" name="source" value="userlist">
 		<div id="button">
-			<button type="submit" class="btn btn-primary btn-block">Back To Book List</button>
+			<button type="submit" class="btn btn-primary btn-block">Back To Admin Home</button>
 		</div>
 	</form>
 	<form action="logout" method="post">
