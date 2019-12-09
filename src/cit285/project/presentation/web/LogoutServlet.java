@@ -53,24 +53,26 @@ public class LogoutServlet extends HttpServlet {
 		String source = request.getParameter("source");
 
 
-		HttpSession session = request.getSession(false);
-		
+		HttpSession session = request.getSession(); //had false befor, not sure why
+		//if (session != null) { //clears session data
+			
+
+		//}
 		
 		if (source.equals("booklist")) {
 			// clear session data
-
+			session.invalidate();
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 
-		} else if (source.equals("login") || source.equals("userlist")) {
+		} else if (source.equals("login") || source.equals("adminHome")) {
+			session.invalidate();
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else {
-			System.out.println("ELSE");
+			session.setAttribute("Error", "Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 		
-		if (session != null) {
-			session.invalidate();
-
-		}
+		
 	}
 
 }

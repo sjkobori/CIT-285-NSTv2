@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
            pageEncoding="ISO-8859-1"%>
-<%@ page import="cit285.project.domain.Book, java.util.*"%>
+<%@ page import="cit285.project.domain.Book, java.util.*, java.text.DecimalFormat"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -36,7 +36,7 @@
                       	<TD> Editor:  <%= book.getEditor() %> </TD>
                       </TR>
                       <TR>
-                      	<TD> Price:  <%= book.getPrice() %> </TD>
+                      	<TD> Price:  <%= new DecimalFormat("$###,###.00").format(book.getPrice()) %> </TD>
                       </TR>
            </TABLE>
            <form action="addtocart" method="post">

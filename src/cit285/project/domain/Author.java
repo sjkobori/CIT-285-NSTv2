@@ -47,4 +47,8 @@ public class Author {
 	public String getAuthorlastname() {
 		return authorlastname;
 	}
+	
+	public String toString() {
+		return authorfirstname + " " + authorlastname + " (" + authorid + ")";
+	}
 }

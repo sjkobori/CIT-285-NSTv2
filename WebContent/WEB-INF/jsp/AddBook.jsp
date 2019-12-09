@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="cit285.project.domain.*, java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,31 +9,70 @@
 <title>Add Book</title>
 </head>
 <body>
-This is AddBook.jsp
-	<form action="addBook" method="post">
-		<div>
+<form action="redirect" method="post">
+		<input type="hidden" name="source" value="addBook">
+		<div id="button">
+			<button type="submit" class="btn btn-primary btn-block">Return to Home</button>
+		</div>
+	</form>
+	<hr>
+<b> Add a Book </b>
+<form action="addbook" method="post">
 			<input type="hidden" name="source" value="addBook">
-			<label for="text">ISBN</label>
-			<input type="text" name="isbn">
-			<label for="Title">Title</label>
-			<input type="text" name="title">
-			<label for="Editor">Editor</label>
-			<input type="text" name="editor">
-			<label for="Edition">Edition</label>
-			<input type="text" name="edition">
-			<label for="Year">Year</label>
-			<input type="text" name="year">
-			<label for="Price">Price</label>
-			<input type="text" name="price">
-			<label for="Description">Description</label>
-			<input type="text" name="description">
-			<label for="Imagepath">Imagepath</label>
-			<input type="text" name="imagepath">
-			<input type = "submit" value = "Submit" />
+           <TABLE>
+                      <TR>
+                      	<TD>Title:</TD>
+                      	<TD> <input type="text" name="title"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>ISBN:</TD>
+                      	<TD> <input type="text" name="isbn"> </TD>                 	
+                      </TR>
+                      <TR>
+                      	<TD>Author:</TD>
+                      	<TD> <select name="authorindex" form="quantityform">
+                      	<% ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors"); %>
+							<% for (int i = 0; i < authorlist.size(); i++) { %>
+							
+							<option value="<%= i %>"><%=authorlist.get(i).toString()%></option>
+							<!--<c:forEach items="${authors}" var="author">-->
+                      			<!--<option value="${author.getAuthorid()}">${author.toString()}</option>-->
+							<!--</c:forEach>-->
+							<% } %>
+							</select>
+			 			</TD>
+                      <TR>
+                      	<TD>Year:</TD>
+                      	<TD> <input type="text" name="year"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Edition:</TD>
+                      	<TD> <input type="text" name="edition"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Editor:</TD>
+                      	<TD> <input type="text" name="editor""> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Price:</TD>
+                      	<TD> <input type="text" name="price"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Description:</TD>
+                      	<TD> <input type="text" name="description"> </TD>
+                      </TR>
+                      <TR>
+                      	<TD>Imagepath:</TD>
+                      	<TD> <input type="text" name="imagepath"> </TD>
+                      </TR>
+           </TABLE>
+           
+			<div id="button">
+				<button type="submit" class="btn btn-primary btn-block">Add Book</button>
 			</div>
-		</form>
-		
-		<form action ="addAuthor" method="post">
+			</form>
+
+		<!--  <form action ="addAuthor" method="post">
 		<div>
 			<input type="hidden" name="source" value="addAuthor">
 			<label for="Author First Name">Author First Name</label>
@@ -41,6 +81,6 @@ This is AddBook.jsp
 			<input type="text" name="authorlastname">
 			<input type = "submit" value = "Submit" />
 			</div>
-		</form>
+		</form> -->
 </body>
 </html>

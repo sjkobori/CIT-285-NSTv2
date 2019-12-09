@@ -16,32 +16,32 @@
 			<button type="submit" class="btn btn-primary btn-block">Back To Admin Home</button>
 		</div>
 	</form>
-	<form action="logout" method="post">
-		<input type="hidden" name="source" value="userlist">
-		<div id="button">
-			<button type="submit" class="btn btn-primary btn-block">Logout</button>
-		</div>
-	</form>
 	<hr />
 
 	<!-- Display Users -->
 	<TABLE>
-	
+		<TR>
+			<TD>(UserID)</TD>
+			<TD>(Username)</TD>
+			<TD>(Name)</TD>
+			<TD>(Company Name)</TD>
+			<TD>(Admin)</TD>
+		</TR>
 	<% ArrayList<User> userlist = (ArrayList<User>) session.getAttribute("users"); %>
 		<% for (int i = 0; i < userlist.size(); i++) { %>
-		<TR>
-			
+		<TR>			
 			<TD> (<%= userlist.get(i).getUserid() %>) </TD>
+			<TD> (<%= userlist.get(i).getUserName() %>) </TD>
 			<TD> (<%= userlist.get(i).getFirstName() + " " + userlist.get(i).getLastName()  %>) </TD>
 			<TD> (<%= userlist.get(i).getCompanyName() %>) </TD>
-			<TD>  
-				<form action="removeUser" method="post">
+			<TD>  (<%= userlist.get(i).isAdmin() %>)
+				<!--<form action="removeUser" method="post">
 					<input type="hidden" name="source" value="userlist">
 					<input type="hidden" name="user" value=<%= i %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Remove User</button>
 					</div>
-				</form>
+				</form>-->
 			</TD>
 			<TD>  
 			

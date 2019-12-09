@@ -85,8 +85,8 @@ public class BookDao implements Dao {
 		// assign ids to user, email, and address
 
 		book.setBookid(generateId());
-		Author author = new Author(); //FIX LATER
-		author = book.getAuthor();
+		//Author author = new Author(); //FIX LATER
+		//author = book.getAuthor();
 		
 		
 		statement.setInt(1, book.getBookid());
@@ -98,8 +98,8 @@ public class BookDao implements Dao {
 		statement.setDouble(7, book.getPrice());
 		statement.setString(8, book.getDescription());
 		statement.setString(9, book.getImagepath());
-		statement.setInt(10, 12345670);
-		book.setAuthor(author);
+		statement.setInt(10, book.getAuthor().getAuthorid());
+		//book.setAuthor(author);
 		
 		statement.executeUpdate();
 		// check if ids are in database
@@ -153,10 +153,10 @@ public class BookDao implements Dao {
 						"UPDATE book SET Title=?, Editor=?, Edition=?, Year=?, Price=?, "
 						+ "Description=?, Imagepath=?, AuthorId=? where BookId=?");
 
-				Author author = new Author(); //FIX LATER
-				author = book.getAuthor();
+				//Author author = new Author(); //FIX LATER
+				//author = book.getAuthor();
 				
-				
+				System.out.println(book.getAuthor());
 				//statement.setString(2, book.getIsbn());// doesnt change
 				statement.setString(1, book.getTitle());
 				statement.setString(2, book.getEditor());
@@ -165,9 +165,8 @@ public class BookDao implements Dao {
 				statement.setDouble(5, book.getPrice());
 				statement.setString(6, book.getDescription());
 				statement.setString(7, book.getImagepath());
-				statement.setInt(8, author.getAuthorid());
+				statement.setInt(8, book.getAuthor().getAuthorid());
 				statement.setInt(9, book.getBookid());
-				
 				statement.executeUpdate();
 				// check if ids are in database
 				// add user, email, and address to database

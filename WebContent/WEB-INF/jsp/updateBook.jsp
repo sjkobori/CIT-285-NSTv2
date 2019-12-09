@@ -1,6 +1,7 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
            pageEncoding="ISO-8859-1"%>
-<%@ page import="cit285.project.domain.Book, java.util.*"%>
+<%@ page import="cit285.project.domain.*, java.util.*"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,7 +16,7 @@
 			</div>
 		</form>
            <hr />
-           <form action="updatebook" method="post">
+           <form action="updatebook" method="post" id="updateform">
 			<input type="hidden" name="source" value="updateBook">
            <TABLE>
                       <% Book book = (Book) session.getAttribute("book"); %>
@@ -26,7 +27,7 @@
                       </TR>
                       <TR>
                       	<TD>BookID:</TD>
-                      	<TD> <%= book.getBookid() %><input type="hidden" name="bookid" value="<%= book.getBookid() %>"></TD>                 	
+                      	<TD> <%= book.getBookid() %></TD>                 	
                       </TR>
                       <TR>
                       	<TD>Title:</TD>
@@ -38,13 +39,18 @@
                       </TR>
                       <TR>
                       <!-- Make drop down menu for selecting -->
-                      	<TD>Author First Name:</TD>
-                      	<TD> <input type="text" name="authorfirstname" value="<%= book.getAuthor().getAuthorfirstname() %>"> </TD>
-                      </TR>
-                      <TR>
-                      	<TD>Author Last Name:</TD>
-                      	<TD> <input type="text" name="authorlastname" value="<%= book.getAuthor().getAuthorlastname() %>"> </TD>
-                      </TR>
+                       <TD>Author:</TD>
+                      	<TD> <select name="authorindex" form="quantityform">
+                      	<% ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors"); %>
+							<% for (int i = 0; i < authorlist.size(); i++) { %>
+							
+							<option value="<%= i %>"><%=authorlist.get(i).toString()%></option>
+							<!--<c:forEach items="${authors}" var="author">-->
+                      			<!--<option value="${author.getAuthorid()}">${author.toString()}</option>-->
+							<!--</c:forEach>-->
+							<% } %>
+							</select>
+			 			</TD>
                       <TR>
                       	<TD>Year:</TD>
                       	<TD> <input type="text" name="year" value=<%= book.getYear() %>> </TD>

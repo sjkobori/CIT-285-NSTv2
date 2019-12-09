@@ -60,11 +60,12 @@ public class UserDao implements Dao {
 		while (resultSet.next()) {
 			User user = new User();
 			user.setUserid(resultSet.getInt(1));
-			// skip over username and password
+			user.setUserName(resultSet.getString(2));
+			// skip over  password
 			user.setFirstName(resultSet.getString(4));
 			user.setLastName(resultSet.getString(5));
 			user.setCompanyName(resultSet.getString(6));
-
+			user.setAdmin(resultSet.getBoolean(7));
 			usersList.add(user);
 		}
 		return usersList;

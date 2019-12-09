@@ -60,11 +60,15 @@ public class UpdateBookServlet extends HttpServlet {
 				String source = request.getParameter("source");
 				
 				if (source.equals("updateBook")){
-					//make a user
-					//add try block
+					//temporary solution
+					Book tempbook = (Book) session.getAttribute("book");
+					ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
+					//int authorIndex = Integer.parseInt(request.getParameter("authorid"));
+					//Author tempAuthor = new Author();
 					Book updatedBook =  new Book();
+					
 					//authors list send authorNumber and author list
-					updatedBook.setBookid(Integer.parseInt(request.getParameter("bookid")));
+					updatedBook.setBookid(tempbook.getBookid());
 					updatedBook.setIsbn(request.getParameter("isbn"));
 					updatedBook.setTitle(request.getParameter("title"));
 					updatedBook.setEditor(request.getParameter("editor"));
@@ -73,16 +77,16 @@ public class UpdateBookServlet extends HttpServlet {
 					updatedBook.setPrice(Double.parseDouble(request.getParameter("price")));
 					updatedBook.setDescription(request.getParameter("description"));
 					updatedBook.setImagepath(request.getParameter("imagepath"));
-					//temporary solution
-					Book tempbook = (Book) session.getAttribute("book");
-					updatedBook.setAuthor(tempbook.getAuthor());
+				
+					//add selected author to book
+					updatedBook.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
 
 					bookServices.updateBook(updatedBook);
 					
 					///int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
 					int bookNumber = (int) session.getAttribute("bookNumber");
 					ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
-					booklist.set(bookNumber, updatedBook);
+					booklist.set(bookNumber, updatedBook); //exchange new book at selected book index
 					session.setAttribute("book", updatedBook);
 					
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);

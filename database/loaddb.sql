@@ -28,7 +28,7 @@ insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
 --
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000000,"123-456-789-0123","JAVA Textbook","Editor 1",
-            "11th Edition",2014,199.99, "Good Java Book", "web/images/book_images/Mormon-book.jpg",12345670);
+            "11th Edition",2014,199.99, "Good Java Book", "web/images/book_images/JAVA_book.jpg",12345670);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000001,"123-456-789-0124","C++ Textbook","Editor 2",
@@ -46,6 +46,10 @@ insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Image
             values (10000004,"123-456-789-0127","Servlets for Dummies","Editor 1",
             "2nd Edition",2014,26.99, "All you need to know about Servlets in one place", "web/images/book_images/Mormon-book.jpg",12345672);
             
-            insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
+insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000005,"123-456-789-0128","History of Memes","Editor 2",
             "7th Edition",2019,420.69, "Quality Memes", "web/images/book_images/memebook.jpg",12345672);
+            
+insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
+            values (10000006,"123-456-789-0129","SUPER HTML","Editor 4",
+            "2nd Edition",2001, 29.99, "The absolute, most comprehensive guide to HTML", "web/images/book_images/HTML_book.jpg",12345672);

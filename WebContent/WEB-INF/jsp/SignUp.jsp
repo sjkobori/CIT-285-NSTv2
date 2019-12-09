@@ -8,51 +8,37 @@
 <title>Sign Up</title>
 </head>
 <body>
-This is SignUp.jsp
 <table>
 	<h3>SignUp</h3>
 	<form action="signup" method="post">
 	<input type="hidden" name="source" value="signUp">
 			<TR>
-				<TD>
-				<label for="username">Username</label><input type="text" name="username">
-				</TD>
+				<TD>Username:</TD>
+				<TD><input type="text" name="username"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="password">Password</label>
-			<input type="password" name="password">
-				</TD>
+				<TD>Password:</TD>
+				<TD><input type="password" name="password"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="confirmpassword">Confirm Password</label>
-			<input type="password" name="confirmpassword">
-				</TD>
+				<TD>Confirm Password:</TD>
+				<TD><input type="password" name="confirmpassword"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="firstname">First Name</label>
-			<input type="text" name="firstname">
-				</TD>
+				<TD>First Name:</TD>
+				<TD><input type="text" name="firstname"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="lastname">Last Name</label>
-			<input type="text" name="lastname">
-				</TD>
+				<TD><label for="lastname">Last Name</label></TD>
+				<TD><input type="text" name="lastname"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="companyname">Company Name</label>
-			<input type="text" name="companyname">
-				</TD>
+				<TD><label for="companyname">Company Name</label></TD>
+				<TD><input type="text" name="companyname"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="email">Email</label>
-			<input type="text" name="email">
-				</TD>
+				<TD><label for="email">Email</label></TD>
+				<TD><input type="text" name="email"></TD>
 			</TR>
 			<TR>
 				<TD>
@@ -60,22 +46,16 @@ This is SignUp.jsp
 			</TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="city">City</label>
-			<input type="text" name="city">
-				</TD>
+				<TD><label for="city">City</label></TD>
+				<TD><input type="text" name="city"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="street">Street</label>
-			<input type="text" name="street">
-				</TD>
+				<TD><label for="street">Street</label></TD>
+				<TD><input type="text" name="street"></TD>
 			</TR>
 			<TR>
-				<TD>
-			<label for="zipcode">Zipcode</label>
-			<input type="text" name="zipcode">
-				</TD>
+				<TD><label for="zipcode">Zipcode</label></TD>
+				<TD><input type="text" name="zipcode"></TD>
 			</TR>
 			<TR>
 				<TD>

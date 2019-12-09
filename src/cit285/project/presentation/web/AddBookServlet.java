@@ -1,6 +1,7 @@
 package cit285.project.presentation.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,6 +62,7 @@ public class AddBookServlet extends HttpServlet {
 				if (source.equals("addBook")){
 					//make a user
 					//add try block
+					ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
 					Book book = new Book();
 					book.setIsbn(request.getParameter("isbn"));
 					book.setTitle(request.getParameter("title"));
@@ -70,14 +72,14 @@ public class AddBookServlet extends HttpServlet {
 					book.setPrice(Double.parseDouble(request.getParameter("price")));
 					book.setDescription(request.getParameter("description"));
 					book.setImagepath(request.getParameter("imagepath"));
+					//sets author to selected author
+					book.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
+					ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
 					
-					System.out.println("Adding Book, maybe...");
-					bookServices.addBook(book);
-					
-					// Add attribute to the session
-					//set login
-					///session.setAttribute("users",users);
-					
+					bookServices.addBook(book); //add new book in database
+					booklist.add(book);
+					session.setAttribute("books", booklist); //put updated list in session
+
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
 				}
 				else if (source.equals("addAuthor")){

@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="cit285.project.domain.Book, java.util.*"%>
+<%@ page import="cit285.project.domain.Book, java.util.*, java.text.DecimalFormat"%>
 <jsp:useBean id = "book" scope = "request"
  class = "cit285.project.domain.Book"> </jsp:useBean>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@
 			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() + 
 			" " + booklist.get(i).getAuthor().getAuthorlastname()  %>) </TD>
 			<TD> (<%= booklist.get(i).getYear() %>) </TD>
-			<TD> (<%= booklist.get(i).getPrice() %>) </TD>
+			<TD> (<%= new DecimalFormat("$###,###.00").format(booklist.get(i).getPrice()) %>) </TD>
 			<TD>  
 				<form action="deletebook" method="post">
 					<input type="hidden" name="source" value="adminHome">

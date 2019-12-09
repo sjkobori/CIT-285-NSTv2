@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="cit285.project.domain.*, java.util.*"%>
+<%@ page import="cit285.project.domain.*, java.util.*, java.text.DecimalFormat"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +25,7 @@
 		</TR>
 	<% ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart"); %>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
+	<% DecimalFormat moneyFormat = new DecimalFormat("$###,###.00"); %>
 	<% double itemTotal = 0, grandTotal = 0; %>
 		<% for (int cartIndex = 0; cartIndex < cart.size(); cartIndex++) { %>
 		
@@ -64,8 +65,8 @@
 			
 			
 			  (<%= cart.get(cartIndex).getQuantity() %>) </TD> <!-- Quantity -->
-			<TD> (<%= tempbook.getPrice() %>) </TD> <!-- Price -->
-			<TD> (<%= itemTotal %>) </TD> <!-- Total -->
+			<TD> (<%= moneyFormat.format(tempbook.getPrice()) %>) </TD> <!-- Price -->
+			<TD> (<%= moneyFormat.format(itemTotal) %>) </TD> <!-- Total -->
 			
 			<TD>  
 			<% grandTotal += itemTotal; %>
@@ -95,7 +96,7 @@
 			<TD></TD>
 			<TD></TD>
 			<TD>Grand Total:</TD>
-			<TD>(<%= grandTotal %>)</TD>
+			<TD>(<%= moneyFormat.format(grandTotal) %>)</TD>
 		</TR>
 	</TABLE>
 	<form action="finalizeinvoice" method="post">
