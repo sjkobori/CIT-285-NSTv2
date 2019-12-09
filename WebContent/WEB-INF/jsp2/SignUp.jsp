@@ -558,7 +558,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 			
 						<h3>User information</h3>		
 		<div class="contact-form">
-	<form action="signUp" method="post">
+	<form action="signup" method="post">
 	<input type="hidden" name="source" value="signUp">
 	
 															<fieldset>
@@ -598,7 +598,7 @@ if (typeof RokBoxSettings == 'undefined') RokBoxSettings = {pc: '100'};
 			<label id="jform_contact_name-lbl" for="confirmpassword" class="hasPopover required" name="authorFirstName">
 	Confirm Password <span class="star">&#160;*</span></label>
 					</div>
-		<div class="controls"><input type="text" name="confirmpassword" id="jform_contact_name"  value="" class="required" size="30"       required aria-required="true"      />
+		<div class="controls"><input type="password" name="confirmpassword" id="jform_contact_name"  value="" class="required" size="30"       required aria-required="true"      />
 </div>
 </div>
 
