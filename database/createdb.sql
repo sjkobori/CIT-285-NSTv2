@@ -28,7 +28,7 @@ create table Book(BookID BIGINT NOT NULL,
                   Year INT,
                   Price DECIMAL(15, 2),
                   Description BLOB,
-                  Imagepath VARCHAR(30),
+                  Imagepath VARCHAR(50),
                   AuthorID BIGINT NOT NULL,
                   PRIMARY KEY (BookID),
                   FOREIGN KEY(AuthorID) REFERENCES Author(AuthorID));

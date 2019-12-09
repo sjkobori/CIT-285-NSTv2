@@ -26,27 +26,29 @@
 	<% ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart"); %>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
 	<% double itemTotal = 0, grandTotal = 0; %>
-		<% for (int i = 0; i < cart.size(); i++) { %>
+		<% for (int cartIndex = 0; cartIndex < cart.size(); cartIndex++) { %>
 		
 		<TR>
 			<!-- Title -->
 			<% Book tempbook = null;
-			for (Book book: booklist){
-				if (cart.get(i).getBookId() == book.getBookid()){
-					tempbook = book; //sets current book to tempbook
+				int tempbookIndex = 0;
+			for (int booklistIndex = 0; booklistIndex < booklist.size(); booklistIndex++){
+				if (cart.get(cartIndex).getBookId() == booklist.get(booklistIndex).getBookid()){
+					tempbook = booklist.get(booklistIndex); //sets current book to tempbook
+					tempbookIndex = booklistIndex;
 					break;
 				}
 			}
 			%>
-			<% itemTotal = cart.get(i).getQuantity()*tempbook.getPrice(); %>
-			<TD> <img src="web/images/book_images/Mormon-book.jpg" 
+			<% itemTotal = cart.get(cartIndex).getQuantity()*tempbook.getPrice(); %>
+			<TD><img src="<%= tempbook.getImagepath() %>" 
                       	alt="*Add Title Here*" width="75" height="75"/> </TD>
 			<TD> (<%= tempbook.getTitle() %>) </TD> <!-- Title -->
 			<TD> 
 			<!--<form action="updatequantity" method="post" id="quantityform">
 					<input type="submit">
 					<input type="hidden" name="source" value="cart">
-					<input type="hidden" name="book" value=<%= i %>>
+					<input type="hidden" name="book" value=<%= cartIndex %>>
 					<div id="button">
 					<select form = "quantityform"> 
   					<option value="0">0 (Delete)</option>
@@ -61,7 +63,7 @@
 			
 			
 			
-			  (<%= cart.get(i).getQuantity() %>) </TD> <!-- Quantity -->
+			  (<%= cart.get(cartIndex).getQuantity() %>) </TD> <!-- Quantity -->
 			<TD> (<%= tempbook.getPrice() %>) </TD> <!-- Price -->
 			<TD> (<%= itemTotal %>) </TD> <!-- Total -->
 			
@@ -69,7 +71,7 @@
 			<% grandTotal += itemTotal; %>
 				<form action="inspectbook" method="post">
 					<input type="hidden" name="source" value="cart">
-					<input type="hidden" name="bookNumber" value=<%= i %>>
+					<input type="hidden" name="bookNumber" value=<%= tempbookIndex %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Inspect Book</button>
 					</div>
@@ -78,8 +80,8 @@
 			<TD>
 				<form action="removefromcart" method="post">
 					<input type="hidden" name="source" value="cart">
-					<input type="hidden" name="book" value=<%= i %>>
-					<input type="hidden" name="total" value=<%= i %>>
+					<input type="hidden" name="book" value=<%= cartIndex %>>
+					<input type="hidden" name="total" value=<%= cartIndex %>>
 					<div id="button">
 						<button type="submit" class="btn btn-primary btn-block">Remove from Cart</button>
 					</div>

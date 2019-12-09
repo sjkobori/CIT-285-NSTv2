@@ -19,8 +19,8 @@
                       <% Book book = (Book) session.getAttribute("book"); %>
                       <TR>
                       	<TD>Title: <%= book.getTitle()%></TD>
-                      	<TD> <img src="web/images/book_images/Mormon-book.jpg" 
-                      	alt="*Add Title Here*" width="250" height="250"/> </TD>
+                      	<TD><img src="<%= book.getImagepath() %>" 
+                      		alt="*Add Title Here*" width="125" height="125"/> </TD>
                       </TR>
                       <TR>
                       	<TD> Author: <%= book.getAuthor().getAuthorfirstname() + 

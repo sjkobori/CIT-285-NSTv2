@@ -69,7 +69,7 @@ public class AddBookServlet extends HttpServlet {
 					book.setYear(Integer.parseInt(request.getParameter("year")));
 					book.setPrice(Double.parseDouble(request.getParameter("price")));
 					book.setDescription(request.getParameter("description"));
-					book.setImagepath("Nothing yet");
+					book.setImagepath(request.getParameter("imagepath"));
 					
 					System.out.println("Adding Book, maybe...");
 					bookServices.addBook(book);

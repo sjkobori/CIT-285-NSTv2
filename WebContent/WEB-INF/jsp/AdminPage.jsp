@@ -34,10 +34,19 @@
 
 	<!-- Display Books -->
 	<TABLE>
-	
+		<TR>
+			<TD></TD> <!-- Move to next column -->
+			<TD>(Book ID)</TD>
+			<TD>(Title)</TD>
+			<TD>(Author)</TD>
+			<TD>(Year)</TD>
+			<TD>(Price)</TD>
+		</TR>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
 		<% for (int i = 0; i < booklist.size(); i++) { %>
 		<TR>
+			<TD><img src="<%= booklist.get(i).getImagepath() %>" 
+            	alt="*Add Title Here*" width="75" height="75"/> </TD>
 			<TD> (<%= booklist.get(i).getBookid() %>) </TD>
 			<TD> (<%= booklist.get(i).getTitle() %>) </TD>
 			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() + 

@@ -28,24 +28,24 @@ insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
 --
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000000,"123-456-789-0123","JAVA Textbook","Editor 1",
-            "11th Edition",2014,199.99, "Good Java Book", "fix later",12345670);
+            "11th Edition",2014,199.99, "Good Java Book", "web/images/book_images/Mormon-book.jpg",12345670);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000001,"123-456-789-0124","C++ Textbook","Editor 2",
-            "9th Edition",2016,249.99, "Good C++ Book", "fix later",12345670);
+            "9th Edition",2016,249.99, "Good C++ Book", "web/images/book_images/Mormon-book.jpg",12345670);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000002,"123-456-789-0125","Javascript Manual","Editor 1",
-            "4th Edition",2011,89.99, "Dont use Javascript", "fix later",12345671);
+            "4th Edition",2011,89.99, "Dont use Javascript", "web/images/book_images/Mormon-book.jpg",12345671);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000003,"123-456-789-0126","Paul's SQL Guide","Editor 3",
-            "1st Edition",2014,19.89, "I love SQL", "fix later",12345672);
+            "1st Edition",2014,19.89, "I love SQL", "web/images/book_images/Mormon-book.jpg",12345672);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000004,"123-456-789-0127","Servlets for Dummies","Editor 1",
-            "2nd Edition",2014,26.99, "All you need to know about Servlets in one place", "fix later",12345672);
+            "2nd Edition",2014,26.99, "All you need to know about Servlets in one place", "web/images/book_images/Mormon-book.jpg",12345672);
             
             insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000005,"123-456-789-0128","History of Memes","Editor 2",
-            "7th Edition",2019,420.69, "Quality Memes", "fix later",12345672);
+            "7th Edition",2019,420.69, "Quality Memes", "web/images/book_images/memebook.jpg",12345672);

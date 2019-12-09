@@ -7,7 +7,7 @@
 <title>Error</title>
 </head>
 <body>
-	YOU HAVE REACHED THE ERROR PAGE, YOU DUMBASS
+	YOU HAVE REACHED THE ERROR PAGE, HOW DID THAT HAPPEN?!
 	
 </body>
 </html>
