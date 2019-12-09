@@ -32,19 +32,19 @@ insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Image
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000001,"123-456-789-0124","C++ Textbook","Editor 2",
-            "9th Edition",2016,249.99, "Good C++ Book", "web/images/book_images/Mormon-book.jpg",12345670);
+            "9th Edition",2016,249.99, "Good C++ Book", "web/images/book_images/C++.jpg",12345670);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000002,"123-456-789-0125","Javascript Manual","Editor 1",
-            "4th Edition",2011,89.99, "Dont use Javascript", "web/images/book_images/Mormon-book.jpg",12345671);
+            "4th Edition",2011,89.99, "Dont use Javascript", "web/images/book_images/Javascript.jpg",12345671);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000003,"123-456-789-0126","Paul's SQL Guide","Editor 3",
-            "1st Edition",2014,19.89, "I love SQL", "web/images/book_images/Mormon-book.jpg",12345672);
+            "1st Edition",2014,19.89, "I love SQL", "web/images/book_images/SQL.jpg",12345672);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000004,"123-456-789-0127","Servlets for Dummies","Editor 1",
-            "2nd Edition",2014,26.99, "All you need to know about Servlets in one place", "web/images/book_images/Mormon-book.jpg",12345672);
+            "2nd Edition",2014,26.99, "All you need to know about Servlets in one place", "web/images/book_images/Servlet.jpg",12345672);
             
 insert into Book (BookID,ISBN,Title,Editor,Edition,Year,Price,Description, Imagepath, AuthorID)
             values (10000005,"123-456-789-0128","History of Memes","Editor 2",
