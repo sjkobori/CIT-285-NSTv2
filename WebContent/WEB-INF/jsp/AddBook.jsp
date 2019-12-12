@@ -17,7 +17,7 @@
 	</form>
 	<hr>
 <b> Add a Book </b>
-<form action="addbook" method="post">
+<form action="addbook" method="post" id="addform">
 			<input type="hidden" name="source" value="addBook">
            <TABLE>
                       <TR>
@@ -30,7 +30,7 @@
                       </TR>
                       <TR>
                       	<TD>Author:</TD>
-                      	<TD> <select name="authorindex" form="quantityform">
+                      	<TD> <select name="authorindex" form="addform">
                       	<% ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors"); %>
 							<% for (int i = 0; i < authorlist.size(); i++) { %>
 							

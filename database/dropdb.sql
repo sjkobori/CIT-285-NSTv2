@@ -1,4 +1,5 @@
 use book_store;
+--DROP DATABASE IF EXISTS book_store;
 DROP TABLE LineItem;
 DROP TABLE Book;
 DROP TABLE Author;

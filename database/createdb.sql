@@ -13,6 +13,7 @@
 --
 --
 -- Change the database to book_store.
+--CREATE DATABASE book_store;
 USE book_store;
 create table Author(AuthorID BIGINT NOT NULL,
                     AuthorFirstName VARCHAR(20),

@@ -40,11 +40,11 @@
                       <TR>
                       <!-- Make drop down menu for selecting -->
                        <TD>Author:</TD>
-                      	<TD> <select name="authorindex" form="quantityform">
+                      	<TD> <select name="authorindex" form="updateform">
                       	<% ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors"); %>
 							<% for (int i = 0; i < authorlist.size(); i++) { %>
-							
 							<option value="<%= i %>"><%=authorlist.get(i).toString()%></option>
+							<!-- <option value="<%= i %>"><%=authorlist.get(i).toString()%></option> -->
 							<!--<c:forEach items="${authors}" var="author">-->
                       			<!--<option value="${author.getAuthorid()}">${author.toString()}</option>-->
 							<!--</c:forEach>-->

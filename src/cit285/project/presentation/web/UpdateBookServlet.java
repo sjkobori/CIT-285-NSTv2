@@ -60,6 +60,7 @@ public class UpdateBookServlet extends HttpServlet {
 				String source = request.getParameter("source");
 				
 				if (source.equals("updateBook")){
+					System.out.println("inside update book servlet");
 					//temporary solution
 					Book tempbook = (Book) session.getAttribute("book");
 					ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
@@ -77,12 +78,13 @@ public class UpdateBookServlet extends HttpServlet {
 					updatedBook.setPrice(Double.parseDouble(request.getParameter("price")));
 					updatedBook.setDescription(request.getParameter("description"));
 					updatedBook.setImagepath(request.getParameter("imagepath"));
-				
+					String temp = request.getParameter("authorindex");
 					//add selected author to book
+					System.out.println(temp);
 					updatedBook.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
 
 					bookServices.updateBook(updatedBook);
-					
+					//get author from list with the same id 
 					///int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
 					int bookNumber = (int) session.getAttribute("bookNumber");
 					ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
