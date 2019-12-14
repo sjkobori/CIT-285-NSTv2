@@ -66,7 +66,12 @@ public class CartServlet extends HttpServlet {
 			//retrieve cart
 			//call cart services
 			ArrayList<LineItem> cart = null; //create list to hold cart
-			cart = invoiceServices.getCart((int)session.getAttribute("invoice")); //fill with users current cart
+			
+			
+			cart = (ArrayList<LineItem>) session.getAttribute("cart");
+			
+			
+			//cart = invoiceServices.getCart((int)session.getAttribute("invoice")); //fill with users current cart
 			for (LineItem item : cart) {
 				System.out.println(item.getLineItemId());
 			}

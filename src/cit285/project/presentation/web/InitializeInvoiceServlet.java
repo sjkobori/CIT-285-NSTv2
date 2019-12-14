@@ -1,6 +1,8 @@
 package cit285.project.presentation.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
+import cit285.project.domain.LineItem;
 import cit285.project.services.InvoiceServices;
 import cit285.project.services.InvoiceServicesAPI;
 import cit285.project.services.LoginServices;
@@ -63,6 +66,9 @@ public class InitializeInvoiceServlet extends HttpServlet {
 		String source = request.getParameter("source");
 		if (source.equals("login") || source.equals("cart")) {
 			//if (session.getAttribute(""))
+			
+			ArrayList<LineItem> cart = new ArrayList<>();
+			session.setAttribute("cart", cart);
 			
 			session.setAttribute("invoice", 
 					invoiceServices.initializeInvoice((String) session.getAttribute("username")));

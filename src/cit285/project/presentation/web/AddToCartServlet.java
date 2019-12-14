@@ -72,8 +72,29 @@ public class AddToCartServlet extends HttpServlet {
 			item.setBookId(books.get(bookNumber).getBookid());
 			item.setInvoiceId((int) session.getAttribute("invoice"));
 			
+			ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart");
+			boolean isBookInCart = false;
+			
+			for (LineItem items : cart) {
+				//if bookid matchs
+				//add one to quantity
+				if (items.getBookId() == item.getBookId()){
+					items.setQuantity(items.getQuantity() +1);
+					isBookInCart = true;
+					break;
+				}
+			}
+			if (!isBookInCart) { //if book not in cart
+				item.setQuantity(1);
+				cart.add(item); //add it to cart
+			}
+			
+			session.setAttribute("cart", cart);
+			
+			
+			
 			// Add attribute to the session
-			invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
+			//invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
 			//request.setAttribute("book", books.get(bookNumber));
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}

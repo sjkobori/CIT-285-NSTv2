@@ -76,7 +76,7 @@ create table Address(AddressID BIGINT NOT NULL,
 create table Invoice(InvoiceID BIGINT NOT NULL,
 				  UserID BIGINT NOT NULL,
 				  InvoiceDate DATE,
-				  TotalAmount INT,
+				  TotalAmount DECIMAL(15, 2),
 				  IsProcessed BOOLEAN NOT NULL,
 				  
                   PRIMARY KEY (InvoiceID),
