@@ -46,6 +46,11 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("admin", false);
 		if (loginStatus == 1) { //user login
 			System.out.println("User logged in...");
+			if (session.getAttribute("username") != null && !session.getAttribute("username").equals(username)) {
+				session.setAttribute("cart", null);
+				//session.invalidate(); //clears session
+				//session = request.getSession();
+			}
 			session.setAttribute("username", username);
 			
 			// response.sendRedirect("/BookServlet");
