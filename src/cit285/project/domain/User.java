@@ -8,7 +8,6 @@ public class User {
 	private String lastName; // user's last name
 	private String companyName;
 	private boolean isAdmin;
-	
 
 	// Set user id
 	public void setUserid(int userid) {
@@ -25,7 +24,20 @@ public class User {
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		String s = userName;
+
+		boolean hasNonAlpha = s.matches("^.*[^a-zA-Z0-9 ].*$"); // Check if userName has alphanumeric if yes, return
+
+		if (!hasNonAlpha) {
+			if (userName.length() <= 30) { //Check if userName has more than 30 characters, if not then set userName
+				this.userName = userName;
+			} else {
+				this.userName = userName.substring(0, 30); //If userName is more than characters, take the first 30 characters.
+				
+			}
+		} else {
+			throw new IllegalArgumentException("Username cannot have non-alphanumeric.");
+		}
 	}
 
 	public String getPassword() {
@@ -35,10 +47,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	// Set first name
 	public void setFirstName(String firstName) {
+		boolean hasNumbers = firstName.matches(".*\\d.*");
+		if(!hasNumbers) {
 		this.firstName = firstName;
+		}
+		else {
+			throw new IllegalArgumentException("First name cannot have digits.");
+		}
 	}
 
 	// Get first name
@@ -48,7 +66,13 @@ public class User {
 
 	// Set last name
 	public void setLastName(String lastName) {
+		boolean hasNumbers = lastName.matches(".*\\d.*");
+		if(!hasNumbers) {
 		this.lastName = lastName;
+		}
+		else {
+			throw new IllegalArgumentException("Last name cannot have digits.");
+		}
 	}
 
 	// Get last name name
@@ -73,14 +97,11 @@ public class User {
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	
+
 	public String toString() {
 		return "Userid: " + userid + ", First Name: " + firstName + ", Last Name: " + lastName + ", Company Name: "
 				+ companyName;
 
 	}
 
-	
-
-	
 }

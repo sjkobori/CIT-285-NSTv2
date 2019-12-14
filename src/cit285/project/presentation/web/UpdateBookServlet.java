@@ -22,97 +22,104 @@ import cit285.project.services.BookServicesAPI;
 public class UpdateBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BookServicesAPI bookServices;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdateBookServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
-    @Override
-    public void init() throws ServletException {
-    	try{
-			//System.out.println("Configuring services...");
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UpdateBookServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init() throws ServletException {
+		try {
+			// System.out.println("Configuring services...");
 			BookSystemConfig.configureServices();
+		} catch (Exception e) {
 		}
-		catch(Exception e){}
-		//System.out.println("Getting payments services...");
+		// System.out.println("Getting payments services...");
 		bookServices = BookSystemConfig.getBookServices();
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-				//doGet(request, response);
-				
-				HttpSession session = request.getSession();
-				String source = request.getParameter("source");
-				
-				if (source.equals("updateBook")){
-					System.out.println("inside update book servlet");
-					//temporary solution
-					Book tempbook = (Book) session.getAttribute("book");
-					ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
-					//int authorIndex = Integer.parseInt(request.getParameter("authorid"));
-					//Author tempAuthor = new Author();
-					Book updatedBook =  new Book();
-					
-					//authors list send authorNumber and author list
-					updatedBook.setBookid(tempbook.getBookid());
-					updatedBook.setIsbn(request.getParameter("isbn"));
-					updatedBook.setTitle(request.getParameter("title"));
-					updatedBook.setEditor(request.getParameter("editor"));
-					updatedBook.setEdition(request.getParameter("edition"));
-					updatedBook.setYear(Integer.parseInt(request.getParameter("year")));
-					updatedBook.setPrice(Double.parseDouble(request.getParameter("price")));
-					updatedBook.setDescription(request.getParameter("description"));
-					updatedBook.setImagepath(request.getParameter("imagepath"));
-					String temp = request.getParameter("authorindex");
-					//add selected author to book
-					System.out.println(temp);
-					updatedBook.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
+		// doGet(request, response);
 
-					bookServices.updateBook(updatedBook);
-					//get author from list with the same id 
-					///int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
-					int bookNumber = (int) session.getAttribute("bookNumber");
-					ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
-					booklist.set(bookNumber, updatedBook); //exchange new book at selected book index
-					session.setAttribute("book", updatedBook);
-					
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
-				}
-				else if (source.equals("addAuthor")){
-					//make a user
-					//add try block
-					Author author = new Author();
-					author.setAuthorfirstname(request.getParameter("authorfirstname"));
-					author.setAuthorlastname(request.getParameter("authorlastname"));
-					
-					System.out.println("Adding Author, maybe...");
-					bookServices.addAuthor(author);
-					
-					// Add attribute to the session
-					//set login
-					///session.setAttribute("users",users);
-					
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
-				}				
-				else{
-					session.setAttribute("Error","Unknown source!");
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
-				}
+		HttpSession session = request.getSession();
+		String source = request.getParameter("source");
+
+		if (source.equals("updateBook")) {
+			// temporary solution
+			Book tempbook = (Book) session.getAttribute("book");
+			ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
+			// int authorIndex = Integer.parseInt(request.getParameter("authorid"));
+			// Author tempAuthor = new Author();
+			Book updatedBook = new Book();
+
+			// authors list send authorNumber and author list
+			try {
+				updatedBook.setBookid(tempbook.getBookid());
+				updatedBook.setIsbn(request.getParameter("isbn"));
+				updatedBook.setTitle(request.getParameter("title"));
+				updatedBook.setEditor(request.getParameter("editor"));
+				updatedBook.setEdition(request.getParameter("edition"));
+				updatedBook.setYear(Integer.parseInt(request.getParameter("year")));
+				updatedBook.setPrice(Double.parseDouble(request.getParameter("price")));
+				updatedBook.setDescription(request.getParameter("description"));
+				updatedBook.setImagepath(request.getParameter("imagepath"));
+
+				// add selected author to book
+				updatedBook.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
+
+				bookServices.updateBook(updatedBook);
+
+				/// int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
+				int bookNumber = (int) session.getAttribute("bookNumber");
+				ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
+				booklist.set(bookNumber, updatedBook); // exchange new book at selected book index
+				session.setAttribute("book", updatedBook);
+			} catch (NumberFormatException ex) {
+				System.out.println(ex.getMessage());
+			} catch (IllegalArgumentException ex) {
+				System.out.println(ex.getMessage());
+			}
+
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
+		} else if (source.equals("addAuthor")) {
+			// make a user
+			// add try block
+			Author author = new Author();
+			author.setAuthorfirstname(request.getParameter("authorfirstname"));
+			author.setAuthorlastname(request.getParameter("authorlastname"));
+
+			System.out.println("Adding Author, maybe...");
+			bookServices.addAuthor(author);
+
+			// Add attribute to the session
+			// set login
+			/// session.setAttribute("users",users);
+
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
+		} else {
+			session.setAttribute("Error", "Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
+		}
 	}
 
 }

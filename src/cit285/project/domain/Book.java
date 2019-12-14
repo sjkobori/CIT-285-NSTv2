@@ -1,5 +1,7 @@
 package cit285.project.domain;
 
+import java.time.Year;
+
 public class Book {
 	private int bookid; // Book id
 	private String isbn; // Book ISBN
@@ -24,7 +26,17 @@ public class Book {
 
 	// Set book Isbn number
 	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+
+		boolean hasNonDigits = isbn.matches("\\d+");
+		if (hasNonDigits) {
+			if (isbn.length() == 13) {
+				this.isbn = isbn;
+			} else {
+				this.isbn = isbn.substring(0, 13);
+			}
+		} else {
+			throw new NumberFormatException("ISBN cannot have non-digits characters");
+		}
 	}
 
 	// Get book Isbn number
@@ -34,7 +46,11 @@ public class Book {
 
 	// Set book title
 	public void setTitle(String title) {
+		if(title.length() <= 100) {
 		this.title = title;
+		} else {
+			throw new IllegalArgumentException("Title cannot be longer than 100 characters");
+		}
 	}
 
 	// Get book title
@@ -64,7 +80,12 @@ public class Book {
 
 	// Set book publication year
 	public void setYear(int year) {
-		this.year = year;
+		int currentYear = Year.now().getValue();
+		if (year <= currentYear) {
+			this.year = year;
+		} else {
+			throw new IllegalArgumentException("Published year cannot be later than current year " + currentYear);
+		}
 	}
 
 	// Get book publication year
@@ -84,7 +105,8 @@ public class Book {
 
 	public String toString() {
 		return "BookId: " + bookid + ", ISBN: " + isbn + ", Title: " + title + ", Editor: " + editor + ", Edition: "
-				+ edition + ", Year: " + year + ", Price: " + price + ", Description: " + description + ", Author: " + author;
+				+ edition + ", Year: " + year + ", Price: " + price + ", Description: " + description + ", Author: "
+				+ author;
 	}
 
 	public double getPrice() {
