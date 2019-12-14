@@ -65,10 +65,12 @@ public class InitializeInvoiceServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
 		if (source.equals("login") || source.equals("cart")) {
-			//if (session.getAttribute(""))
 			
-			ArrayList<LineItem> cart = new ArrayList<>();
-			session.setAttribute("cart", cart);
+			if (session.getAttribute("cart") == null) {
+				ArrayList<LineItem> cart = new ArrayList<>();
+				session.setAttribute("cart", cart);
+			}
+			
 			
 			session.setAttribute("invoice", 
 					invoiceServices.initializeInvoice((String) session.getAttribute("username")));

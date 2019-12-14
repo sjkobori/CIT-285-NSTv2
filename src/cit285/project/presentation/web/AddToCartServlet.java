@@ -74,6 +74,22 @@ public class AddToCartServlet extends HttpServlet {
 			
 			ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart");
 			boolean isBookInCart = false;
+			//boolean isValid
+			
+			//checks
+			
+			//if valid - direct back
+			//if not
+			//add errotr string to error attribute
+			//direct back to update book
+			
+			
+			
+			//string hashmap errors
+			
+			//when you login as someone else
+			//clear session data
+			
 			
 			for (LineItem items : cart) {
 				//if bookid matchs
@@ -113,4 +129,23 @@ public class AddToCartServlet extends HttpServlet {
 		}
 	}
 
+	public void addToCart(ArrayList<LineItem> cart, LineItem item) {
+		boolean isBookInCart = false;
+		
+		for (LineItem items : cart) {
+			//if bookid matchs
+			//add one to quantity
+			if (items.getBookId() == item.getBookId()) {
+				items.setQuantity(items.getQuantity() + 1);
+				isBookInCart = true;
+				break;
+			}
+		}
+		if (!isBookInCart) { //if book not in cart
+			
+			item.setQuantity(1);
+			cart.add(item); //add it to cart
+		}
+	}
+	
 }
