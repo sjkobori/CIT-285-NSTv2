@@ -62,6 +62,7 @@ public class FinalizeInvoiceServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
+		//Take parameter source and check to see what the button is.
 		if (source.equals("cart")) {
 			
 			System.out.println(session.getAttribute("invoice"));

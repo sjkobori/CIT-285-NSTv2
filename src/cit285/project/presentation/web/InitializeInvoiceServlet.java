@@ -66,6 +66,7 @@ public class InitializeInvoiceServlet extends HttpServlet {
 		String source = request.getParameter("source");
 		if (source.equals("login") || source.equals("cart")) {
 			
+			//If there is no existing cart, create a new cart
 			if (session.getAttribute("cart") == null) {
 				ArrayList<LineItem> cart = new ArrayList<>();
 				session.setAttribute("cart", cart);
