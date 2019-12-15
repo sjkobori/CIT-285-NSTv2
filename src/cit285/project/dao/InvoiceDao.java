@@ -1,19 +1,15 @@
 package cit285.project.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-
-import cit285.project.domain.Author;
-import cit285.project.domain.Book;
 import cit285.project.domain.LineItem;
 
 public class InvoiceDao implements Dao {
 
+	//stores lineItem in database (currently not implemented)
 	public void addToCart(LineItem item) throws SQLException, ClassNotFoundException {
 		// get connection
 		Connection connection = getConnection();
@@ -52,9 +48,8 @@ public class InvoiceDao implements Dao {
 
 	}
 
+	//gives user a new invoice if they do not have an active invoice or retrieves it if they do
 	public int initializeInvoice(String username) throws ClassNotFoundException, SQLException {
-		System.out.println("Current Username: " + username);
-		System.err.println("Current Username: " + username);
 		
 		int invoiceId, userId = 0; // make proper error
 		Connection connection = getConnection();
@@ -96,6 +91,7 @@ public class InvoiceDao implements Dao {
 		return invoiceId;
 	}
 
+	//retrieves users unfinished cart from database (not currenly implemented)
 	public ArrayList<LineItem> getCart(int invoiceId) throws ClassNotFoundException, SQLException {
 		// list to hold lineItems
 		ArrayList<LineItem> cart = new ArrayList<>();
@@ -120,6 +116,7 @@ public class InvoiceDao implements Dao {
 		return cart;
 	}
 
+	//removes item from cart (not currently implemented)
 	public void removeFromCart(LineItem item) throws ClassNotFoundException, SQLException {
 
 		Connection connection = getConnection();
@@ -134,6 +131,7 @@ public class InvoiceDao implements Dao {
 
 	}
 
+	//
 	public boolean finalizeInvoice(int invoiceId, double totalAmount) throws ClassNotFoundException, SQLException {
 		
 		//get connection
@@ -142,12 +140,12 @@ public class InvoiceDao implements Dao {
 		PreparedStatement statement = connection.prepareStatement(
 				"UPDATE invoice SET InvoiceDate=?, totalAmount=? where invoiceId=?");
 		//UPDATE invoice SET date=?, totalAmount=? where invoiceId=?
-		statement.setDate(1, new java.sql.Date(new java.util.Date().getTime())); //hopefully this works
+		statement.setDate(1, new java.sql.Date(new java.util.Date().getTime()));
 		statement.setDouble(2, totalAmount); //sets total
 		statement.setInt(3, invoiceId); //update the invoice that matches
 		//set ? new java.sql.Date(), ? totalAmount, ? invoiceId
 		
-		if (statement.executeUpdate() == 1) {
+		if (statement.executeUpdate() == 1) { //if update was successful
 			return true;
 		}
 		return false;		

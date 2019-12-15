@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.security.auth.login.FailedLoginException;
 
@@ -15,17 +14,18 @@ public class LoginDao implements Dao {
 
 	public User validate(Login loginBean) throws ClassNotFoundException, SQLException, FailedLoginException {
 
-		User user = new User();
+		User user = new User(); //creates user to hold user data from database
 
 		Connection connection = getConnection();
 		PreparedStatement preparedStatement = connection
 				.prepareStatement("select * from user where username=? and password=?");
-		preparedStatement.setString(1, loginBean.getUsername());
+		preparedStatement.setString(1, loginBean.getUsername()); //sets username and password to ?
 		preparedStatement.setString(2, loginBean.getPassword());
 
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
-		if (resultSet.next()) {
+		if (resultSet.next()) { //if match is found
+			//fill user with data from set (not password)
 			user.setUserName(resultSet.getString("Username")); // username
 			user.setFirstName(resultSet.getString("Firstname")); // first name
 			user.setLastName(resultSet.getString("Lastname")); // last name
@@ -35,33 +35,7 @@ public class LoginDao implements Dao {
 			throw new FailedLoginException("Incorrect Username and/or Password");
 		}
 
-		return user;
+		return user; //sends back user data
 	}
-
-	/*
-	 * public int validate(Login loginBean) throws ClassNotFoundException { int
-	 * status = 0; // boolean admin =false; try { Connection connection =
-	 * getConnection(); Statement statement = connection.createStatement();
-	 * ResultSet resultSet = statement.executeQuery("select * from user"); while
-	 * (resultSet.next()) { if
-	 * (resultSet.getString("Username").equals(loginBean.getUsername()) &&
-	 * resultSet.getString("Password").equals(loginBean.getPassword())) { boolean
-	 * isAdmin = resultSet.getBoolean("isAdmin"); if (isAdmin) { status = 2; break;
-	 * } else { status = 1; break; } } else { //no matching username and password
-	 * status = 3; } }
-	 * 
-	 * // Step 2:Create a statement using connection object PreparedStatement
-	 * preparedStatement = connection
-	 * .prepareStatement("select * from user where username = ? and password = ? "))
-	 * { preparedStatement.setString(1, loginBean.getUsername());
-	 * preparedStatement.setString(2, loginBean.getPassword());
-	 * 
-	 * System.out.println(preparedStatement); ResultSet rs =
-	 * preparedStatement.executeQuery(); status = rs.next();
-	 * 
-	 * } catch (SQLException e) { printSQLException(e); }
-	 * 
-	 * return status; }
-	 */
 
 }
