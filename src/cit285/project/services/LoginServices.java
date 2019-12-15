@@ -30,21 +30,4 @@ public class LoginServices implements LoginServicesAPI {
 		return user;
 
 	}
-	
-	/*public int loginUser(String username, String password) {
-		Login loginBean = new Login();
-		loginBean.setUsername(username);
-		loginBean.setPassword(password);
-		int x = 0;
-		try {
-			x = loginDao.validate(loginBean);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return x;
-
-	}*/
-
 }

@@ -15,7 +15,7 @@ public interface InvoiceServicesAPI {
 	
 	public void removeFromCart(LineItem item); //change to work with just id
 	
-	public boolean updateQuantity(int lineItemId); //maybe can just send the lineItemId
+	public boolean updateQuantity(int lineItemId);
 	
 	public ArrayList<LineItem> getCart(int invoiceId);
 	
