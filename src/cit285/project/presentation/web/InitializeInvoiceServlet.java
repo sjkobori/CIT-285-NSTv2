@@ -15,8 +15,6 @@ import cit285.project.config.BookSystemConfig;
 import cit285.project.domain.LineItem;
 import cit285.project.services.InvoiceServices;
 import cit285.project.services.InvoiceServicesAPI;
-import cit285.project.services.LoginServices;
-import cit285.project.services.LoginServicesAPI;
 
 /**
  * Servlet implementation class InitializeInvoiceServlet
@@ -66,7 +64,7 @@ public class InitializeInvoiceServlet extends HttpServlet {
 		String source = request.getParameter("source");
 		if (source.equals("login") || source.equals("cart")) {
 			
-			//If there is no existing cart, create a new cart
+			//If there is no existing active invoice, create new
 			if (session.getAttribute("cart") == null) {
 				ArrayList<LineItem> cart = new ArrayList<>();
 				session.setAttribute("cart", cart);
