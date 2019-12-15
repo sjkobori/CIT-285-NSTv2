@@ -62,20 +62,15 @@ public class InspectBookServlet extends HttpServlet {
 		// doGet(request, response);
 
 		HttpSession session = request.getSession();
-		// int userId = session.getAttribute(arg0)
 		String source = request.getParameter("source");
-		System.out.println("inside inspect book servlet");
+		//request the source from the page and store into String source
+		
+		//Check the value of the String
 		if (source.equals("booklist") || source.equals("cart") || source.equals("adminHome")) {
 			ArrayList<Book> books = null;
-			// Book book = null;
-			// try {
-			books = (ArrayList<Book>) session.getAttribute("books");// session.getAttribute("book");
-			// } catch (Exception ex) {
-			// ex.printStackTrace();
-			// }
-			// Add attribute to the session
-			// System.out.println(book);
-			//FIX FIX FIX
+			books = (ArrayList<Book>) session.getAttribute("books");
+		
+			
 			session.setAttribute("bookNumber", Integer.parseInt(request.getParameter("bookNumber")));
 			session.setAttribute("book", books.get(Integer.parseInt(request.getParameter("bookNumber"))));
 			if (source.equals("adminHome")) {

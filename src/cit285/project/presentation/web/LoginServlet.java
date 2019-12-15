@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
-import cit285.project.domain.LineItem;
 import cit285.project.domain.User;
 import cit285.project.services.LoginServices;
 import cit285.project.services.LoginServicesAPI;
@@ -52,9 +51,6 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("Admin logged in...");
 					// go to admin page
 					session.setAttribute("username", username);
-					//session.setAttribute("admin", true);
-					// getServletContext().getRequestDispatcher("adminhome").forward(request,
-					// response);
 					getServletContext().getRequestDispatcher("/getbooks").forward(request, response);
 					
 
@@ -62,12 +58,8 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("User logged in...");
 					if (session.getAttribute("username") != null && !session.getAttribute("username").equals(username)) {
 						session.setAttribute("cart", null);
-						// session.invalidate(); //clears session
-						// session = request.getSession();
 					}
 					session.setAttribute("username", username);
-
-					// response.sendRedirect("/BookServlet");
 					// Redirect to initializeinvoice
 					getServletContext().getRequestDispatcher("/initializeinvoice").forward(request, response);
 				} 

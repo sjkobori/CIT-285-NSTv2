@@ -9,12 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cit285.project.config.BookSystemConfig;
-import cit285.project.domain.Address;
-import cit285.project.domain.Email;
-import cit285.project.domain.User;
-import cit285.project.services.SignUpServicesAPI;
-
 /**
  * Servlet implementation class SignUpServlet
  */
@@ -63,7 +57,7 @@ public class LogoutServlet extends HttpServlet {
 			// clear session data
 			session.invalidate();
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-
+		//When the logout button is clicked return the user/admin to the login page.
 		} else if (source.equals("login") || source.equals("adminHome")) {
 			session.invalidate();
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
