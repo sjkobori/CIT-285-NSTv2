@@ -6,6 +6,7 @@
 	<head>
 	<meta charset="ISO-8859-1">
 	<title>Book Details</title>
+	<link rel="stylesheet" href="web/css/default.css">
 	</head>
 	<body>
         <form action="getbooks" method="post">

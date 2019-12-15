@@ -9,6 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Page</title>
+<link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
 	Today's a good day to be an admin, right, <%= session.getAttribute("username") %>

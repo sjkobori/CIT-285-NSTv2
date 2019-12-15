@@ -7,6 +7,7 @@
 <title>Login</title>
 <link rel="stylesheet" href="WEB-INF/css/welcome.css">
 </head>
+
 <body>
 	<h2>Welcome to NST Bookstore! </h2>
 	<h3>Login </h3>

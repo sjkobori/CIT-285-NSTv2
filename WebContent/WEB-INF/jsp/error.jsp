@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Error</title>
+<link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
 	YOU HAVE REACHED THE ERROR PAGE, HOW DID THAT HAPPEN?!

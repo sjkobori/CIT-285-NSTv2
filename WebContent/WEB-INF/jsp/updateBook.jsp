@@ -7,6 +7,7 @@
 	<head>
 	<meta charset="ISO-8859-1">
 	<title>Update Book</title>
+	<link rel="stylesheet" href="web/css/default.css">
 	</head>
 	<body>
         <form action="redirect" method="post">

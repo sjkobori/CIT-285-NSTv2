@@ -8,6 +8,7 @@
 <html lang="en">
 <head>
 <title>List of users</title>
+<link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
 		<form action="redirect" method="post">
