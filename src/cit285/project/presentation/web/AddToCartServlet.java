@@ -39,7 +39,6 @@ public class AddToCartServlet extends HttpServlet {
 			BookSystemConfig.configureServices();
 		}
 		catch(Exception e){}
-		//System.out.println("Getting payments services...");
 		invoiceServices = BookSystemConfig.getInvoiceServices();
 	}
 
@@ -63,60 +62,47 @@ public class AddToCartServlet extends HttpServlet {
 		String source = request.getParameter("source");
 		
 		if (source.equals("booklist")) {
-			// clear session data
-			ArrayList<Book> books = null;
-			int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
-			books = (ArrayList<Book>) session.getAttribute("books");
+			ArrayList<Book> books = null; //creates list to hold books
+			int bookNumber = Integer.parseInt(request.getParameter("bookNumber")); //gets bookIndex
+			books = (ArrayList<Book>) session.getAttribute("books"); //gets booklist from session
 			
-			LineItem item = new LineItem();
-			item.setBookId(books.get(bookNumber).getBookid());
-			item.setInvoiceId((int) session.getAttribute("invoice"));
+			LineItem item = new LineItem(); //creates a line item
+			item.setBookId(books.get(bookNumber).getBookid()); //sets book id from selected book
+			item.setInvoiceId((int) session.getAttribute("invoice")); //gets invoice id from active invoice
+			//gets cart from session
+			ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart");			
 			
-			ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart");
-			boolean isBookInCart = false;
+			addToCart(cart, item); //adds item to cart
 			
-			
-			for (LineItem items : cart) {
-				//if bookid matchs
-				//add one to quantity
-				if (items.getBookId() == item.getBookId()){
-					items.setQuantity(items.getQuantity() +1);
-					isBookInCart = true;
-					break;
-				}
-			}
-			if (!isBookInCart) { //if book not in cart
-				item.setQuantity(1);
-				cart.add(item); //add it to cart
-			}
-			
+			//update cart in session
 			session.setAttribute("cart", cart);
-			
-			
-			
-			// Add attribute to the session
+			//returns to booklist
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}
-	//if the srouce is inspectBook
+		//if the source is inspectBook
 		else if (source.equals("inspectBook")) {
-			LineItem item = new LineItem();
-			Book book = (Book) session.getAttribute("book");
-			item.setBookId(book.getBookid());
-			item.setInvoiceId((int) session.getAttribute("invoice"));
+			LineItem item = new LineItem(); //creates new item
+			Book book = (Book) session.getAttribute("book"); //gets current book from session
+			item.setBookId(book.getBookid()); 
+			item.setInvoiceId((int) session.getAttribute("invoice")); //sets invoice id to active invoice
+			//gets cart from session
+			ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart");	
 			
+			addToCart(cart, item); //adds item to cart
 			// Add attribute to the session
-			invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
+			//invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/inspectBook.jsp").forward(request, response);
 		}
 		else {
-			System.out.println("ELSE");
+			session.setAttribute("Error","Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 	}
 
 	public void addToCart(ArrayList<LineItem> cart, LineItem item) {
-		boolean isBookInCart = false;
+		boolean isBookInCart = false; //flag for checking if book is in cart already
 		
-		for (LineItem items : cart) {
+		for (LineItem items : cart) {  //iterates though all items in cart
 			//if bookid matchs
 			//add one to quantity
 			if (items.getBookId() == item.getBookId()) {
@@ -126,7 +112,6 @@ public class AddToCartServlet extends HttpServlet {
 			}
 		}
 		if (!isBookInCart) { //if book not in cart
-			
 			item.setQuantity(1);
 			cart.add(item); //add it to cart
 		}
