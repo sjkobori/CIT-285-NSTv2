@@ -58,8 +58,6 @@ public class SignUpServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
 
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
@@ -67,37 +65,39 @@ public class SignUpServlet extends HttpServlet {
 		if (source.equals("signUp")) {
 			// make a user
 			// add try block
-			User user = new User();
+			User user = new User(); //creates user obj
 
-			try {
+			try { 
+				//sets user data
 				user.setUserName(request.getParameter("username"));
 				user.setPassword(request.getParameter("password"));
 				user.setFirstName(request.getParameter("firstname"));
 				user.setLastName(request.getParameter("lastname"));
-				// if passwords dont match (send response attribute "error" to passwords dont
-				// match
 				user.setCompanyName(request.getParameter("companyname"));
 
+				//sets email data
 				Email email = new Email();
 				email.setEmailAddress(request.getParameter("email"));
 
+				//sets address data
 				Address address = new Address();
-
 				address.setCity(request.getParameter("city"));
 				address.setStreet(request.getParameter("street"));
 				address.setZipcode(request.getParameter("zipcode"));
 				address.setState(request.getParameter("state"));
 				address.setCountry(request.getParameter("country"));
 
+				if (!request.getParameter("confirmpassword").equals(user.getPassword())) {
+					throw new IllegalArgumentException("Passwords Don't Match!");
+				}
+				
 				signUpServices.signUp(user, email, address);
+				session.setAttribute("username", user.getUserName()); //set username
 
 			} catch (IllegalArgumentException ex) {
-				System.out.println(ex.getMessage());
+				session.setAttribute("error", ex.getMessage());
+				getServletContext().getRequestDispatcher("/WEB-INF/jsp/SignUp.jsp").forward(request, response);
 			}
-
-			// Add attribute to the session
-			// set login
-			/// session.setAttribute("users",users);
 
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else {

@@ -66,9 +66,8 @@
 				<TD><input type="text" name="country" maxlength="20" required></TD>
 			</TR>
 			<TR>
-				<TD>
-				<input type = "submit" value = "Submit">
-				</TD>
+				<TD><input type = "submit" value = "Submit"></TD>
+				<TD><label><c:if test="${not empty error}">${error}</c:if></label><TD>
 			</TR>
 		</form>
 </table>

@@ -1,4 +1,4 @@
- package cit285.project.presentation.web;
+package cit285.project.presentation.web;
 
 import java.io.IOException;
 
@@ -22,67 +22,56 @@ import cit285.project.services.UserServicesAPI;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserServicesAPI userServices;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
-    @Override
-    public void init() throws ServletException {
-    	try{
-			//System.out.println("Configuring services...");
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init() throws ServletException {
+		try {
+			// System.out.println("Configuring services...");
 			BookSystemConfig.configureServices();
+		} catch (Exception e) {
 		}
-		catch(Exception e){}
-		//System.out.println("Getting payments services...");
+		// System.out.println("Getting payments services...");
 		userServices = BookSystemConfig.getUserServices();
 	}
-    
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-	
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
-		
-		if (source.equals("welcome")){
-			
-			
-			
-			// Add attribute to the session
-			
-			
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/welcome.jsp").forward(request, response);
-		}
-		else if (source.equals("adminHome")) {
+		if (source.equals("adminHome")) { //if coming from admin page
 
 			ArrayList<User> users = null;
-			users = userServices.getUsers();
-			session.setAttribute("users",users);
-			System.out.println("Going to User List");
+			users = userServices.getUsers(); //get list of users
+			session.setAttribute("users", users); //put list into session
+
 			request.getRequestDispatcher("/WEB-INF/jsp/UserList.jsp").forward(request, response);
-			
-		}
-		else{
-			session.setAttribute("Error","Unknown source!");
-			System.out.println("UserServlet");
+		} else {
+			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
 	}
 }
-

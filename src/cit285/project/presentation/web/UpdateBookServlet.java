@@ -65,14 +65,11 @@ public class UpdateBookServlet extends HttpServlet {
 		String source = request.getParameter("source");
 
 		if (source.equals("updateBook")) {
-			// temporary solution
-			Book tempbook = (Book) session.getAttribute("book");
+			Book tempbook = (Book) session.getAttribute("book"); //holds old book
 			ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
-			// int authorIndex = Integer.parseInt(request.getParameter("authorid"));
-			// Author tempAuthor = new Author();
-			Book updatedBook = new Book();
 
-			// authors list send authorNumber and author list
+			Book updatedBook = new Book(); //holds new book
+
 			try {
 				updatedBook.setBookid(tempbook.getBookid());
 				updatedBook.setIsbn(request.getParameter("isbn"));
@@ -86,11 +83,12 @@ public class UpdateBookServlet extends HttpServlet {
 
 				// add selected author to book
 				updatedBook.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
-
+				//updates book
 				bookServices.updateBook(updatedBook);
 
-				/// int bookNumber = Integer.parseInt(request.getParameter("bookNumber"));
+				//gets book index from session
 				int bookNumber = (int) session.getAttribute("bookNumber");
+				//gets booklist from session
 				ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
 				booklist.set(bookNumber, updatedBook); // exchange new book at selected book index
 				session.setAttribute("book", updatedBook);
@@ -101,19 +99,15 @@ public class UpdateBookServlet extends HttpServlet {
 			}
 
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
-		} else if (source.equals("addAuthor")) {
+		} else if (source.equals("addAuthor")) { //coming from addAuthor page
 			// make a user
 			// add try block
 			Author author = new Author();
 			author.setAuthorfirstname(request.getParameter("authorfirstname"));
 			author.setAuthorlastname(request.getParameter("authorlastname"));
 
-			System.out.println("Adding Author, maybe...");
-			bookServices.addAuthor(author);
-
-			// Add attribute to the session
-			// set login
-			/// session.setAttribute("users",users);
+			//try block
+			bookServices.addAuthor(author); 
 
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
 		} else {

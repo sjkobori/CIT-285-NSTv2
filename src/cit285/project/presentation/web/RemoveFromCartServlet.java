@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
-import cit285.project.domain.Book;
 import cit285.project.domain.LineItem;
-import cit285.project.services.BookServicesAPI;
 import cit285.project.services.InvoiceServicesAPI;
 
 /**
@@ -63,20 +61,19 @@ public class RemoveFromCartServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
 
-		if (source.equals("cart")) {
-			// clear session data
+		if (source.equals("cart")) { //if accessed from cart.jsp
 			ArrayList<LineItem> cart = null;
-			int cartNumber = Integer.parseInt(request.getParameter("book"));
+			//change to book number
+			int cartNumber = Integer.parseInt(request.getParameter("book")); //gets index in cart
 			cart = (ArrayList<LineItem>) session.getAttribute("cart");
-
-			System.out.println(cartNumber);
-			LineItem item = new LineItem();
-			item = cart.get(cartNumber);
+			
+			//LineItem item = new LineItem();
+			//item = cart.get(cartNumber);
 			//System.out.println(item.getLineItemId() + "Remove line item's id"); //check if null
 			// if this is successful (add a boolean for the future)
 			//invoiceServices.removeFromCart(item); // send lineItem info to cart (contains invoice id and bookid)
 			// when lineItem is deleted, remove it from the array list
-			cart.remove(cartNumber);
+			cart.remove(cartNumber); //remove from cart at current index
 			session.setAttribute("cart", cart);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
 
