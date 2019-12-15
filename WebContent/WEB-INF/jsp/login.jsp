@@ -27,6 +27,7 @@
 			<button type="submit" class="btn btn-primary btn-block">Sign Up</button>
 		</div>
 	</form>
+	<label><c:if test="${not empty error}">${error}</c:if></label>
 	
 </body>
 </html>

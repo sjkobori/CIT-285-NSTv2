@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Random;
 
 public interface Dao {
+	//range for 
 	static int MIN = 10000000;
 	static int MAX = 99999999;
 	

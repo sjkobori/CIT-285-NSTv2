@@ -6,12 +6,6 @@ input:invalid {
   border: 2px solid red;
 }
 input:valid {
-  border: 2px solid green;
+  border: 2px solid blue;
 }
 
-
-.studentslist_format {
-	background-color:black;
-	color:white;
-	padding:20px;
-}
