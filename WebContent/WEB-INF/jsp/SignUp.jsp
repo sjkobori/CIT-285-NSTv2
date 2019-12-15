@@ -43,21 +43,27 @@
 				<TD><input type="email" name="email" maxlength="50" required></TD>
 			</TR>
 			<TR>
-				<TD>
-			<b>Address</b> 
-			</TD>
-			</TR>
-			<TR>
-				<TD><label for="city">City</label></TD>
-				<TD><input type="text" name="city" maxlength="20" required></TD>
+				<TD><b>Address</b></TD>
 			</TR>
 			<TR>
 				<TD><label for="street">Street</label></TD>
 				<TD><input type="text" name="street"  maxlength="50" required></TD>
 			</TR>
 			<TR>
+				<TD><label for="city">City</label></TD>
+				<TD><input type="text" name="city" maxlength="20" required></TD>
+			</TR>			
+			<TR>
+				<TD><label for="country">State</label></TD>
+				<TD><input type="text" name="state" pattern="[A-Z]{2}" title="Please Enter a 2 Character State code" maxlength="2" required></TD>
+			</TR>
+			<TR>
 				<TD><label for="zipcode">Zipcode</label></TD>
 				<TD><input type="text" name="zipcode" pattern="[0-9]+" title="Only Numbers" maxlength="5" required></TD>
+			</TR>
+			<TR>
+				<TD><label for="country">Country</label></TD>
+				<TD><input type="text" name="country" maxlength="20" required></TD>
 			</TR>
 			<TR>
 				<TD>

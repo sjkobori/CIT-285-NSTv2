@@ -71,7 +71,6 @@ public class SignUpServlet extends HttpServlet {
 
 			try {
 				user.setUserName(request.getParameter("username"));
-
 				user.setPassword(request.getParameter("password"));
 				user.setFirstName(request.getParameter("firstname"));
 				user.setLastName(request.getParameter("lastname"));
@@ -87,6 +86,8 @@ public class SignUpServlet extends HttpServlet {
 				address.setCity(request.getParameter("city"));
 				address.setStreet(request.getParameter("street"));
 				address.setZipcode(request.getParameter("zipcode"));
+				address.setState(request.getParameter("state"));
+				address.setCountry(request.getParameter("county"));
 
 				signUpServices.signUp(user, email, address);
 
