@@ -26,15 +26,24 @@ public class Book {
 
 	// Set book Isbn number
 	public void setIsbn(String isbn) {
-
+	// Return true if the input is anything other than digits
 		boolean hasNonDigits = isbn.matches("\\d+");
+	// Check if input has non-digits
 		if (hasNonDigits) {
+	// Check if input is 13 digits
 			if (isbn.length() == 13) {
+	//-> Assign isbn
 				this.isbn = isbn;
-			} else {
+	// Check if input is less than 13 digits
+			} else if (isbn.length() < 13) {
+	//-> Set error message when its less than 13 digits
+				throw new NumberFormatException("ISBN cannot have less than 13 digits");
+	// Check if input is not 13 nor less than 13 (=> More than 13)
+			} else
+	//-> Clip the input and take the first 13 digits
 				this.isbn = isbn.substring(0, 13);
-			}
 		} else {
+	//-> Set error message when input contains non-digits character 
 			throw new NumberFormatException("ISBN cannot have non-digits characters");
 		}
 	}
@@ -46,9 +55,12 @@ public class Book {
 
 	// Set book title
 	public void setTitle(String title) {
-		if(title.length() <= 100) {
-		this.title = title;
+	// Check if title length is less than or equal to 100 characters
+		if (title.length() <= 100) {
+	// If title has less than or equal to 100 character then set title
+			this.title = title;
 		} else {
+	// If title has more than 100 characters, throw Exception and set message
 			throw new IllegalArgumentException("Title cannot be longer than 100 characters");
 		}
 	}
@@ -80,10 +92,14 @@ public class Book {
 
 	// Set book publication year
 	public void setYear(int year) {
+	// Find current year
 		int currentYear = Year.now().getValue();
+	//Check if input year is later than current year
 		if (year <= currentYear) {
+	//If input year is not later than current year then set year
 			this.year = year;
 		} else {
+	//If input year is later than current year then throw exception and set error message
 			throw new IllegalArgumentException("Published year cannot be later than current year " + currentYear);
 		}
 	}

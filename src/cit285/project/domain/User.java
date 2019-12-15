@@ -25,17 +25,21 @@ public class User {
 
 	public void setUserName(String userName) {
 		String s = userName;
-
-		boolean hasNonAlpha = s.matches("^.*[^a-zA-Z0-9 ].*$"); // Check if userName has alphanumeric if yes, return
-
+		
+	// Check if userName has alphanumeric if yes, return true
+		boolean hasNonAlpha = s.matches("^.*[^a-zA-Z0-9 ].*$");
+	// If userName does not contain non-alphanumeric
 		if (!hasNonAlpha) {
-			if (userName.length() <= 30) { //Check if userName has more than 30 characters, if not then set userName
+	// Check if userName has more than 30 characters, if not then set userName
+			if (userName.length() <= 30) {
 				this.userName = userName;
+	//If userName is more than characters, take the first 30 characters.
 			} else {
-				this.userName = userName.substring(0, 30); //If userName is more than characters, take the first 30 characters.
+				this.userName = userName.substring(0, 30); 
 				
 			}
 		} else {
+	// If userName contains non-alphanumeric characters throw exception and set error message
 			throw new IllegalArgumentException("Username cannot have non-alphanumeric.");
 		}
 	}
@@ -50,11 +54,15 @@ public class User {
 
 	// Set first name
 	public void setFirstName(String firstName) {
+	//Check if first name contains digits, if yes return true
 		boolean hasNumbers = firstName.matches(".*\\d.*");
+	//Check if boolean is not true -> Doesn't have digits
 		if(!hasNumbers) {
+	//If first name doesn't have digits then set first name
 		this.firstName = firstName;
 		}
 		else {
+	//If first name contains digits then throw exception and set error message
 			throw new IllegalArgumentException("First name cannot have digits.");
 		}
 	}
@@ -66,11 +74,16 @@ public class User {
 
 	// Set last name
 	public void setLastName(String lastName) {
+
+	//Check if last name contains digits, if yes return true
 		boolean hasNumbers = lastName.matches(".*\\d.*");
+	//Check if boolean is not true -> Doesn't have digits
 		if(!hasNumbers) {
+	//If last name doesn't have digits then set last name
 		this.lastName = lastName;
 		}
 		else {
+	//If last name contains digits then throw exception and set error message
 			throw new IllegalArgumentException("Last name cannot have digits.");
 		}
 	}
