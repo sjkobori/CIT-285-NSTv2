@@ -6,11 +6,11 @@ import java.sql.SQLException;
 import java.util.Random;
 
 public interface Dao {
-	//range for 
+	//range for id generation
 	static int MIN = 10000000;
 	static int MAX = 99999999;
 	
-	
+	//default functionality for get connection in db
 	public default Connection getConnection() 
 			throws SQLException, ClassNotFoundException {
 		
@@ -26,6 +26,7 @@ public interface Dao {
 		return connection;
 	}
 	
+	//generates id number between max and min
 	public default Integer generateId() {
 		Random rand = new Random();
 
