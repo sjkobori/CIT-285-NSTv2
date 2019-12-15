@@ -49,7 +49,7 @@ public class RedirectServlet extends HttpServlet {
 		
 		//if not signed in yet
 		if (source.equals("SignUp")) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp2/SignUp.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/SignUp.jsp").forward(request, response);
 		}// else if (!(boolean) session.getAttribute("admin")) { // if user is logged in
 
 		//}
