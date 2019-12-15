@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Sign Up</title>
+<link rel="stylesheet" href="WEB-INF/css/formpage.css">
 </head>
 <body>
 <table>
@@ -14,23 +15,23 @@
 	<input type="hidden" name="source" value="signUp">
 			<TR>
 				<TD>Username:</TD>
-				<TD><input type="text" name="username"></TD>
+				<TD><input type="text" name="username" required></TD>
 			</TR>
 			<TR>
 				<TD>Password:</TD>
-				<TD><input type="password" name="password"></TD>
+				<TD><input type="password" name="password" pattern=".{6,}" title="Six or more characters" required></TD>
 			</TR>
 			<TR>
 				<TD>Confirm Password:</TD>
-				<TD><input type="password" name="confirmpassword"></TD>
+				<TD><input type="password" name="confirmpassword" required></TD>
 			</TR>
 			<TR>
 				<TD>First Name:</TD>
-				<TD><input type="text" name="firstname"></TD>
+				<TD><input type="text" name="firstname"  required></TD>
 			</TR>
 			<TR>
 				<TD><label for="lastname">Last Name</label></TD>
-				<TD><input type="text" name="lastname"></TD>
+				<TD><input type="text" name="lastname"  required></TD>
 			</TR>
 			<TR>
 				<TD><label for="companyname">Company Name</label></TD>
@@ -38,7 +39,7 @@
 			</TR>
 			<TR>
 				<TD><label for="email">Email</label></TD>
-				<TD><input type="text" name="email"></TD>
+				<TD><input type="email" name="email" required></TD>
 			</TR>
 			<TR>
 				<TD>
@@ -47,15 +48,15 @@
 			</TR>
 			<TR>
 				<TD><label for="city">City</label></TD>
-				<TD><input type="text" name="city"></TD>
+				<TD><input type="text" name="city" required></TD>
 			</TR>
 			<TR>
 				<TD><label for="street">Street</label></TD>
-				<TD><input type="text" name="street"></TD>
+				<TD><input type="text" name="street" required></TD>
 			</TR>
 			<TR>
 				<TD><label for="zipcode">Zipcode</label></TD>
-				<TD><input type="text" name="zipcode"></TD>
+				<TD><input type="text" name="zipcode" required></TD>
 			</TR>
 			<TR>
 				<TD>

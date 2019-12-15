@@ -1,0 +1,17 @@
+body{
+	background-color: #f5f5dc;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+input:valid {
+  border: 2px solid green;
+}
+
+
+.studentslist_format {
+	background-color:black;
+	color:white;
+	padding:20px;
+}
