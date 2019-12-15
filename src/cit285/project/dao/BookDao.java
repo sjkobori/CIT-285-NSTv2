@@ -12,7 +12,9 @@ import cit285.project.domain.Book;
 
 public class BookDao implements Dao {
 
+	//Gets list of books
 	public ArrayList<Book> getBooks() throws SQLException, ClassNotFoundException {
+		//list to hold books
 		ArrayList<Book> booksList = new ArrayList<>();
 
 		Connection connection = getConnection();
@@ -49,12 +51,13 @@ public class BookDao implements Dao {
 				author.setAuthorfirstname(rset.getString(2));
 				author.setAuthorlastname(rset.getString(3));
 			}
-
+			//adds book to list
 			booksList.add(book);
 		}
 		return booksList;
 	}
 	
+	//returns a list of authors
 	public ArrayList<Author> getAuthors() throws SQLException, ClassNotFoundException {
 		ArrayList<Author> authorsList = new ArrayList<>();
 
@@ -77,18 +80,16 @@ public class BookDao implements Dao {
 		return authorsList;
 	}
 
+	//adds book to database
 	public void addBook(Book book) throws SQLException, ClassNotFoundException {
 		// get connection
 		Connection connection = getConnection();
 		// Create statement 
-		PreparedStatement statement = connection.prepareStatement("insert into book values (?,?,?,?,?,?,?,?,?,?)");
-		// assign ids to user, email, and address
+		PreparedStatement statement = connection.prepareStatement(
+				"insert into book values (?,?,?,?,?,?,?,?,?,?)");
 
-		book.setBookid(generateId());
-		//Author author = new Author(); //FIX LATER
-		//author = book.getAuthor();
-		
-		
+		book.setBookid(generateId()); //creates id
+				
 		statement.setInt(1, book.getBookid());
 		statement.setString(2, book.getIsbn());
 		statement.setString(3, book.getTitle());
@@ -99,13 +100,11 @@ public class BookDao implements Dao {
 		statement.setString(8, book.getDescription());
 		statement.setString(9, book.getImagepath());
 		statement.setInt(10, book.getAuthor().getAuthorid());
-		//book.setAuthor(author);
 		
 		statement.executeUpdate();
-		// check if ids are in database
-		// add user, email, and address to database
 	}
 	
+	//adds author to database
 	public void addAuthor(Author author) throws SQLException, ClassNotFoundException {
 		// get connection
 		Connection connection = getConnection();
@@ -113,16 +112,12 @@ public class BookDao implements Dao {
 		PreparedStatement statement = connection.prepareStatement("insert into author values (?,?,?)");
 		// assign ids to user, email, and address
 
-		author.setAuthorid(generateId());
-		
-		
+		author.setAuthorid(generateId()); //generates id
 		statement.setInt(1, author.getAuthorid());
 		statement.setString(2, author.getAuthorfirstname());
 		statement.setString(3, author.getAuthorlastname());
 		
 		statement.executeUpdate();
-		// check if ids are in database
-		// add user, email, and address to database
 	}
 
 	public void deleteBook(int bookId) throws ClassNotFoundException, SQLException {

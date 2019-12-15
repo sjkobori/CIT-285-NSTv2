@@ -56,28 +56,24 @@ public class BookSystemConfig {
 		return sw.toString();
 	}
 
+	//returns services objects
 	public static SignUpServicesAPI getSignUpServices() {
-
 		return signUpServices;
 	}
 
 	public static UserServicesAPI getUserServices() {
-
 		return userServices;
 	}
 
 	public static BookServicesAPI getBookServices() {
-		// TODO Auto-generated method stub
 		return bookServices;
 	}
 
 	public static LoginServicesAPI getLoginServices() {
-		// TODO Auto-generated method stub
 		return loginServices;
 	}
 	
 	public static InvoiceServicesAPI getInvoiceServices() {
-		// TODO Auto-generated method stub
 		return invoiceServices;
 	}
 
