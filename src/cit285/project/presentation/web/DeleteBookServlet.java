@@ -76,6 +76,7 @@ public class DeleteBookServlet extends HttpServlet {
 			session.setAttribute("books", booklist);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
 		} else {
+			// If source is none of the above send user to error page
 			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}

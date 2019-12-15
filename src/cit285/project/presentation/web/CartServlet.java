@@ -79,6 +79,7 @@ public class CartServlet extends HttpServlet {
 			session.setAttribute("cart", cart);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
 		}
+		//If the source is continue shopping return the user to the booklist
 		else if (source.contentEquals("continueShopping")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}

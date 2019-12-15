@@ -86,6 +86,7 @@ public class BookServlet extends HttpServlet {
 
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		} else {
+			//If source is none of the above then redirect user to the error page.
 			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}
