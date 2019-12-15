@@ -93,6 +93,7 @@ public class SignUpServlet extends HttpServlet {
 				
 				signUpServices.signUp(user, email, address);
 				session.setAttribute("username", user.getUserName()); //set username
+				session.setAttribute("error", null);
 
 			} catch (IllegalArgumentException ex) {
 				session.setAttribute("error", ex.getMessage());

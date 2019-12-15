@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Sign Up</title>
-<link rel="stylesheet" href="web/css/formpage.css">
+<link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
 <h3>Sign Up</h3>

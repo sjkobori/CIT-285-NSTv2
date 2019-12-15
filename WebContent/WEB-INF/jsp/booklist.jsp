@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>List of books</title>
+<title>Book List</title>
+<link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
 	Welcome, <%= session.getAttribute("username") %>!
