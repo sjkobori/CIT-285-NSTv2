@@ -87,7 +87,7 @@ public class SignUpServlet extends HttpServlet {
 				address.setStreet(request.getParameter("street"));
 				address.setZipcode(request.getParameter("zipcode"));
 				address.setState(request.getParameter("state"));
-				address.setCountry(request.getParameter("county"));
+				address.setCountry(request.getParameter("country"));
 
 				signUpServices.signUp(user, email, address);
 
