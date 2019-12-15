@@ -74,21 +74,6 @@ public class AddToCartServlet extends HttpServlet {
 			
 			ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart");
 			boolean isBookInCart = false;
-			//boolean isValid
-			
-			//checks
-			
-			//if valid - direct back
-			//if not
-			//add errotr string to error attribute
-			//direct back to update book
-			
-			
-			
-			//string hashmap errors
-			
-			//when you login as someone else
-			//clear session data
 			
 			
 			for (LineItem items : cart) {
@@ -110,10 +95,9 @@ public class AddToCartServlet extends HttpServlet {
 			
 			
 			// Add attribute to the session
-			//invoiceServices.addToCart(item); //send lineItem info to cart (contains invoice id and bookid)
-			//request.setAttribute("book", books.get(bookNumber));
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		}
+	//if the srouce is inspectBook
 		else if (source.equals("inspectBook")) {
 			LineItem item = new LineItem();
 			Book book = (Book) session.getAttribute("book");

@@ -80,6 +80,7 @@ public class AddBookServlet extends HttpServlet {
 					booklist.add(book);
 					session.setAttribute("books", booklist); //put updated list in session
 
+			//If the source is AddBook then redirect admin to AddBook.jsp
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
 				}
 				else if (source.equals("addAuthor")){
@@ -94,10 +95,10 @@ public class AddBookServlet extends HttpServlet {
 					
 					// Add attribute to the session
 					//set login
-					///session.setAttribute("users",users);
 					
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
-				}				
+				}	
+		//If source is none of the above, send the user to error page
 				else{
 					session.setAttribute("Error","Unknown source!");
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
