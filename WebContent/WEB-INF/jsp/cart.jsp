@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
 <title>List of books</title>
+<link rel="stylesheet" href="web/css/formpage.css">
 </head>
 <body>
 	This is the cart.jsp
