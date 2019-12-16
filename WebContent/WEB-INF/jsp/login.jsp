@@ -5,11 +5,11 @@
 <html lang="en">
 <head>
 <title>Login</title>
-<link rel="stylesheet" href="WEB-INF/css/welcome.css">
+<link rel="stylesheet" href="web/css/default.css">
 </head>
 
 <body>
-	<h2>Welcome to NST Bookstore! </h2>
+	<h2>Welcome to NST Bookstore!</h2>
 	<h3>Login </h3>
 	<form action="login" method="post">
 		<input type="hidden" name="source" value="login">

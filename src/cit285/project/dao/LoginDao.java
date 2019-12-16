@@ -26,6 +26,7 @@ public class LoginDao implements Dao {
 		
 		if (resultSet.next()) { //if match is found
 			//fill user with data from set (not password)
+			user.setUserid(resultSet.getInt("UserId")); // userId
 			user.setUserName(resultSet.getString("Username")); // username
 			user.setFirstName(resultSet.getString("Firstname")); // first name
 			user.setLastName(resultSet.getString("Lastname")); // last name

@@ -77,7 +77,7 @@ public class BookServlet extends HttpServlet {
 				//make more elegant
 				session.setAttribute("authors", bookServices.getAuthors());
 				System.out.println("Going to Admin page");
-				getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
 			}
 			
 		} else if (source.equals("inspectBook") || source.equals("cart")) {

@@ -46,10 +46,10 @@ public class InvoiceServices implements InvoiceServicesAPI {
 
 
 	@Override
-	public int initializeInvoice(String username) {
+	public int initializeInvoice(int userId) {
 		// TODO Auto-generated method stub
 				try {
-					return invoiceDao.initializeInvoice(username);
+					return invoiceDao.initializeInvoice(userId);
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

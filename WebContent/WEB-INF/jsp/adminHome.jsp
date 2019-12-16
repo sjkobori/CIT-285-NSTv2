@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
-	Today's a good day to be an admin, right, <%= session.getAttribute("username") %>
+	Today's a good day to be an admin, right, ${user.getFirstName()} ${user.getLastName()}.
 	<form action="userlist" method="post">
 		<input type="hidden" name="source" value="adminHome">
 		<div id="button">
@@ -20,7 +20,7 @@
 		</div>
 	</form>
 	<form action="logout" method="post">
-		<input type="hidden" name="source" value="booklist">
+		<input type="hidden" name="source" value="adminHome">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Logout</button>
 		</div>
@@ -36,24 +36,26 @@
 	<!-- Display Books -->
 	<TABLE>
 		<TR>
-			<TD></TD> <!-- Move to next column -->
-			<TD>(Book ID)</TD>
-			<TD>(Title)</TD>
-			<TD>(Author)</TD>
-			<TD>(Year)</TD>
-			<TD>(Price)</TD>
+			<TH>Book Icon</TH>
+			<TH>Book ID</TH>
+			<TH>Title</TH>
+			<TH>Author</TH>
+			<TH>Year</TH>
+			<TH>Price</TH>
+			<TH></TH>
+			<TH></TH>
 		</TR>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
 		<% for (int i = 0; i < booklist.size(); i++) { %>
 		<TR>
 			<TD><img src="<%= booklist.get(i).getImagepath() %>" 
             	alt="*Add Title Here*" width="75" height="75"/> </TD>
-			<TD> (<%= booklist.get(i).getBookid() %>) </TD>
-			<TD> (<%= booklist.get(i).getTitle() %>) </TD>
-			<TD> (<%= booklist.get(i).getAuthor().getAuthorfirstname() + 
-			" " + booklist.get(i).getAuthor().getAuthorlastname()  %>) </TD>
-			<TD> (<%= booklist.get(i).getYear() %>) </TD>
-			<TD> (<%= new DecimalFormat("$###,###.00").format(booklist.get(i).getPrice()) %>) </TD>
+			<TD><%= booklist.get(i).getBookid() %></TD>
+			<TD><%= booklist.get(i).getTitle() %></TD>
+			<TD><%= booklist.get(i).getAuthor().getAuthorfirstname() + 
+			" " + booklist.get(i).getAuthor().getAuthorlastname()  %></TD>
+			<TD><%= booklist.get(i).getYear() %></TD>
+			<TD><%= new DecimalFormat("$###,##0.00").format(booklist.get(i).getPrice()) %></TD>
 			<TD>  
 				<form action="deletebook" method="post">
 					<input type="hidden" name="source" value="adminHome">

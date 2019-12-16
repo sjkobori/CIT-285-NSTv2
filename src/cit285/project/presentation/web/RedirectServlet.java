@@ -49,7 +49,7 @@ public class RedirectServlet extends HttpServlet {
 		
 		//if not signed in yet
 		if (source.equals("SignUp")) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/SignUp.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request, response);
 		}// else if (!(boolean) session.getAttribute("admin")) { // if user is logged in
 
 		//}
@@ -61,9 +61,9 @@ public class RedirectServlet extends HttpServlet {
 			System.out.println("Going to booklist");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		} else if (source.equals("adminHome")) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
 		} else if (source.equals("updateBook") || source.equals("userlist") || source.equals("addBook")) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
 			
 		}
 		else {

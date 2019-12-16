@@ -22,20 +22,20 @@
 	<!-- Display Users -->
 	<TABLE>
 		<TR>
-			<TD>(UserID)</TD>
-			<TD>(Username)</TD>
-			<TD>(Name)</TD>
-			<TD>(Company Name)</TD>
-			<TD>(Admin)</TD>
+			<TH>UserID</TH>
+			<TH>Username</TH>
+			<TH>Name)</TH>
+			<TH>Company Name</TH>
+			<TH>Admin</TH>
 		</TR>
 	<% ArrayList<User> userlist = (ArrayList<User>) session.getAttribute("users"); %>
 		<% for (int i = 0; i < userlist.size(); i++) { %>
 		<TR>			
-			<TD> (<%= userlist.get(i).getUserid() %>) </TD>
-			<TD> (<%= userlist.get(i).getUserName() %>) </TD>
-			<TD> (<%= userlist.get(i).getFirstName() + " " + userlist.get(i).getLastName()  %>) </TD>
-			<TD> (<%= userlist.get(i).getCompanyName() %>) </TD>
-			<TD>  (<%= userlist.get(i).isAdmin() %>)
+			<TD><%= userlist.get(i).getUserid() %></TD>
+			<TD><%= userlist.get(i).getUserName() %></TD>
+			<TD><%= userlist.get(i).getFirstName() + " " + userlist.get(i).getLastName()  %></TD>
+			<TD><%= userlist.get(i).getCompanyName() %></TD>
+			<TD><%= userlist.get(i).isAdmin() %>
 				<!--<form action="removeUser" method="post">
 					<input type="hidden" name="source" value="userlist">
 					<input type="hidden" name="user" value=<%= i %>>
@@ -44,8 +44,6 @@
 					</div>
 				</form>-->
 			</TD>
-			<TD>  
-			
 		</TR>
 		<% } %>
 	</TABLE>

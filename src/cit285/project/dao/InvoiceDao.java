@@ -49,26 +49,14 @@ public class InvoiceDao implements Dao {
 	}
 
 	//gives user a new invoice if they do not have an active invoice or retrieves it if they do
-	public int initializeInvoice(String username) throws ClassNotFoundException, SQLException {
+	public int initializeInvoice(int userId) throws ClassNotFoundException, SQLException {
 		
-		int invoiceId, userId = 0; // make proper error
+		int invoiceId; // make proper error
 		Connection connection = getConnection();
-		// Create statement
-		// gets this users id
-		PreparedStatement statement = connection.prepareStatement("select userId from User where Username=?");
-		statement.setString(1, username);
-		// gets this users id
-		// Execute query
-		ResultSet resultSet = statement.executeQuery();
-		if (resultSet.next()) {
-			userId = resultSet.getInt(1);
-		} else {
-			System.out.println("Username with userId " + userId + " does not exist");
-		}
 		
-		statement = connection.prepareStatement("select * from invoice where userId=?");
+		PreparedStatement statement = connection.prepareStatement("select * from invoice where userId=?");
 		statement.setInt(1, userId); // makes ? userId
-		resultSet = statement.executeQuery();
+		ResultSet resultSet = statement.executeQuery();
 		while (resultSet.next()) {
 			// check if date is null
 			// if found invoice with null date

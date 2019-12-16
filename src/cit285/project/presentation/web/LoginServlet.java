@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 				if (user.isAdmin()) { // Admin login
 					System.out.println("Admin logged in...");
 					// go to admin page
-					session.setAttribute("username", username);
+					session.setAttribute("user", user);
 					getServletContext().getRequestDispatcher("/getbooks").forward(request, response);
 					
 
@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 					if (session.getAttribute("username") != null && !session.getAttribute("username").equals(username)) {
 						session.setAttribute("cart", null);
 					}
-					session.setAttribute("username", username);
+					session.setAttribute("user", user);
 					// Redirect to initializeinvoice
 					getServletContext().getRequestDispatcher("/initializeinvoice").forward(request, response);
 				} 

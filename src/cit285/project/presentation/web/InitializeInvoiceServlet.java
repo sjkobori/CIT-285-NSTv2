@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import cit285.project.config.BookSystemConfig;
 import cit285.project.domain.LineItem;
+import cit285.project.domain.User;
 import cit285.project.services.InvoiceServices;
 import cit285.project.services.InvoiceServicesAPI;
 
@@ -70,9 +71,9 @@ public class InitializeInvoiceServlet extends HttpServlet {
 				session.setAttribute("cart", cart);
 			}
 			
-			
+			User user = (User) session.getAttribute("user");
 			session.setAttribute("invoice", 
-					invoiceServices.initializeInvoice((String) session.getAttribute("username")));
+					invoiceServices.initializeInvoice(user.getUserid()));
 			System.out.println(session.getAttribute("invoice"));
 			// clear session data (move to logout)
 			

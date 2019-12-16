@@ -37,7 +37,7 @@
                       	<TD> Editor:  <%= book.getEditor() %> </TD>
                       </TR>
                       <TR>
-                      	<TD> Price:  <%= new DecimalFormat("$###,###.00").format(book.getPrice()) %> </TD>
+                      	<TD> Price:  <%= new DecimalFormat("$###,##0.00").format(book.getPrice()) %> </TD>
                       </TR>
            </TABLE>
            <form action="addtocart" method="post">

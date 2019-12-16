@@ -9,6 +9,6 @@
 </head>
 <body>
 	YOU HAVE REACHED THE ERROR PAGE, HOW DID THAT HAPPEN?!
-	
+	<!-- Add return home button -->
 </body>
 </html>

@@ -68,7 +68,7 @@ public class UserServlet extends HttpServlet {
 			users = userServices.getUsers(); //get list of users
 			session.setAttribute("users", users); //put list into session
 
-			request.getRequestDispatcher("/WEB-INF/jsp/UserList.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp").forward(request, response);
 		} else {
 			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);

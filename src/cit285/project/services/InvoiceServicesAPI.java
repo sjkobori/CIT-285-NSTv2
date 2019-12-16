@@ -6,7 +6,7 @@ import cit285.project.domain.LineItem;
 
 public interface InvoiceServicesAPI {
 	
-	public int initializeInvoice(String username);
+	public int initializeInvoice(int userId);
 	
 	//fills out invoice (gives it a Date + total) 
 	public boolean finalizeInvoice(int invoiceId, double totalAmount); 

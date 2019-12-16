@@ -98,7 +98,7 @@ public class UpdateBookServlet extends HttpServlet {
 				System.out.println(ex.getMessage());
 			}
 
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AdminPage.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
 		} else if (source.equals("addAuthor")) { //coming from addAuthor page
 			// make a user
 			// add try block

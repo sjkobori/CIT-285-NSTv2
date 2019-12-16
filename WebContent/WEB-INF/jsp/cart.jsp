@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
-	This is the cart.jsp
+	${user.getUserName()}'s Cart
 	<form action="redirect" method="post">
 		<input type="hidden" name="source" value="cart">
 		<div id="button">
@@ -18,15 +18,15 @@
 	</form>
 	<TABLE>
 		<TR> 
-			<TD>(Title)</TD>
-			<TD>(Author)</TD>
-			<TD>(Quantity)</TD>
-			<TD>(Price)</TD>
-			<TD>(Total)</TD>
+			<TH>Title</TH>
+			<TH>Author</TH>
+			<TH>Quantity</TH>
+			<TH>Price</TH>
+			<TH>Total</TH>
 		</TR>
 	<% ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart"); %>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
-	<% DecimalFormat moneyFormat = new DecimalFormat("$###,###.00"); %>
+	<% DecimalFormat moneyFormat = new DecimalFormat("$###,##0.00"); %>
 	<% double itemTotal = 0, grandTotal = 0; %>
 		<% for (int cartIndex = 0; cartIndex < cart.size(); cartIndex++) { %>
 		
@@ -45,7 +45,7 @@
 			<% itemTotal = cart.get(cartIndex).getQuantity()*tempbook.getPrice(); %>
 			<TD><img src="<%= tempbook.getImagepath() %>" 
                       	alt="*Add Title Here*" width="75" height="75"/> </TD>
-			<TD> (<%= tempbook.getTitle() %>) </TD> <!-- Title -->
+			<TD><%= tempbook.getTitle() %></TD> <!-- Title -->
 			<TD> 
 			<!--<form action="updatequantity" method="post" id="quantityform">
 					<input type="submit">
@@ -65,9 +65,9 @@
 			
 			
 			
-			  (<%= cart.get(cartIndex).getQuantity() %>) </TD> <!-- Quantity -->
-			<TD> (<%= moneyFormat.format(tempbook.getPrice()) %>) </TD> <!-- Price -->
-			<TD> (<%= moneyFormat.format(itemTotal) %>) </TD> <!-- Total -->
+			  <%= cart.get(cartIndex).getQuantity() %></TD> <!-- Quantity -->
+			<TD><%= moneyFormat.format(tempbook.getPrice()) %></TD> <!-- Price -->
+			<TD><%= moneyFormat.format(itemTotal) %></TD> <!-- Total -->
 			
 			<TD>  
 			<% grandTotal += itemTotal; %>
@@ -97,7 +97,7 @@
 			<TD></TD>
 			<TD></TD>
 			<TD>Grand Total:</TD>
-			<TD>(<%= moneyFormat.format(grandTotal) %>)</TD>
+			<TD><%= moneyFormat.format(grandTotal) %></TD>
 		</TR>
 	</TABLE>
 	<form action="finalizeinvoice" method="post">
