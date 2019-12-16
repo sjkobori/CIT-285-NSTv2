@@ -80,7 +80,7 @@ public class BookServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
 			}
 			
-		} else if (source.equals("inspectBook") || source.equals("cart")) {
+		} else if (source.equals("inspectBook") || source.equals("cart")) { //remove this
 			// Add attribute to the session
 			// session.setAttribute("books", books);
 

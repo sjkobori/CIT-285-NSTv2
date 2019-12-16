@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cit285.project.domain.User;
+
 /**
  * Servlet implementation class SignUpServlet
  */
@@ -44,30 +46,32 @@ public class RedirectServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("inside redirect");
-		String source = request.getParameter("source");
 		HttpSession session = request.getSession();
-		
-		//if not signed in yet
-		if (source.equals("login")) { //going to signUp
+		String source = request.getParameter("source");
+		User user = (User) session.getAttribute("user");
+
+		// if not signed in yet
+		if (source.equals("login")) { // going to signUp
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request, response);
 		} else if (source.equals("signUp")) { // returning from signUp
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-		}
+		} else if (user != null) {
+			if (user.isAdmin()) {
+				if (source.equals("adminHome")) {
+					getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
+				} else if (source.equals("updateBook") || source.equals("userlist") || source.equals("addBook")) {
+					getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
+				}
+			} else { //user
+				if (source.equals("cart") || source.equals("inspectBook/booklist")) {
+					System.out.println("Going to booklist");
+					getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
+				} else if (source.equals("inspectBook/cart")) {
+					getServletContext().getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
+				}
+			}
 
-		// admin redirect //add admin userlist
-		 else if (source.equals("login")) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-		} else if (source.equals("cart")) {
-			System.out.println("Going to booklist");
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
-		} else if (source.equals("adminHome")) {
-			System.out.println("Going to addBook");
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
-		} else if (source.equals("updateBook") || source.equals("userlist") || source.equals("addBook")) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
-			
-		}
-		else {
+		} else {
 			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 		}

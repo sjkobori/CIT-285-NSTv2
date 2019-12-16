@@ -9,10 +9,16 @@
 	<link rel="stylesheet" href="web/css/default.css">
 	</head>
 	<body>
-        <form action="getbooks" method="post">
-			<input type="hidden" name="source" value="inspectBook"  >
+        <form action="redirect" method="post">
+			<input type="hidden" name="source" value="inspectBook/booklist">
 			<div id="button">
-				<button type="submit" class="btn btn-primary btn-block">Return to list</button>
+				<button type="submit" class="btn btn-primary btn-block">Booklist</button>
+			</div>
+		</form>
+		<form action="redirect" method="post">
+			<input type="hidden" name="source" value="inspectBook/cart">
+			<div id="button">
+				<button type="submit" class="btn btn-primary btn-block">Cart</button>
 			</div>
 		</form>
            <hr />

@@ -23,6 +23,8 @@
 			<TH>Quantity</TH>
 			<TH>Price</TH>
 			<TH>Total</TH>
+			<TH></TH>
+			<TH></TH>
 		</TR>
 	<% ArrayList<LineItem> cart = (ArrayList<LineItem>) session.getAttribute("cart"); %>
 	<% ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books"); %>
