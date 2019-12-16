@@ -61,6 +61,7 @@ public class RedirectServlet extends HttpServlet {
 			System.out.println("Going to booklist");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 		} else if (source.equals("adminHome")) {
+			System.out.println("Going to addBook");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
 		} else if (source.equals("updateBook") || source.equals("userlist") || source.equals("addBook")) {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
