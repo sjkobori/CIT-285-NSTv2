@@ -22,11 +22,11 @@
            <TABLE>
                       <TR>
                       	<TD>Title:</TD>
-                      	<TD> <input type="text" name="title"> </TD>
+                      	<TD> <input type="text" name="title" required pattern=".{1,100}" title="Length must be between 1-100 characters."> </TD>
                       </TR>
                       <TR>
                       	<TD>ISBN:</TD>
-                      	<TD> <input type="text" name="isbn"> </TD>                 	
+                      	<TD> <input type="text" name="isbn" required pattern="[0-9].{12}" maxLength="13" title="Required length: 13 <br/> Valid Input: Numbers between 0-9"> </TD>                 	
                       </TR>
                       <TR>
                       	<TD>Author:</TD>
@@ -43,19 +43,19 @@
 			 			</TD>
                       <TR>
                       	<TD>Year:</TD>
-                      	<TD> <input type="text" name="year"> </TD>
+                      	<TD> <input type="text" name="year" required pattern="[0-9].{,4}" maxLength ="4" title="Maximum length: 4 Valid Input: Numbers between 0-9"> </TD>
                       </TR>
                       <TR>
                       	<TD>Edition:</TD>
-                      	<TD> <input type="text" name="edition"> </TD>
+                      	<TD> <input type="text" name="edition" required> </TD>
                       </TR>
                       <TR>
                       	<TD>Editor:</TD>
-                      	<TD> <input type="text" name="editor""> </TD>
+                      	<TD> <input type="text" name="editor" required> </TD>
                       </TR>
                       <TR>
                       	<TD>Price:</TD>
-                      	<TD> <input type="text" name="price"> </TD>
+                      	<TD> <input type="text" name="price" required> </TD>
                       </TR>
                       <TR>
                       	<TD>Description:</TD>
