@@ -92,11 +92,11 @@ public class UpdateBookServlet extends HttpServlet {
 				ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
 				booklist.set(bookNumber, updatedBook); // exchange new book at selected book index
 				session.setAttribute("book", updatedBook);
-			} catch (NumberFormatException ex) {
-				System.out.println(ex.getMessage());
+				session.setAttribute("error", null);
 			} catch (IllegalArgumentException ex) {
-				System.out.println(ex.getMessage());
-			}
+				session.setAttribute("error", ex.getMessage());
+				getServletContext().getRequestDispatcher("/WEB-INF/jsp/updateBook.jsp").forward(request, response);
+			} 
 
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
 		} else if (source.equals("addAuthor")) { //coming from addAuthor page

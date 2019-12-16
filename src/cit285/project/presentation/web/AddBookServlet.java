@@ -22,87 +22,96 @@ import cit285.project.services.BookServicesAPI;
 public class AddBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BookServicesAPI bookServices;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddBookServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
-    @Override
-    public void init() throws ServletException {
-    	try{
-			//System.out.println("Configuring services...");
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public AddBookServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init() throws ServletException {
+		try {
+			// System.out.println("Configuring services...");
 			BookSystemConfig.configureServices();
+		} catch (Exception e) {
 		}
-		catch(Exception e){}
-		//System.out.println("Getting payments services...");
+		// System.out.println("Getting payments services...");
 		bookServices = BookSystemConfig.getBookServices();
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-				//doGet(request, response);
-				
-				HttpSession session = request.getSession();
-				String source = request.getParameter("source");
-				
-				if (source.equals("addBook")){
-					//make a user
-					//add try block
-					ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
-					Book book = new Book();
-					book.setIsbn(request.getParameter("isbn"));
-					book.setTitle(request.getParameter("title"));
-					book.setEditor(request.getParameter("editor"));
-					book.setEdition(request.getParameter("edition"));
-					book.setYear(Integer.parseInt(request.getParameter("year")));
-					book.setPrice(Double.parseDouble(request.getParameter("price")));
-					book.setDescription(request.getParameter("description"));
-					book.setImagepath(request.getParameter("imagepath"));
-					//sets author to selected author
-					book.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
-					ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
-					
-					bookServices.addBook(book); //add new book in database
-					booklist.add(book);
-					session.setAttribute("books", booklist); //put updated list in session
+		// doGet(request, response);
 
-			//If the source is AddBook then redirect admin to AddBook.jsp
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
-				}
-				else if (source.equals("addAuthor")){
-					//make a user
-					//add try block
-					Author author = new Author();
-					author.setAuthorfirstname(request.getParameter("authorfirstname"));
-					author.setAuthorlastname(request.getParameter("authorlastname"));
-					
-					System.out.println("Adding Author, maybe...");
-					bookServices.addAuthor(author);
-					
-					// Add attribute to the session
-					//set login
-					
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
-				}	
-		//If source is none of the above, send the user to error page
-				else{
-					session.setAttribute("Error","Unknown source!");
-					getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
-				}
+		HttpSession session = request.getSession();
+		String source = request.getParameter("source");
+
+		if (source.equals("addBook")) {
+			// make a user
+			// add try block
+			ArrayList<Author> authorlist = (ArrayList<Author>) session.getAttribute("authors");
+			Book book = new Book();
+			try {
+				book.setIsbn(request.getParameter("isbn"));
+				book.setTitle(request.getParameter("title"));
+				book.setEditor(request.getParameter("editor"));
+				book.setEdition(request.getParameter("edition"));
+				book.setYear(Integer.parseInt(request.getParameter("year")));
+				book.setPrice(Double.parseDouble(request.getParameter("price")));
+				book.setDescription(request.getParameter("description"));
+				book.setImagepath(request.getParameter("imagepath"));
+				// sets author to selected author
+				book.setAuthor(authorlist.get(Integer.parseInt(request.getParameter("authorindex"))));
+				ArrayList<Book> booklist = (ArrayList<Book>) session.getAttribute("books");
+
+				bookServices.addBook(book); // add new book in database
+				booklist.add(book);
+				session.setAttribute("books", booklist); // put updated list in session
+				session.setAttribute("error", null);
+			} catch (IllegalArgumentException ex) {
+				session.setAttribute("error", ex.getMessage());
+			}
+
+			// If the source is AddBook then redirect admin to AddBook.jsp
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
+		} else if (source.equals("addAuthor")) {
+			// make a user
+			// add try block
+			Author author = new Author();
+			author.setAuthorfirstname(request.getParameter("authorfirstname"));
+			author.setAuthorlastname(request.getParameter("authorlastname"));
+
+			System.out.println("Adding Author, maybe...");
+			bookServices.addAuthor(author);
+
+			// Add attribute to the session
+			// set login
+
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
+		}
+		// If source is none of the above, send the user to error page
+		else {
+			session.setAttribute("Error", "Unknown source!");
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
+		}
 	}
 
 }

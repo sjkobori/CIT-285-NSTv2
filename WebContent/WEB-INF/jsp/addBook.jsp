@@ -70,6 +70,7 @@
 			<div id="button">
 				<button type="submit" class="btn btn-primary btn-block">Add Book</button>
 			</div>
+			<label><c:if test="${not empty error}">${error}</c:if></label>
 			</form>
 
 		<!--  <form action ="addAuthor" method="post">

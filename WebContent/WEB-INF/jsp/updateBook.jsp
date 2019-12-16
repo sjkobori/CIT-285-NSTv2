@@ -75,8 +75,9 @@
            </TABLE>
            
 			<div id="button">
-				<button type="submit" class="btn btn-primary btn-block">Update Book</button>
+				<button type="submit" class="btn btn-primary btn-block">Update Book</button>				
 			</div>
+			<label><c:if test="${not empty error}">${error}</c:if></label>
 			</form>
  
 </body>
