@@ -3,17 +3,25 @@ body {
 	background-color: #c5a4a3;
 }
 
-table, td {
-	border: 1px solid black;
-	/* background-color: #a3c4c5;*/
+table {
+	 border: 1px solid black;
+	 background-color: #a3c4c5;
 }
 
+
+td{
+	/*background-color: #ffffff;*/
+}
 th {
 	background-color: #c5a3b3;
 }
 
 tr:nth-child(even) {
 	background-color: #a3c5b5;
+}
+
+tr:nth-child(odd) {
+	background-color: #ffffff;
 }
 input:invalid {
 	border: 1px solid rgba(255, 0, 0, .3);

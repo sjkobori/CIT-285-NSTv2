@@ -10,6 +10,12 @@ insert into User (UserID, Username, Password, FirstName, LastName, Companyname, 
 
 insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
             values (10000004,"testUser","1234", "John", "Lennon", "BHCC", FALSE);
+                        
+insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
+            values (10000005,"morenoAdmin","1234", "Carmelito", "Moreno", "BHCC", TRUE);
+
+insert into User (UserID, Username, Password, FirstName, LastName, Companyname, isAdmin)
+            values (10000006,"morenoUser","1234", "Carmelito", "Moreno", "BHCC", FALSE);
 -- Insert data into Author table.
 --
 insert into Author (AuthorID,AuthorFirstName,AuthorLastName)
