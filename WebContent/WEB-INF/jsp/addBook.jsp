@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Add Book</title>
 <link rel="stylesheet" href="web/css/default.css">
 </head>
