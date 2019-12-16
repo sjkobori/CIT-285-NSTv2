@@ -9,30 +9,39 @@
 <link rel="stylesheet" href="web/css/default.css">
 </head>
 <body>
-<h3>Sign Up</h3>
-<table>
-	
+<form action="redirect" method="post">
+		<input type="hidden" name="source" value="signUp">
+		<div id="button">
+			<button type="submit" class="btn btn-primary btn-block">Return to Login</button>
+		</div>
+	</form>
+	<h3>Sign Up</h3>
 	<form action="signup" method="post">
-	<input type="hidden" name="source" value="signUp">
+		<input type="hidden" name="source" value="signUp">
+		<table>
 			<TR>
 				<TD>Username:</TD>
 				<TD><input type="text" name="username" maxlength="20" required></TD>
 			</TR>
 			<TR>
 				<TD>Password:</TD>
-				<TD><input type="password" name="password" pattern=".{6,}" title="Six or more characters" maxlength="20" required></TD>
+				<TD><input type="password" name="password" pattern=".{6,}"
+					title="Six or more characters" maxlength="20" required></TD>
 			</TR>
 			<TR>
 				<TD>Confirm Password:</TD>
-				<TD><input type="password" name="confirmpassword" maxlength="20" required></TD>
+				<TD><input type="password" name="confirmpassword"
+					maxlength="20" required></TD>
 			</TR>
 			<TR>
 				<TD>First Name:</TD>
-				<TD><input type="text" name="firstname" pattern="[A-Za-z]+" title="Only letters" maxlength="20" required></TD>
+				<TD><input type="text" name="firstname" pattern="[A-Za-z]+"
+					title="Only letters" maxlength="20" required></TD>
 			</TR>
 			<TR>
 				<TD><label for="lastname">Last Name</label></TD>
-				<TD><input type="text" name="lastname" pattern="[A-Za-z]+" title="Only letters" maxlength="20" required></TD>
+				<TD><input type="text" name="lastname" pattern="[A-Za-z]+"
+					title="Only letters" maxlength="20" required></TD>
 			</TR>
 			<TR>
 				<TD><label for="companyname">Company Name</label></TD>
@@ -47,29 +56,32 @@
 			</TR>
 			<TR>
 				<TD><label for="street">Street</label></TD>
-				<TD><input type="text" name="street"  maxlength="50" required></TD>
+				<TD><input type="text" name="street" maxlength="50" required></TD>
 			</TR>
 			<TR>
 				<TD><label for="city">City</label></TD>
 				<TD><input type="text" name="city" maxlength="20" required></TD>
-			</TR>			
+			</TR>
 			<TR>
 				<TD><label for="country">State</label></TD>
-				<TD><input type="text" name="state" pattern="[A-Z]{2}" title="Please Enter a 2 Character State code" maxlength="2" required></TD>
+				<TD><input type="text" name="state" pattern="[A-Z]{2}"
+					title="Please Enter a 2 Character State code" maxlength="2"
+					required></TD>
 			</TR>
 			<TR>
 				<TD><label for="zipcode">Zipcode</label></TD>
-				<TD><input type="text" name="zipcode" pattern="[0-9]+" title="Only Numbers" maxlength="5" required></TD>
+				<TD><input type="text" name="zipcode" pattern="[0-9]+"
+					title="Only Numbers" maxlength="5" required></TD>
 			</TR>
 			<TR>
 				<TD><label for="country">Country</label></TD>
 				<TD><input type="text" name="country" maxlength="20" required></TD>
 			</TR>
 			<TR>
-				<TD><input type = "submit" value = "Submit"></TD>
+				<TD><input type="submit" value="Submit"></TD>
 				<TD><label><c:if test="${not empty error}">${error}</c:if></label><TD>
 			</TR>
-		</form>
-</table>
+		</table>
+	</form>
 </body>
 </html>

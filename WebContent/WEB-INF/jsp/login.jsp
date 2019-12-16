@@ -23,7 +23,7 @@
 		</div>
 	</form>
 	<form action="redirect" method="post">
-		<input type="hidden" name="source" value="SignUp">
+		<input type="hidden" name="source" value="login">
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Sign Up</button>
 		</div>

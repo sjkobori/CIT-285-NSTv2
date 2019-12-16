@@ -48,11 +48,11 @@ public class RedirectServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//if not signed in yet
-		if (source.equals("SignUp")) {
+		if (source.equals("login")) { //going to signUp
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request, response);
-		}// else if (!(boolean) session.getAttribute("admin")) { // if user is logged in
-
-		//}
+		} else if (source.equals("signUp")) { // returning from signUp
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+		}
 
 		// admin redirect //add admin userlist
 		 else if (source.equals("login")) {
