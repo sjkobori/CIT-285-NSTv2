@@ -47,23 +47,23 @@
                       </TR>
                       <TR>
                       	<TD>Edition:</TD>
-                      	<TD> <input type="text" name="edition" required> </TD>
+                      	<TD> <input type="text" name="edition" maxlength="20" required> </TD>
                       </TR>
                       <TR>
                       	<TD>Editor:</TD>
-                      	<TD> <input type="text" name="editor" required> </TD>
+                      	<TD> <input type="text" name="editor" maxlength="50" required> </TD>
                       </TR>
                       <TR>
                       	<TD>Price:</TD>
-                      	<TD> <input type="text" name="price" required> </TD>
+                      	<TD> <input type="text" name="price" pattern="[0-9]+(\.[0-9][0-9]?)?" title="Must be a currency format ex: 10.00" maxlength="18" required> </TD>
                       </TR>
                       <TR>
                       	<TD>Description:</TD>
-                      	<TD> <input type="text" name="description"> </TD>
+                      	<TD> <input type="text" name="description" maxlength="100"> </TD>
                       </TR>
                       <TR>
                       	<TD>Imagepath:</TD>
-                      	<TD> <input type="text" name="imagepath"> </TD>
+                      	<TD> <input type="text" name="imagepath" maxlength="50"> </TD>
                       </TR>
            </TABLE>
            
@@ -71,17 +71,8 @@
 				<button type="submit" class="btn btn-primary btn-block">Add Book</button>
 			</div>
 			<label><c:if test="${not empty error}">${error}</c:if></label>
+			<label><c:if test="${not empty confirmation}">${confirmation}</c:if></label>
 			</form>
 
-		<!--  <form action ="addAuthor" method="post">
-		<div>
-			<input type="hidden" name="source" value="addAuthor">
-			<label for="Author First Name">Author First Name</label>
-			<input type="text" name="authorfirstname">
-			<label for="Author Last Name">Author Last Name</label>
-			<input type="text" name="authorlastname">
-			<input type = "submit" value = "Submit" />
-			</div>
-		</form> -->
 </body>
 </html>

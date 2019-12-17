@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		if (source.equals("login")) {
 			// try block
 			try {
-				session.setAttribute("error", null);
+				session.setAttribute("LoginError", null);
 				user = loginServices.loginUser(username, password);
 				session.setAttribute("admin", user.isAdmin());
 				if (user.isAdmin()) { // Admin login
@@ -66,7 +66,7 @@ public class LoginServlet extends HttpServlet {
 			} catch (FailedLoginException ex) { // not successful login
 				System.out.println("Failed log in...");
 				session.setAttribute("username", username);
-				session.setAttribute("error", ex.getMessage());
+				session.setAttribute("LoginError", ex.getMessage());
 				getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 			}
 

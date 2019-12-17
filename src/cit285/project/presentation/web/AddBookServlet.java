@@ -86,8 +86,10 @@ public class AddBookServlet extends HttpServlet {
 				booklist.add(book);
 				session.setAttribute("books", booklist); // put updated list in session
 				session.setAttribute("error", null);
+				session.setAttribute("confirmation", "Book Added Successfully!");
 			} catch (IllegalArgumentException ex) {
 				session.setAttribute("error", ex.getMessage());
+				session.setAttribute("confirmation", null);
 			}
 
 			// If the source is AddBook then redirect admin to AddBook.jsp

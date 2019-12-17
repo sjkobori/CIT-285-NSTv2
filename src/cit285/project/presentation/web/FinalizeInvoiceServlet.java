@@ -70,6 +70,7 @@ public class FinalizeInvoiceServlet extends HttpServlet {
 			if(session.getAttribute("cart") != null &&
 					invoiceServices.finalizeInvoice((int)session.getAttribute("invoice"), Double.parseDouble(request.getParameter("cartTotal")))) { 
 				session.setAttribute("cart", new ArrayList<LineItem>());
+				session.setAttribute("confirmation", "Cart Purchased Successfully!");
 				// make new cart
 				request.getRequestDispatcher("/initializeinvoice").forward(request, response);
 			} else {

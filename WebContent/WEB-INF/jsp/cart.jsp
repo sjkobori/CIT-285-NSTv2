@@ -48,26 +48,7 @@
 			<TD><img src="<%= tempbook.getImagepath() %>" 
                       	alt="*Add Title Here*" width="75" height="75"/> </TD>
 			<TD><%= tempbook.getTitle() %></TD> <!-- Title -->
-			<TD> 
-			<!--<form action="updatequantity" method="post" id="quantityform">
-					<input type="submit">
-					<input type="hidden" name="source" value="cart">
-					<input type="hidden" name="book" value=<%= cartIndex %>>
-					<div id="button">
-					<select form = "quantityform"> 
-  					<option value="0">0 (Delete)</option>
-  					<option value="1">1</option>
- 	 				<option value="2">2</option>
- 	 				<option value="3">3</option>
- 	 				<option value="4">4</option>
-					</select>
-					</div>
-				</form> -->
-			
-			
-			
-			
-			  <%= cart.get(cartIndex).getQuantity() %></TD> <!-- Quantity -->
+			<TD><%= cart.get(cartIndex).getQuantity() %></TD> <!-- Quantity -->
 			<TD><%= moneyFormat.format(tempbook.getPrice()) %></TD> <!-- Price -->
 			<TD><%= moneyFormat.format(itemTotal) %></TD> <!-- Total -->
 			
@@ -97,7 +78,7 @@
 		<TR> 
 			<TD></TD>
 			<TD></TD>
-			<TD></TD>
+			<TD><label><c:if test="${not empty confirmation}">${confirmation}</c:if></label></TD>
 			<TD>Grand Total:</TD>
 			<TD><%= moneyFormat.format(grandTotal) %></TD>
 		</TR>

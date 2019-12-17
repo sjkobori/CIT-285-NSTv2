@@ -22,7 +22,7 @@ create table Author(AuthorID BIGINT NOT NULL,
 --
 -- creates Book table
 create table Book(BookID BIGINT NOT NULL,
-                  ISBN VARCHAR(30) NOT NULL,
+                  ISBN CHAR(13) NOT NULL,
                   Title VARCHAR(100) NOT NULL,
                   Editor VARCHAR(50),
                   Edition VARCHAR(20),

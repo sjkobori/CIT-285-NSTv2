@@ -55,16 +55,17 @@ public class RedirectServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request, response);
 		} else if (source.equals("signUp")) { // returning from signUp
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-		} else if (user != null) {
-			if (user.isAdmin()) {
+		} else if (user != null) { //if logged in
+			if (user.isAdmin()) { //admin pages
 				if (source.equals("adminHome")) {
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
 				} else if (source.equals("updateBook") || source.equals("userlist") || source.equals("addBook")) {
+					session.setAttribute("confirmation", null);
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
 				}
 			} else { //user
 				if (source.equals("cart") || source.equals("inspectBook/booklist")) {
-					System.out.println("Going to booklist");
+					session.setAttribute("confirmation", null);
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/booklist.jsp").forward(request, response);
 				} else if (source.equals("inspectBook/cart")) {
 					getServletContext().getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);

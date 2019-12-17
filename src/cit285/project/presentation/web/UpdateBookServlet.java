@@ -58,8 +58,6 @@ public class UpdateBookServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
 
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
@@ -93,12 +91,13 @@ public class UpdateBookServlet extends HttpServlet {
 				booklist.set(bookNumber, updatedBook); // exchange new book at selected book index
 				session.setAttribute("book", updatedBook);
 				session.setAttribute("error", null);
+				session.setAttribute("confirmation", "Book Updated Successfully!");
 			} catch (IllegalArgumentException ex) {
 				session.setAttribute("error", ex.getMessage());
-				getServletContext().getRequestDispatcher("/WEB-INF/jsp/updateBook.jsp").forward(request, response);
+				session.setAttribute("confirmation", null);
 			} 
 
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/updateBook.jsp").forward(request, response);
 		} else if (source.equals("addAuthor")) { //coming from addAuthor page
 			// make a user
 			// add try block

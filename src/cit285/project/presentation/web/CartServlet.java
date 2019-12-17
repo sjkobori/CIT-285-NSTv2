@@ -71,9 +71,7 @@ public class CartServlet extends HttpServlet {
 			
 			
 			//cart = invoiceServices.getCart((int)session.getAttribute("invoice")); //fill with users current cart
-			for (LineItem item : cart) {
-				System.out.println(item.getLineItemId());
-			}
+			
 			// Add attribute "cart" to the session
 			session.setAttribute("cart", cart);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/cart.jsp").forward(request, response);
