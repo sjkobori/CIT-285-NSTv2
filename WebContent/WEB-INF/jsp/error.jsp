@@ -9,6 +9,11 @@
 </head>
 <body>
 	YOU HAVE REACHED THE ERROR PAGE, HOW DID THAT HAPPEN?!
-	<!-- Add return home button -->
+	<form action="redirect" method="post">
+		<input type="hidden" name="source" value="error">
+		<div id="button">
+			<button type="submit" class="btn btn-primary btn-block">Return to Login</button>
+		</div>
+	</form>
 </body>
 </html>

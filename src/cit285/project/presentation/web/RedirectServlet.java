@@ -45,7 +45,6 @@ public class RedirectServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("inside redirect");
 		HttpSession session = request.getSession();
 		String source = request.getParameter("source");
 		User user = (User) session.getAttribute("user");
@@ -53,7 +52,7 @@ public class RedirectServlet extends HttpServlet {
 		// if not signed in yet
 		if (source.equals("login")) { // going to signUp
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/signUp.jsp").forward(request, response);
-		} else if (source.equals("signUp")) { // returning from signUp
+		} else if (source.equals("signUp") || source.equals("error")) { // returning from signUp or error page
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		} else if (user != null) { //if logged in
 			if (user.isAdmin()) { //admin pages
