@@ -48,14 +48,12 @@ public class LoginServlet extends HttpServlet {
 				user = loginServices.loginUser(username, password);
 				session.setAttribute("admin", user.isAdmin());
 				if (user.isAdmin()) { // Admin login
-					System.out.println("Admin logged in...");
 					// go to admin page
 					session.setAttribute("user", user);
 					getServletContext().getRequestDispatcher("/getbooks").forward(request, response);
 					
 
 				} else   { // User login
-					System.out.println("User logged in...");
 					if (session.getAttribute("username") != null && !session.getAttribute("username").equals(username)) {
 						session.setAttribute("cart", null);
 					}
@@ -64,7 +62,6 @@ public class LoginServlet extends HttpServlet {
 					getServletContext().getRequestDispatcher("/initializeinvoice").forward(request, response);
 				} 
 			} catch (FailedLoginException ex) { // not successful login
-				System.out.println("Failed log in...");
 				session.setAttribute("username", username);
 				session.setAttribute("LoginError", ex.getMessage());
 				getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);

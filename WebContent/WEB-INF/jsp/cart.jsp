@@ -78,7 +78,7 @@
 		<TR> 
 			<TD></TD>
 			<TD></TD>
-			<TD><label><c:if test="${not empty confirmation}">${confirmation}</c:if></label></TD>
+			<TD></TD>
 			<TD>Grand Total:</TD>
 			<TD><%= moneyFormat.format(grandTotal) %></TD>
 		</TR>
@@ -89,6 +89,7 @@
 		<div id="button">
 			<button type="submit" class="btn btn-primary btn-block">Buy Now!</button>
 		</div>
+		<label><c:if test="${not empty confirmation}">${confirmation}</c:if></label>
 	</form>
 </body>
 </html>

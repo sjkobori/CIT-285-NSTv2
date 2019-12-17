@@ -24,7 +24,7 @@
 		<TR>
 			<TH>UserID</TH>
 			<TH>Username</TH>
-			<TH>Name)</TH>
+			<TH>Name</TH>
 			<TH>Company Name</TH>
 			<TH>Admin</TH>
 		</TR>

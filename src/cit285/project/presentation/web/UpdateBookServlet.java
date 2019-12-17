@@ -108,7 +108,7 @@ public class UpdateBookServlet extends HttpServlet {
 			//try block
 			bookServices.addAuthor(author); 
 
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/AddBook.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/addBook.jsp").forward(request, response);
 		} else {
 			session.setAttribute("Error", "Unknown source!");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);

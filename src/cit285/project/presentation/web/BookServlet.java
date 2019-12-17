@@ -66,7 +66,7 @@ public class BookServlet extends HttpServlet {
 
 		if (source.equals("login") || source.equals("adminHome")) {
 			ArrayList<Book> books = null;
-			System.out.println("in book servlet");
+
 			books = bookServices.getBooks();
 
 			// Add attribute to the session
@@ -76,7 +76,7 @@ public class BookServlet extends HttpServlet {
 			} else {
 				//make more elegant
 				session.setAttribute("authors", bookServices.getAuthors());
-				System.out.println("Going to Admin page");
+
 				getServletContext().getRequestDispatcher("/WEB-INF/jsp/adminHome.jsp").forward(request, response);
 			}
 			

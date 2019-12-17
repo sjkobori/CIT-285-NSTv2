@@ -15,13 +15,13 @@ public interface Dao {
 			throws SQLException, ClassNotFoundException {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		System.out.println("Driver loaded!");
+		//System.out.println("Driver loaded!");
 		
 		// Connect to the database
 		Connection connection = DriverManager
 				.getConnection("jdbc:mysql://localhost/book_store",
 						System.getenv("MYSQL_USER"), System.getenv("MYSQL_PW"));
-		System.out.println("Database connected!");
+		//System.out.println("Database connected!");
 		
 		return connection;
 	}

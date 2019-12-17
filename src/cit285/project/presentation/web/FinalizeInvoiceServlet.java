@@ -63,7 +63,6 @@ public class FinalizeInvoiceServlet extends HttpServlet {
 		//Take parameter source and check to see what the button is.
 		if (source.equals("cart")) {
 			
-			System.out.println(session.getAttribute("invoice"));
 			//if it successfully makes an invoice
 			
 			//if cart isn't null and finalize invoice is successful

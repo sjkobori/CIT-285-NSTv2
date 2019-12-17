@@ -74,8 +74,6 @@ public class InitializeInvoiceServlet extends HttpServlet {
 			User user = (User) session.getAttribute("user");
 			session.setAttribute("invoice", 
 					invoiceServices.initializeInvoice(user.getUserid()));
-			System.out.println(session.getAttribute("invoice"));
-			// clear session data (move to logout)
 			
 			if (source.equals("login")) {
 				request.getRequestDispatcher("/getbooks").forward(request, response);

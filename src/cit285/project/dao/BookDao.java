@@ -145,26 +145,23 @@ public class BookDao implements Dao {
 				Connection connection = getConnection();
 				// Create statement 
 				PreparedStatement statement = connection.prepareStatement(
-						"UPDATE book SET Title=?, Editor=?, Edition=?, Year=?, Price=?, "
+						"UPDATE book SET Title=?, ISBN=?, Editor=?, Edition=?, Year=?, Price=?, "
 						+ "Description=?, Imagepath=?, AuthorId=? where BookId=?");
 
-				//Author author = new Author(); //FIX LATER
-				//author = book.getAuthor();
-				
-				System.out.println(book.getAuthor());
-				//statement.setString(2, book.getIsbn());// doesnt change
+
+				// set new data into statement and execute
 				statement.setString(1, book.getTitle());
-				statement.setString(2, book.getEditor());
-				statement.setString(3, book.getEdition());
-				statement.setInt(4, book.getYear());
-				statement.setDouble(5, book.getPrice());
-				statement.setString(6, book.getDescription());
-				statement.setString(7, book.getImagepath());
-				statement.setInt(8, book.getAuthor().getAuthorid());
-				statement.setInt(9, book.getBookid());
+				statement.setString(2, book.getIsbn());
+				statement.setString(3, book.getEditor());
+				statement.setString(4, book.getEdition());
+				statement.setInt(5, book.getYear());
+				statement.setDouble(6, book.getPrice());
+				statement.setString(7, book.getDescription());
+				statement.setString(8, book.getImagepath());
+				statement.setInt(9, book.getAuthor().getAuthorid());
+				statement.setInt(10, book.getBookid());
 				statement.executeUpdate();
-				// check if ids are in database
-				// add user, email, and address to database
+
 	}
 
 }

@@ -51,7 +51,7 @@ public class InvoiceDao implements Dao {
 	//gives user a new invoice if they do not have an active invoice or retrieves it if they do
 	public int initializeInvoice(int userId) throws ClassNotFoundException, SQLException {
 		
-		int invoiceId; // make proper error
+		int invoiceId;
 		Connection connection = getConnection();
 		
 		PreparedStatement statement = connection.prepareStatement("select * from invoice where userId=?");

@@ -58,7 +58,7 @@ public class UpdateQuantityServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		//this servlet is not currently implemented
 		System.out.println("inside update quantity servlet");
 		
 		HttpSession session = request.getSession();
