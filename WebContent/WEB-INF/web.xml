@@ -172,4 +172,14 @@
     <servlet-name>FinalizeInvoiceServlet</servlet-name>
     <url-pattern>/finalizeinvoice/*</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DispatcherServlet</display-name>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <servlet-class>cit285.project.presentation.web.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <url-pattern>/DispatcherServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
