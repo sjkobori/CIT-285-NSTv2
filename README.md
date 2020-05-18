@@ -5,7 +5,7 @@ Decription:
     This project uses modular user to database pipeline design structure to provide end-users that ability to register as users and order books from a online bookstore. 
     
 Technolgies Used:
-  Java, MySQL, JSP, Servlets, Apache Tomcat, Apache Ant
+        -Java, MySQL, JSP, Servlets, Apache Tomcat, Apache Ant
   
 Features:
   Login to Existing Account
@@ -38,7 +38,7 @@ Setting Up Project:
     -Run "createdb" to create database
     -Run "loaddb" to load data into database
     
-  Setting up github on eclipse
+  Setting up github on eclipse:
     https://www.vogella.com/tutorials/EclipseGit/article.html
 
   Project Structure:
