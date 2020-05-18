@@ -26,12 +26,12 @@ Features:
   
 Setting Up Project:
   Environment Variables:
-    -"JAVA_HOME" - location of JDK
-    -"ANT_HOME" - location of Apache Ant binaries
-    -"CATALINA_HOME" - location of Tomcat
-    -"MYSQL_SITE" - Address of MySQL server
-    -"MYSQL_USER" - MySQL username
-    -"MYSQL_PW" - MySQL password
+    "JAVA_HOME" - location of JDK,
+    "ANT_HOME" - location of Apache Ant binaries,
+    "CATALINA_HOME" - location of Tomcat,
+    "MYSQL_SITE" - Address of MySQL server,
+    "MYSQL_USER" - MySQL username,
+    "MYSQL_PW" - MySQL password
 
   Initializing SQL Database:
     Run database/build.xml
